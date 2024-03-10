@@ -3,9 +3,9 @@ import "./styleComponents.css";
 
 function LocalScores() {
   return (
-    <footer className="footer">
-      <span>Updated March 2024</span>
-    </footer>
+    <div className="localScores">
+      <span>Local Scores here</span>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import "./styleComponents.css";
 
-function LocalScores() {
+function Footer() {
   return (
     <footer className="footer">
       <span>Updated March 2024</span>
@@ -9,4 +9,4 @@ function LocalScores() {
   );
 }
 
-export default LocalScores;
+export default Footer;

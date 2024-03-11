@@ -6,13 +6,13 @@ This is a continuation of project one.
 
 Page 1 - landing page/logger
 
--This is the Landing page and displays the Oxfam heading and title
--The page will ask to confirm a user location, and display if allowed.
--The page shows the current date and temperature.
--The page shows a message saying welcome, and then the name of who is 'logged in' or says 'volunteer'.
--The page has a drop-down form that lets the user select their name if they are using the till, this will carry across page changes
--It has 2 x buttons, 1 for add gift aid, and one for not gift aid. These are large for the user to see and responsive (sound/visual cues)
--An animated marquee. this could maybe be replaced with another animation in the future -it is just something to grab the user's attention, containing a motivational script.
+- This is the Landing page and displays the Oxfam heading and title
+- The page will ask to confirm a user location, and display if allowed.
+- The page shows the current date and temperature.
+- The page shows a message saying welcome, and then the name of who is 'logged in' or says 'volunteer'.
+- The page has a drop-down form that lets the user select their name if they are using the till, this will carry across page changes
+- It has 2 x buttons, 1 for add gift aid, and one for not gift aid. These are large for the user to see and responsive (sound/visual cues)
+- An animated marquee. this could maybe be replaced with another animation in the future -it is just something to grab the user's attention, containing a motivational script.
 
 ## proposed changes to page 1
 - enhance the buttons to make them feel more tactile, make them look convex or concave when pressed, to help them feel more 'clicky.

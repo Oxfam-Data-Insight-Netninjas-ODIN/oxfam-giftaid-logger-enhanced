@@ -1,5 +1,31 @@
 # oxfam-giftaid-logger-enhanced
 
+This is a continuation of project one. 
+
+# User requirements
+
+Page 1 - landing page/logger
+
+-This is the Landing page and displays the Oxfam heading and title
+-The page will ask to confirm a user location, and display if allowed.
+-The page shows the current date and temperature.
+-The page shows a message saying welcome, and then the name of who is 'logged in' or says 'volunteer'.
+-The page has a drop-down form that lets the user select their name if they are using the till, this will carry across page changes
+-It has 2 x buttons, 1 for add gift aid, and one for not gift aid. These are large for the user to see and responsive (sound/visual cues)
+-An animated marquee. this could maybe be replaced with another animation in the future -it is just something to grab the user's attention, containing a motivational script.
+
+## proposed changes to page 1
+- enhance the buttons to make them feel more tactile, make them look convex or concave when pressed, to help them feel more 'clicky.
+- add more variety of GIFFS to the application that is displayed to the user upon GA sale - user feedback was very positive on this.
+- parallax scrolling to be added to the background gradient perhaps, or another image, as long as it isn't busy.
+- a screen saver for the application, that could display animated text and images to tell the volunteers what campaigns Oxfam works on, to help motivate them.
+
+# IMPORTANT CONSIDERATION: the sizing of the layout must be adequate for the phones that they are to be displayed on.
+eg - small iPhone 4 phones, and also a tablet that could be used to demo the application.
+
+
+
+
 # Final Project
 ## Application Requirements
 You and your group will use everything you’ve learned to create a real-world client-side single-page application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:

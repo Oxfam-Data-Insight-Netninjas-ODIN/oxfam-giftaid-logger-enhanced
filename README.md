@@ -1,6 +1,6 @@
 # oxfam-giftaid-logger-enhanced
 
-This is a continuation of project one. 
+This is a continuation of project one. - please read further to see the proposed changes to each section.
 
 # User requirements
 
@@ -24,13 +24,13 @@ information that is being used on this page is:
 - Date is a date value, maybe using DateJS API
 - Percentage, is an int value that is the percentage of GiftAid over the total sales (giftAided and notGiftAided)
 
-## proposed changes to page 1
+## proposed changes to page 1 a.k.a Logger(homepage)
 - enhance the buttons to make them feel more tactile, make them look convex or concave when pressed, to help them feel more 'clicky.
 - add more variety of GIFFS to the application that is displayed to the user upon GA sale - user feedback was very positive on this.
 - parallax scrolling to be added to the background gradient perhaps, or another image, as long as it isn't busy.
 - a screen saver for the application, that could display animated text and images to tell the volunteers what campaigns Oxfam works on, to help motivate them.
-- shopCode must become cityTown. Security breaches and Phishing attempts have led to increased security with Oxfams internal systems, to counter this, no shop codes must be used, when a users information is added to any form of storage. Instead, use a 'city/town name' Bear in mind, there can be more than one Oxfam shop in a town or city.
-- A user must not be identifiable other than their first name or nickname ( some users have the same name, do a check for this, mention alternative such as Sue2, or Sue3 etc). they should have a brief password to enter to enter a session, that is created by them upon user name creation. they should have the option to delete the account ( prompted with an 'are you sure' y/n ) an email signup for user authentication is not required.
+- shopCode must become cityTown. Security breaches and Phishing attempts have led to increased security with Oxfam's internal systems, to counter this, no shop codes must be used, when a user's information is added to any form of storage. Instead, use a 'city/town name' Bear in mind, that there can be more than one Oxfam shop in a town or city.
+- A user must not be identifiable other than their first name or nickname ( some users have the same name, do a check for this, mention alternatives such as Sue2, or Sue3 etc). they should have a brief password to enter to enter a session, that is created by them upon user name creation. they should have the option to delete the account ( prompted with an 'Are you sure' y/n ) an email signup for user authentication is not required.
   
 
 ## IMPORTANT CONSIDERATION: the sizing of the layout must be adequate for the phones that they are to be displayed on.

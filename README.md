@@ -36,8 +36,31 @@ information that is being used on this page is:
 ## IMPORTANT CONSIDERATION: the sizing of the layout must be adequate for the phones that they are to be displayed on.
 eg - small iPhone 4 phones, and also a tablet that could be used to demo the application.
 
+Page 2, table of data
+screenshot2final
 
+This contains:
 
+small logo, page description title, page header, username/temperature, and location if applicable.
+A table that is the same as the table row on the main page except containing more rows (the previous days) is added to as each day goes by (this is the current functionality of the landing page, however, the List that it adds to, should be added to is the one on this page) Ideally, finding a way of printing this data into a readable format on paper would be good (to be sorted by date).
+
+Data Rows contain:
+
+Date/employee (shop) code/employee (volunteer) name / Gift Aided / Not Gift Aided / Percentage of GA sales
+
+Refer to page 1 for the data types of each of these pieces of information.
+
+a link to page 1 (the landing page), possibly small and discrete as well
+a link to page 3 (the high score table), also possibly small and discrete.
+
+## proposed changes to Page 2, Store Data:
+
+- employe code, must be replaced with city/town
+
+- another data type, that needs to be added when adding a new user is - AREA, this would be a string data format, something like 'NW', 'Yorkshire&Dales', 'Birmingham'etc
+  the following point shows how the data row should look. ( I have changed Employee Name to OperatorName as users are mostly volunteers )
+
+- Date / Area / cityTown / OperatorName / Gift Aided / Not Gift Aided / Percentage of sales
 
 # Final Project
 ## Application Requirements

@@ -14,13 +14,26 @@ Page 1 - landing page/logger
 - It has 2 x buttons, 1 for add gift aid, and one for not gift aid. These are large for the user to see and responsive (sound/visual cues)
 - An animated marquee. this could maybe be replaced with another animation in the future -it is just something to grab the user's attention, containing a motivational script.
 
+A single table row with the days' data: Gift Aided / Not Gift Aided / Percentage
+information that is being used on this page is:
+
+shopCode is 1 letter followed by 4 numbers e.g.. F1924 (this is not included on the prototype landing page)
+userFirstName is a string of up to 12 characters (this is not included on the prototype landing page)
+giftAided is an int number value
+notGiftAided is an int number value
+Date is a date value - maybe using DateJS API
+Percentage - is an int value that is the percentage of GiftAid over the total sales (giftAided and notGiftAided)
+
 ## proposed changes to page 1
 - enhance the buttons to make them feel more tactile, make them look convex or concave when pressed, to help them feel more 'clicky.
 - add more variety of GIFFS to the application that is displayed to the user upon GA sale - user feedback was very positive on this.
 - parallax scrolling to be added to the background gradient perhaps, or another image, as long as it isn't busy.
 - a screen saver for the application, that could display animated text and images to tell the volunteers what campaigns Oxfam works on, to help motivate them.
+- shopCode must become cityTown. Security breaches and Phishing attempts have led to increased security with Oxfams internal systems, to counter this, no shop codes must be used, when a users information is added to any form of storage. Instead, use a 'city/town name' Bear in mind, there can be more than one Oxfam shop in a town or city.
+- A user must not be identifiable other than their first name or nickname ( some users have the same name, do a check for this, mention alternative such as Sue2, or Sue3 etc). they should have a brief password to enter to enter a session, that is created by them upon user name creation. they should have the option to delete the account ( prompted with an 'are you sure' y/n ) an email signup for user authentication is not required.
+  
 
-# IMPORTANT CONSIDERATION: the sizing of the layout must be adequate for the phones that they are to be displayed on.
+## IMPORTANT CONSIDERATION: the sizing of the layout must be adequate for the phones that they are to be displayed on.
 eg - small iPhone 4 phones, and also a tablet that could be used to demo the application.
 
 

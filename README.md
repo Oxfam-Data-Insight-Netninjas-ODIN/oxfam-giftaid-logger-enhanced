@@ -17,12 +17,12 @@ Page 1 - landing page/logger
 A single table row with the days' data: Gift Aided / Not Gift Aided / Percentage
 information that is being used on this page is:
 
-shopCode is 1 letter followed by 4 numbers e.g.. F1924 (this is not included on the prototype landing page)
-userFirstName is a string of up to 12 characters (this is not included on the prototype landing page)
-giftAided is an int number value
-notGiftAided is an int number value
-Date is a date value - maybe using DateJS API
-Percentage - is an int value that is the percentage of GiftAid over the total sales (giftAided and notGiftAided)
+- shopCode is 1 letter followed by 4 numbers e.g.. F1924 (this is not included on the prototype landing page)
+- userFirstName is a string of up to 12 characters (this is not included on the prototype landing page)
+- giftAided is an int number value
+- notGiftAided is an int number value
+- Date is a date value, maybe using DateJS API
+- Percentage, is an int value that is the percentage of GiftAid over the total sales (giftAided and notGiftAided)
 
 ## proposed changes to page 1
 - enhance the buttons to make them feel more tactile, make them look convex or concave when pressed, to help them feel more 'clicky.

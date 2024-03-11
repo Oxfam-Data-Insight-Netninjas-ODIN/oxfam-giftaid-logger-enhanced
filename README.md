@@ -55,12 +55,14 @@ a link to page 3 (the high score table), also possibly small and discrete.
 
 ## proposed changes to Page 2, Store Data:
 
-- employe code, must be replaced with city/town
+- employee code, must be replaced with city/town
 
 - another data type, that needs to be added when adding a new user is - AREA, this would be a string data format, something like 'NW', 'Yorkshire&Dales', 'Birmingham'etc
   the following point shows how the data row should look. ( I have changed Employee Name to OperatorName as users are mostly volunteers )
 
 - Date / Area / cityTown / OperatorName / Gift Aided / Not Gift Aided / Percentage of sales
+
+- the screensaver if applied in time should apply to this part of the site as well.
 
 # Final Project
 ## Application Requirements

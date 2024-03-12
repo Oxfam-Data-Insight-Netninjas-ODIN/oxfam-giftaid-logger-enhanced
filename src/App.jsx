@@ -5,6 +5,7 @@ import StoreData from './components/StoreData'
 import Leaderboard from './components/Leaderboard'
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Date2 from './components/Date';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
 
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <Date2 />
         <Wrapper>
           <Routes>
             <Route path="/" element={<Home/>} />

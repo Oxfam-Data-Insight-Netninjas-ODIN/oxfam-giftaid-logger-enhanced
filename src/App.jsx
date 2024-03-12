@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
 import Marquee from './components/Marquee';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Marquee />
         <Wrapper>
           <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<Login />} /> {}
+            <Route path="/Home" element={<Home/>} />
             <Route path="/StoreData" element={<StoreData/>} />
             <Route path="/Leaderboard" element={<Leaderboard/>} />
           </Routes>
@@ -25,7 +27,7 @@ function App() {
         <Footer />
       </div>
     </Router>
-);
+  );
 }
 
 export default App;

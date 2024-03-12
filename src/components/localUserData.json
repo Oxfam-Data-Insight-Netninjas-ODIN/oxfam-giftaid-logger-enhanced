@@ -1,0 +1,42 @@
+[
+    {
+        "userCode" : "code1",
+        "firstName": "name1",
+        "giftAid": "3",
+        "nogiftAid": "1",
+        "percentage": "75",
+        "date": "29/12/2023"
+    },
+    {
+        "userCode" : "code2",
+        "firstName": "name2",
+        "giftAid": "1",
+        "nogiftAid": "1",
+        "percentage": "50",
+        "date": "27/12/2023"
+    },
+    {
+        "userCode" : "code3",
+        "firstName": "name3",
+        "giftAid": "1",
+        "nogiftAid": "3",
+        "percentage": "25",
+        "date": "04/02/2024"
+    },
+    {
+        "userCode" : "code4",
+        "firstName": "name4",
+        "giftAid": "8",
+        "nogiftAid": "2",
+        "percentage": "80",
+        "date": "09/01/2024"
+    },
+    {
+        "userCode" : "code5",
+        "firstName": "name5",
+        "giftAid": "3",
+        "nogiftAid": "7",
+        "percentage": "30",
+        "date": "10/03/2024"
+    }
+]

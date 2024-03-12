@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import LocalScores from './components/LocalScores'
-import TopScores from './components/TopScores'
+import StoreData from './components/StoreData'
+import Leaderboard from './components/Leaderboard'
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -16,8 +16,8 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/LocalScores" element={<LocalScores/>} />
-            <Route path="/TopScores" element={<TopScores/>} />
+            <Route path="/StoreData" element={<StoreData/>} />
+            <Route path="/Leaderboard" element={<Leaderboard/>} />
           </Routes>
         </Wrapper>
         <Footer />

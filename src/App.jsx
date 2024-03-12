@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
+import Marquee from './components/Marquee';
 import Login from './components/Login';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <Marquee />
         <Wrapper>
           <Routes>
             <Route path="/" element={<Login />} /> {}

@@ -48,6 +48,23 @@ img {
 }
 /* End of navigation bar styling */
 
+/* Start of marquee styling */
+marquee {
+  background-color: #99CC00;
+  color: white;
+}
+
+#date {
+  margin-left: 56.25rem;
+}
+
+h6 {
+  opacity: 75%;
+}
+/* End of marquee styling */
+
+
+
 /* KEEP THESE HERE FOR NOW STYLING THE SKELETON */
 .wrapper {
   padding-bottom: 100px;
@@ -68,6 +85,17 @@ img {
   background: #B8B8B8;
 }
 
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.data-table th, .data-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+    min-height: 100%;
+    padding-bottom: 100px;
   }
 
   .footer {

@@ -1,30 +1,33 @@
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap"; 
+import { Modal, Button } from "react-bootstrap";
 
 function Login() {
-    const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [pin, setPin] = useState("");
+  const [showModal, setShowModal] = useState(true);
 
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
+  const handleAccess = () => {
     if (!username || !pin) {
       alert("Please enter username and pin");
       return;
     }
-    
-    console.log("Logging in:", { username, pin });
-   
+
+    if (username === "Test" && pin === "1234") {
+      console.log("Admin logged in:", { username, pin });
+    } else {
+      console.log("Logging in:", { username, pin });
+    }
+
+    setShowModal(false);
   };
 
   return (
-    <Modal show={true} onHide={() => console.log("Modal closed")} backdrop="static" keyboard={false}>
+    <Modal show={showModal} backdrop="static">
       <Modal.Header closeButton>
         <Modal.Title>Login</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => { e.preventDefault(); handleAccess(); }}>
           <div className="form-group">
             <label htmlFor="username">Username:</label>
             <input
@@ -47,7 +50,7 @@ function Login() {
               required
             />
           </div>
-          <Button variant="primary" type="submit">Access</Button> {}
+          <Button variant="primary" type="submit">Access</Button>
         </form>
       </Modal.Body>
     </Modal>

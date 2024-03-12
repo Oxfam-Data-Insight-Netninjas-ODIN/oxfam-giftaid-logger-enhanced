@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Hero from "./Hero";
+import Counter from './Counter';
 
 function Home() {
   
@@ -37,15 +38,7 @@ function Home() {
       <Hero>
         <h1>Title here</h1>
       </Hero>
-      <h1>Welcome !</h1>
-      <p>text here</p>
-
-      <button style={{ fontSize: '2em', padding: '10px 20px', marginRight: '10px' }} onClick={incrementGiftAid}>
-        Increase GiftAid
-      </button>
-      <button style={{ fontSize: '2em', padding: '10px 20px' }} onClick={incrementNoGiftAid}>
-        Increase noGiftAid
-      </button>
+      <Counter incrementGiftAid={incrementGiftAid} incrementNoGiftAid={incrementNoGiftAid} />
       <p>GiftAid: {GiftAid}</p>
       <p>noGiftAid: {noGiftAid}</p>
       <p>Percentage: {roundPercentage}%</p>

@@ -64,17 +64,6 @@ h6 {
 /* End of marquee styling */
 
 /* Start of button styling */
-.aid-btn {
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #2980b9;
-  box-shadow: 0 0 10px #2980b9;
-}
-
 #ga-btn {
   background-color: #99CC00;
 }
@@ -99,6 +88,7 @@ h6 {
   background-color: #3498db;
   font-size: 32px;
   color: white;
+  font-weight: bold;
   border: 15px solid #ffffff;
   box-shadow: 0 0 10px #454545;
   display: flex;

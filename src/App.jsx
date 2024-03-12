@@ -17,7 +17,7 @@ function App() {
       <div>
         <Navbar />
         <Marquee />
-        <Counter />
+        <Home />
         <Wrapper>
           <Routes>
             <Route path="/" element={<Login />} /> {}

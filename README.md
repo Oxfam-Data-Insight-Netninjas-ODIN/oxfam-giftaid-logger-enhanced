@@ -64,6 +64,21 @@ a link to page 3 (the high score table), also possibly small and discrete.
 
 - the screensaver if applied in time should apply to this part of the site as well.
 
+page 3 - Score Table
+
+This contains:
+
+smaller logo, page description title, page header, username
+This page is similar to page 2 except it is a high-score table of users with the highest gift aid percentage per day at the top. This page should differentiate between 1st, 2nd, and 3rd places, and also show the current users position. A motivational giff is placed at the top as part of the gamification process.
+
+a link to pages 1 and 2, possibly small and discrete as well
+a link to page 2, also possibly small and discrete.
+
+page 4 / modal input
+
+- this could be part of the burger menu at the top of the nav bar it needs to allow for a user to be added, modified, or deleted, and to log in or out.
+
+
 # Final Project
 ## Application Requirements
 You and your group will use everything you’ve learned to create a real-world client-side single-page application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:

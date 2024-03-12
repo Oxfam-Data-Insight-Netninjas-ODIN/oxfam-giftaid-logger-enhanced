@@ -63,6 +63,53 @@ h6 {
 }
 /* End of marquee styling */
 
+/* Start of button styling */
+.aid-btn {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #2980b9;
+  box-shadow: 0 0 10px #2980b9;
+}
+
+#ga-btn {
+  background-color: #99CC00;
+}
+
+#nga-btn {
+  background-color: #DD5147;
+}
+
+.circle-wrapper {
+  width: 100%;
+  padding-top: 100%; /* This padding ensures the aspect ratio of the circle is maintained */
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the wrapper */
+  height: 100%; /* Full height of the wrapper */
+  border-radius: 50%;
+  background-color: #3498db;
+  font-size: 32px;
+  color: white;
+  border: 15px solid #ffffff;
+  box-shadow: 0 0 10px #454545;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 200px;
+}
+
+.col-sm-4 {
+  margin-left: 100px; /* Creates space between the circles */
+}
 
 
 /* KEEP THESE HERE FOR NOW STYLING THE SKELETON */
@@ -101,5 +148,3 @@ h6 {
   .footer {
       min-height: 50px;
   }
-
-  .footer span {

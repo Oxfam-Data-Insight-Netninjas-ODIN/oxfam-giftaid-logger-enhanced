@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
 import Marquee from './components/Marquee';
 import Login from './components/Login';
+import Counter from './components/Counter';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <div>
         <Navbar />
         <Marquee />
+        <Counter />
         <Wrapper>
           <Routes>
             <Route path="/" element={<Login />} /> {}

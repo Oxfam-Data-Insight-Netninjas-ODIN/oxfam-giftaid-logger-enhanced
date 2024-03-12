@@ -34,15 +34,27 @@ function Home() {
   
 
   return (
-    <div>
-      <Hero>
-        <h1>Title here</h1>
-      </Hero>
-      <Counter incrementGiftAid={incrementGiftAid} incrementNoGiftAid={incrementNoGiftAid} />
-      <p>GiftAid: {GiftAid}</p>
-      <p>noGiftAid: {noGiftAid}</p>
-      <p>Percentage: {roundPercentage}%</p>
+<div>
+  <Counter incrementGiftAid={incrementGiftAid} incrementNoGiftAid={incrementNoGiftAid} />
+  <div id='score' className='container text-center'>
+    <div className='row justify-content-center'>
+      <div className='col-12 mb-2'>
+        <p><span id='gaCount'>{GiftAid}</span>Gift Aided</p>
+      </div>
+      <div className='col-12 mb-2'>
+        <p><span id='ngaCount'>{noGiftAid}</span> Not Gift Aided</p>
+      </div>
+      <div className='col-12 mb-2'>
+        <p>{roundPercentage}% Total</p>
+      </div>
+      <div className='col-12'>
+        <button className='btn'>Undo Gift Aid</button>
+      </div>
     </div>
+  </div>
+</div>
+
+
   );
 }
 

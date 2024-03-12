@@ -68,10 +68,19 @@ img {
   background: #B8B8B8;
 }
 
-  }
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.data-table th, .data-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
 
   .footer {
       min-height: 50px;
   }
 
-  .footer span {
+  /* .footer span { */

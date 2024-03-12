@@ -16,8 +16,8 @@ function App() {
         <Navbar />
         <Wrapper>
           <Routes>
-            <Route path="/" element={<Login />} /> {}
-            <Route path="/Home" element={<Home/>} />
+            {/* <Route path="/" element={<Login />} /> {} */}
+            <Route path="/" element={<Home/>} />
             <Route path="/StoreData" element={<StoreData/>} />
             <Route path="/Leaderboard" element={<Leaderboard/>} />
           </Routes>

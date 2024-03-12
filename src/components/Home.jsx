@@ -27,6 +27,9 @@ function Home() {
   const incrementNoGiftAid = () => {
     setNoGiftAid(noGiftAid + 1);
   };
+
+  const percentage = (GiftAid/ (GiftAid+noGiftAid)) * 100;
+  const roundPercentage = Math.round((percentage).toFixed(2));
   
 
   return (
@@ -45,6 +48,7 @@ function Home() {
       </button>
       <p>GiftAid: {GiftAid}</p>
       <p>noGiftAid: {noGiftAid}</p>
+      <p>Percentage: {roundPercentage}%</p>
     </div>
   );
 }

@@ -1,25 +1,28 @@
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap"; 
+import { Modal, Button } from "react-bootstrap";
 
 function Login() {
-    const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [pin, setPin] = useState("");
 
-  
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     if (!username || !pin) {
       alert("Please enter username and pin");
       return;
     }
-    
+
     console.log("Logging in:", { username, pin });
-   
   };
 
   return (
-    <Modal show={true} onHide={() => console.log("Modal closed")} backdrop="static" keyboard={false}>
+    <Modal
+      show={true}
+      onHide={() => console.log("Modal closed")}
+      backdrop="static"
+      keyboard={false}
+    >
       <Modal.Header closeButton>
         <Modal.Title>Login</Modal.Title>
       </Modal.Header>
@@ -47,7 +50,10 @@ function Login() {
               required
             />
           </div>
-          <Button variant="primary" type="submit">Access</Button> {}
+          <Button variant="primary" type="submit">
+            Access
+          </Button>{" "}
+          {}
         </form>
       </Modal.Body>
     </Modal>

@@ -7,7 +7,6 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
-import Login from './components/Login';
 
 function App() {
   return (
@@ -16,8 +15,7 @@ function App() {
         <Navbar />
         <Wrapper>
           <Routes>
-            <Route path="/" element={<Login />} /> {}
-            <Route path="/Home" element={<Home/>} />
+            <Route path="/" element={<Home/>} />
             <Route path="/StoreData" element={<StoreData/>} />
             <Route path="/Leaderboard" element={<Leaderboard/>} />
           </Routes>
@@ -25,7 +23,7 @@ function App() {
         <Footer />
       </div>
     </Router>
-  );
+);
 }
 
 export default App;

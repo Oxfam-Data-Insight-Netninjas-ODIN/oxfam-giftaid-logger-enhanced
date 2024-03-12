@@ -19,22 +19,22 @@ function NavTabs() {
       </li>
       <li className="nav-item">
         <NavLink
-          to="LocalScores"
+          to="StoreData"
           className={({ isActive }) =>
             isActive ? 'nav-link active' : 'nav-link'
           }
         >
-          LocalScores
+          StoreData
         </NavLink>
       </li>
       <li className="nav-item">
         <NavLink
-          to="TopScores"
+          to="Leaderboard"
           className={({ isActive }) =>
             isActive ? 'nav-link active' : 'nav-link'
           }
         >
-          TopScores
+          Leaderboard
         </NavLink>
       </li>
 

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screensaver Example</title>
+<!--will start picking this apart and enhancing when I am more comfortable with react.js-->
+<!--see below code for a AI converted react version, it might work, it might not-->
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        color: black;
+        background-color: white;
+    }
+    #screensaver-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        color: green;
+        display: none;
+    }
+    #content {
+        padding: 20px;
+    }
+    .screensaver-active {
+        background-color: black;
+    }
+</style>
+</head>
+<body>
+    <div id="screensaver-text">Test Screensaver</div>
+    <div id="content">
+        <!-- Lorem ipsum filler content -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // Variables
+        const screensaverText = document.getElementById('screensaver-text');
+        const content = document.getElementById('content');
+        let screensaverActive = false;
+
+        // Function to start screensaver
+        function startScreensaver() {
+            document.body.classList.add('screensaver-active');
+            screensaverText.style.display = 'block';
+            gsap.from(screensaverText, { duration: 2, opacity: 0, scale: 0.5, ease: 'back' });
+
+            // Reset screensaver on user interaction
+            document.addEventListener('mousemove', resetScreensaver);
+            document.addEventListener('click', resetScreensaver);
+            document.addEventListener('keydown', resetScreensaver);
+        }
+
+        // Function to reset screensaver
+        function resetScreensaver() {
+            document.body.classList.remove('screensaver-active');
+            screensaverText.style.display = 'none';
+            screensaverActive = false;
+            content.style.display = 'block';
+            startCountdown();
+        }
+
+        // Function to start countdown for screensaver
+        function startCountdown() {
+            setTimeout(() => {
+                if (!screensaverActive) {
+                    screensaverActive = true;
+                    content.style.display = 'none';
+                    startScreensaver();
+                }
+            }, 5000); // 5 seconds
+        }
+
+        // Initial setup
+        startCountdown();
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+
+
+<!---React.js version of the screensaver example--->
+
+<!-- import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
+
+const Screensaver = () => {
+  const [screensaverActive, setScreensaverActive] = useState(false);
+
+  useEffect(() => {
+    const screensaverText = document.getElementById('screensaver-text');
+    const content = document.getElementById('content');
+
+    const startScreensaver = () => {
+      document.body.classList.add('screensaver-active');
+      screensaverText.style.display = 'block';
+      gsap.from(screensaverText, { duration: 2, opacity: 0, scale: 0.5, ease: 'back' });
+
+      const resetScreensaver = () => {
+        document.body.classList.remove('screensaver-active');
+        screensaverText.style.display = 'none';
+        setScreensaverActive(false);
+        content.style.display = 'block';
+        startCountdown();
+      };
+
+      document.addEventListener('mousemove', resetScreensaver);
+      document.addEventListener('click', resetScreensaver);
+      document.addEventListener('keydown', resetScreensaver);
+    };
+
+    const startCountdown = () => {
+      setTimeout(() => {
+        if (!screensaverActive) {
+          setScreensaverActive(true);
+          content.style.display = 'none';
+          startScreensaver();
+        }
+      }, 5000); // 5 seconds
+    };
+
+    startCountdown();
+
+    return () => {
+      document.removeEventListener('mousemove', startCountdown);
+      document.removeEventListener('click', startCountdown);
+      document.removeEventListener('keydown', startCountdown);
+    };
+  }, [screensaverActive]);
+
+  return (
+    <>
+      <div id="screensaver-text">Test Screensaver</div>
+      <div id="content">
+        {/* Lorem ipsum filler content */}
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      </div>
+    </>
+  );
+};
+
+export default Screensaver; -->

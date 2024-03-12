@@ -1,46 +1,51 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import './styleComponents.css';
+import React from 'react'
+import { Link } from 'react-router-dom';
+import "./styleComponents.css";
+import account from '../assets/account.svg'
+import logo from '../assets/oxfam_logo.png';
 
 
-function NavTabs() {
+function Navbar() {
   return (
-    <ul className="nav nav-tabs" style={{ border: '1px solid black' , marginTop : '10px', padding : '10px', backgroundColor : '#f4f3ef'}}>
-      <li className="nav-item">
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          to="StoreData"
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          StoreData
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          to="Leaderboard"
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Leaderboard
-        </NavLink>
-      </li>
-
-
-    </ul>
-  );
+    <nav className="navbar navbar-expand-lg bg-body-tertiary container-fluid">
+    <Link className="navbar-brand" to="/">
+      <img src={logo} width={150} alt="Oxfam logo." />
+    </Link>
+    <button
+      className="navbar-toggler navbar-light"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon" />
+    </button>
+    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul className="navbar-nav ms-auto">
+        <li className="nav-item">
+          <Link className="nav-link" id="myButtonHistory" aria-current="page" to="/">
+            Logger
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" id="myButtonHistory" to="/StoreData">
+            Store Data
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" id="myButtonScores" to="/Leaderboard">
+            Leaderboard
+          </Link>
+        </li>
+        <li className="nav-item dropdown">
+          <img src={account}></img>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  )
 }
 
-export default NavTabs;
+export default Navbar

@@ -17,7 +17,7 @@ function LocalScores() {
           <thead>
             <tr>
               <th>User Code</th>
-              <th>First Name</th>
+              <th>Name</th>
               <th>Gift Aid</th>
               <th>No Gift Aid</th>
               <th>Percentage</th>

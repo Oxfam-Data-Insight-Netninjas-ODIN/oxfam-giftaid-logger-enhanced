@@ -78,4 +78,33 @@ img {
   border: 1px solid black;
   padding: 8px;
   text-align: center;
+=======
+    min-height: 100%;
+    padding-bottom: 100px;
+  }
+
+  .footer {
+    min-height: 100px;
+    background: #E5E5E5;
+    position: relative;
+  }
+  
+  .footer span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3px;
+    background: #B8B8B8;
+  }
+
+  .data-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
 }

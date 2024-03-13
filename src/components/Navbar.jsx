@@ -8,7 +8,7 @@ import logo from '../assets/oxfam_logo.png';
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary container-fluid">
-    <Link className="navbar-brand" to="/">
+    <Link className="navbar-brand" to="/Home">
       <img src={logo} width={150} alt="Oxfam logo." />
     </Link>
     <button
@@ -25,7 +25,7 @@ function Navbar() {
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav ms-auto">
         <li className="nav-item">
-          <Link className="nav-link" id="myButtonHistory" aria-current="page" to="/">
+          <Link className="nav-link" id="myButtonHistory" aria-current="page" to="/Home">
             Logger
           </Link>
         </li>

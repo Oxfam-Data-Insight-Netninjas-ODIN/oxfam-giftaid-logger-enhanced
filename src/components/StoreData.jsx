@@ -1,44 +1,46 @@
 import React from "react";
 import "./styleComponents.css";
-import Hero from "./Hero";
 import LocalUserData from "./localUserData.json";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function LocalScores() {
   return (
     <div>
-      <Hero>
-        <h1>Title here</h1>
-      </Hero>
-      <h1>Welcome !</h1>
-      <p>text here</p>
-      <div className="localScores">
-        <h3>Local Scores here</h3>
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>User Code</th>
-              <th>Name</th>
-              <th>Gift Aid</th>
-              <th>No Gift Aid</th>
-              <th>Percentage</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
+    <div className="localScores">
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>User Code</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Gift Aid</TableCell>
+              <TableCell>No Gift Aid</TableCell>
+              <TableCell>Percentage</TableCell>
+              <TableCell>Date</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {LocalUserData.map((item, index) => (
-              <tr key={index}>
-                <td>{item.userCode}</td>
-                <td>{item.firstName}</td>
-                <td>{item.giftAid}</td>
-                <td>{item.nogiftAid}</td>
-                <td>{item.percentage}%</td>
-                <td>{item.date}</td>
-              </tr>
+              <TableRow key={index}>
+                <TableCell>{item.userCode}</TableCell>
+                <TableCell>{item.firstName}</TableCell>
+                <TableCell>{item.giftAid}</TableCell>
+                <TableCell>{item.nogiftAid}</TableCell>
+                <TableCell>{item.percentage}%</TableCell>
+                <TableCell>{item.date}</TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
+  </div>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 import "./styleComponents.css";
 import account from '../assets/account.svg'
@@ -40,7 +41,7 @@ function Navbar() {
           </Link>
         </li>
         <li className="nav-item dropdown">
-          <img src={account}></img>
+          <img src={account} width={40}></img>
         </li>
       </ul>
     </div>

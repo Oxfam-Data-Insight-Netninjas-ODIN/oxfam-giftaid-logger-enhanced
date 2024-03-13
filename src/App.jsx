@@ -24,7 +24,6 @@ function App() {
             <>
               <Marquee />
               <Home />
-              <AppDate />
             </>
           } />
           <Route path="/StoreData" element={<StoreData />} />

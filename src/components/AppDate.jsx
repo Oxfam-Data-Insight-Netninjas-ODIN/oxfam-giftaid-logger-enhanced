@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "./Footer";
-import Marquee from "./Marquee";
 
 function AppDate() {
   const currentDate = new Date().toLocaleDateString("en-GB", {
@@ -22,7 +21,6 @@ function AppDate() {
     <div className="app">
       {/* Other components */}
       <Footer currentDate={currentDate} currentTime={currentTime} />
-      <Marquee currentDate={currentDate} currentTime={currentTime} />
     </div>
   );
 }

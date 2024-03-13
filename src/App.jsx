@@ -16,6 +16,7 @@ import AppDate from './components/AppDate';
 function App() {
   return (
     <Router>
+<<<<<<< HEAD
     <div>
       <Navbar />
       <Date />
@@ -35,6 +36,21 @@ function App() {
       <Footer />
     </div>
   </Router>
+=======
+      <div>
+        <Navbar />
+        <Wrapper>
+          <Routes>
+            {/* <Route path="/" element={<Login />} /> {} */}
+            <Route path="/" element={<Home/>} />
+            <Route path="/StoreData" element={<StoreData/>} />
+            <Route path="/Leaderboard" element={<Leaderboard/>} />
+          </Routes>
+        </Wrapper>
+        <Footer />
+      </div>
+    </Router>
+>>>>>>> 3f30559426b5f14b37009935592ddebbb3300182
   );
 }
 

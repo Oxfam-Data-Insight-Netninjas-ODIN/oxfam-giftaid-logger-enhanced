@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Hero from "./Hero";
+import Counter from './Counter';
 
 function Home() {
   
@@ -28,28 +29,36 @@ function Home() {
     setNoGiftAid(noGiftAid + 1);
   };
 
+  const undoGiftAid = () => {
+    setGiftAid(GiftAid - 1);
+  };
+
   const percentage = (GiftAid/ (GiftAid+noGiftAid)) * 100;
   const roundPercentage = Math.round((percentage).toFixed(2));
   
 
   return (
-    <div>
-      <Hero>
-        <h1>Title here</h1>
-      </Hero>
-      <h1>Welcome !</h1>
-      <p>text here</p>
-
-      <button style={{ fontSize: '2em', padding: '10px 20px', marginRight: '10px' }} onClick={incrementGiftAid}>
-        Increase GiftAid
-      </button>
-      <button style={{ fontSize: '2em', padding: '10px 20px' }} onClick={incrementNoGiftAid}>
-        Increase noGiftAid
-      </button>
-      <p>GiftAid: {GiftAid}</p>
-      <p>noGiftAid: {noGiftAid}</p>
-      <p>Percentage: {roundPercentage}%</p>
+<div>
+  <Counter incrementGiftAid={incrementGiftAid} incrementNoGiftAid={incrementNoGiftAid} />
+  <div id='score' className='container text-center'>
+    <div className='row justify-content-center'>
+      <div className='col-12 mb-2'>
+        <p><span id='gaCount'>{GiftAid}</span> Gift Aided</p>
+      </div>
+      <div className='col-12 mb-2'>
+        <p><span id='ngaCount'>{noGiftAid}</span> Not Gift Aided</p>
+      </div>
+      <div className='col-12 mb-2'>
+        <p>{roundPercentage}% Total</p>
+      </div>
+      <div className='col-12'>
+        <button className='btn' id='undo' onClick={undoGiftAid}>Undo Gift Aid</button>
+      </div>
     </div>
+  </div>
+</div>
+
+
   );
 }
 

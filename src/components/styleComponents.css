@@ -20,6 +20,7 @@ button {
   background-color: var(--link-colour);
   color: var(--font-colour);
   font-size: 1rem;
+  font-weight: bold;
   padding: 1rem 2rem;
   border-radius: 0.9rem;
 }
@@ -27,6 +28,7 @@ button {
 .btn:hover {
   color: rgb(30, 34, 73);
 }
+
 
 /* Start of navigation bar styling */
 .navbar {
@@ -48,6 +50,7 @@ img {
 }
 /* End of navigation bar styling */
 
+
 /* Start of marquee styling */
 marquee {
   background-color: #99CC00;
@@ -63,6 +66,77 @@ h6 {
 }
 /* End of marquee styling */
 
+
+/* Start of button styling */
+#ga-btn {
+  background-color: #54A051;
+}
+
+#nga-btn {
+  background-color: #DD5147;
+}
+
+.circle-wrapper {
+  width: 100%;
+  padding-top: 100%; /* This padding ensures the aspect ratio of the circle is maintained */
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the wrapper */
+  height: 100%; /* Full height of the wrapper */
+  border-radius: 50%;
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
+  border: 15px solid #ffffff;
+  box-shadow: 0 0 10px #454545;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 200px;
+}
+
+.circle-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-sm-4 {
+  margin-left: 100px; /* Creates space between the circles */
+}
+/* End of button styling */
+
+
+/* Start of score styling */
+#score {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25px;
+  width: fit-content; /* Shrinks the div */
+  margin-top: 250px;
+  padding: 20px;
+}
+
+#gaCount {
+  color: #99CC00;
+  font-size: 2rem;
+}
+
+#ngaCount {
+  color: #F35959;
+  font-size: 2rem;
+
+}
+
+#undo {
+  background-color: #DD5147;
+}
+/* End of score styling */
 
 
 /* KEEP THESE HERE FOR NOW STYLING THE SKELETON */

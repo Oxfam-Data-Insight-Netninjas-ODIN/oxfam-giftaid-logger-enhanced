@@ -15,7 +15,7 @@ function LocalScores() {
     <div className="localScores">
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
-          <TableHead>
+          <TableHead id='header'>
             <TableRow>
               <TableCell>User Code</TableCell>
               <TableCell>Name</TableCell>

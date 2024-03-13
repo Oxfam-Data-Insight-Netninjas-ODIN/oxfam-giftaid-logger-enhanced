@@ -1,7 +1,7 @@
 :root {
   --font-colour: white;
   --link-colour: #458532;
-  font-weight: bolder;
+  --link-color-alt: rgb(30, 34, 73);
 }
 
 body {
@@ -13,7 +13,10 @@ body {
 
 button {
   cursor: pointer;
-  border: none;
+  border: none; /* Removes default styling from button elements */
+  color: var(--font-colour);
+  background-color: transparent;
+  font-weight: bold;
 }
 
 .btn {
@@ -22,11 +25,11 @@ button {
   font-size: 1rem;
   font-weight: bold;
   padding: 1rem 2rem;
-  border-radius: 0.9rem;
+  border-radius: 0.8rem;
 }
 
 .btn:hover {
-  color: rgb(30, 34, 73);
+  color: var(--link-color-alt);
 }
 
 
@@ -36,8 +39,8 @@ button {
 }
 
 .nav-link {
-  color: black;
-  margin-right: 1.25rem;
+  color: var(--link-colour-alt);
+  margin-right: 1.25rem; /* Creates space between navigation links */
 }
 
 .nav-link:hover {
@@ -49,11 +52,11 @@ button {
 /* Start of marquee styling */
 marquee {
   background-color: #99CC00;
-  color: white;
+  color: var(--font-colour);
 }
 
 .marqSpace {
-  margin-left: 56.25rem;
+  margin-left: 56.25rem; /* Creates space between each marquee element */
 }
 
 h6 {
@@ -63,33 +66,26 @@ h6 {
 
 
 /* Start of button styling */
-.col {
-  flex: 1; /* Each column flexes to fill the space */
+.col { /* Centers the buttons */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .circle-wrapper {
-  display: flex;
-  flex-direction: column; /* Stack button content (icons and text) vertically */
+  display: flex; /* Stacks button content (icons and text) vertically */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #54A051;
-  padding: 20px;
   margin-top: 100px;
   width: 400px;
-  height: 400px; /* Ensure height is the same as width for a circlular shape */
+  height: 400px; /* Ensure height is kept the same as width for a circlular shape */
   border-radius: 50%; /* Creates the circle shape */
+  font-size: 2rem;
   box-shadow: 0 0 10px #454545;
   border: white solid 10px;
-  font-size: 2rem;
-}
-
-.circle {
-  background: transparent; /* Fixes grey background on circle contents */
-  font-weight: bold;
-  
 }
 
 #notBtn {
@@ -100,14 +96,6 @@ h6 {
   max-width: 150px;
   margin-bottom: 1rem; /* Space between image and text */
 }
-
-button {
-  color: white;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-}
-
 /* End of button styling */
 
 
@@ -116,7 +104,7 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 25px;
   width: fit-content; /* Shrinks the div */
-  margin-top: 250px;
+  margin: 10rem auto 10rem auto;
   padding: 20px;
 }
 
@@ -146,7 +134,6 @@ button {
   background-color: #458532;
   color: white;
 }
-
 /* End of table styling */
 
 /* Start of screensaver styling */
@@ -170,25 +157,6 @@ button {
 
 
 /* KEEP THESE HERE FOR NOW STYLING THE SKELETON */
-.wrapper {
-  padding-bottom: 100px;
-}
-
-.footer {
-  min-height: 100px;
-  background: #E5E5E5;
-  position: relative;
-}
-
-.footer span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 3px;
-  background: #B8B8B8;
-}
-
 .data-table {
   border-collapse: collapse;
   width: 100%;
@@ -200,8 +168,4 @@ button {
   text-align: center;
     min-height: 100%;
     padding-bottom: 100px;
-  }
-
-  .footer {
-      min-height: 50px;
   }

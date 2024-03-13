@@ -26,17 +26,17 @@ function Navbar() {
     <div className="collapse navbar-collapse mx-2" id="navbarNavDropdown">
       <ul className="navbar-nav ms-auto">
         <li className="nav-item">
-          <Link className="nav-link" id="myButtonHistory" aria-current="page" to="/Home">
+          <Link className="nav-link" aria-current="page" to="/Home">
             Logger
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" id="myButtonHistory" to="/StoreData">
+          <Link className="nav-link" to="/StoreData">
             Store Data
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" id="myButtonScores" to="/Leaderboard">
+          <Link className="nav-link" to="/Leaderboard">
             Leaderboard
           </Link>
         </li>

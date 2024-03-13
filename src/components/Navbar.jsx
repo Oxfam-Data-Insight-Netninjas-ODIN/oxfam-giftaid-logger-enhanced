@@ -9,8 +9,8 @@ import logo from '../assets/oxfam_logo.png';
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary container-fluid">
-    <Link className="navbar-brand" to="/Home">
-      <img src={logo} width={150} alt="Oxfam logo." />
+    <Link className="navbar-brand mx-2" to="/Home">
+      <img src={logo} width={200} alt="Oxfam logo." />
     </Link>
     <button
       className="navbar-toggler navbar-light"
@@ -23,7 +23,7 @@ function Navbar() {
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+    <div className="collapse navbar-collapse mx-2" id="navbarNavDropdown">
       <ul className="navbar-nav ms-auto">
         <li className="nav-item">
           <Link className="nav-link" id="myButtonHistory" aria-current="page" to="/Home">
@@ -40,9 +40,9 @@ function Navbar() {
             Leaderboard
           </Link>
         </li>
-        <li className="nav-item dropdown">
+        <button className="nav-item dropdown">
           <img src={account} width={40}></img>
-        </li>
+        </button>
       </ul>
     </div>
   </nav>

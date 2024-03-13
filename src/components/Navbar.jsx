@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import "./styleComponents.css";
 import account from '../assets/account.svg'
 import logo from '../assets/oxfam_logo.png';
+import { Dropdown } from 'react-bootstrap';
+import DropMenu from './DropMenu';
+import * as bootstrap from 'bootstrap';
 
 
 function Navbar() {
@@ -40,7 +43,14 @@ function Navbar() {
           </Link>
         </li>
         <li className="nav-item dropdown">
-          <img src={account}></img>
+          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+             <img src={account} alt="Account" onClick={DropMenu} />
+          </a>
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a className="dropdown-item" href="#" onClick={DropMenu}>User1</a></li>
+            <li><a className="dropdown-item" href="#" onClick={DropMenu}>User2</a></li>
+            <li><a className="dropdown-item" href="#" onClick={DropMenu}>User3</a></li>
+          </ul>
         </li>
       </ul>
     </div>

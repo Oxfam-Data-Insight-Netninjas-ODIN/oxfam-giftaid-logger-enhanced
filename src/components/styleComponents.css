@@ -20,6 +20,7 @@ button {
   background-color: var(--link-colour);
   color: var(--font-colour);
   font-size: 1rem;
+  font-weight: bold;
   padding: 1rem 2rem;
   border-radius: 0.9rem;
 }
@@ -68,7 +69,7 @@ h6 {
 
 /* Start of button styling */
 #ga-btn {
-  background-color: #99CC00;
+  background-color: #54A051;
 }
 
 #nga-btn {
@@ -88,7 +89,6 @@ h6 {
   width: 100%; /* Full width of the wrapper */
   height: 100%; /* Full height of the wrapper */
   border-radius: 50%;
-  background-color: #3498db;
   font-size: 32px;
   color: white;
   font-weight: bold;
@@ -100,6 +100,13 @@ h6 {
   margin-left: 200px;
 }
 
+.circle-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .col-sm-4 {
   margin-left: 100px; /* Creates space between the circles */
 }
@@ -108,7 +115,9 @@ h6 {
 
 /* Start of score styling */
 #score {
-  box-shadow: 0 0 10px #454545;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25px;
+  width: fit-content; /* Shrinks the div */
   margin-top: 250px;
   padding: 20px;
 }
@@ -124,9 +133,8 @@ h6 {
 
 }
 
-.break {
-  flex-basis: 100%;
-  height: 0;
+#undo {
+  background-color: #DD5147;
 }
 /* End of score styling */
 

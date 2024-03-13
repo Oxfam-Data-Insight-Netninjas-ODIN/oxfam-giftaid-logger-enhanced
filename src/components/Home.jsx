@@ -39,7 +39,7 @@ function Home() {
   <div id='score' className='container text-center'>
     <div className='row justify-content-center'>
       <div className='col-12 mb-2'>
-        <p><span id='gaCount'>{GiftAid}</span>Gift Aided</p>
+        <p><span id='gaCount'>{GiftAid}</span> Gift Aided</p>
       </div>
       <div className='col-12 mb-2'>
         <p><span id='ngaCount'>{noGiftAid}</span> Not Gift Aided</p>
@@ -48,7 +48,7 @@ function Home() {
         <p>{roundPercentage}% Total</p>
       </div>
       <div className='col-12'>
-        <button className='btn'>Undo Gift Aid</button>
+        <button className='btn' id='undo'>Undo Gift Aid</button>
       </div>
     </div>
   </div>

@@ -29,6 +29,10 @@ function Home() {
     setNoGiftAid(noGiftAid + 1);
   };
 
+  const undoGiftAid = () => {
+    setGiftAid(GiftAid - 1);
+  };
+
   const percentage = (GiftAid/ (GiftAid+noGiftAid)) * 100;
   const roundPercentage = Math.round((percentage).toFixed(2));
   
@@ -48,7 +52,7 @@ function Home() {
         <p>{roundPercentage}% Total</p>
       </div>
       <div className='col-12'>
-        <button className='btn' id='undo'>Undo Gift Aid</button>
+        <button className='btn' id='undo' onClick={undoGiftAid}>Undo Gift Aid</button>
       </div>
     </div>
   </div>

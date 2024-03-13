@@ -5,18 +5,18 @@ import StoreData from './components/StoreData'
 import Leaderboard from './components/Leaderboard'
 import Home from './components/Home';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Wrapper from './components/Wrapper';
 import Marquee from './components/Marquee';
 import Login from './components/Login';
 import Counter from './components/Counter';
 import Screensaver from './components/Screensaver';
+import Wrapper from './components/Wrapper';
 
 function App() {
   return (
     <Router>
     <div>
       <Navbar />
+      <Wrapper>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={
@@ -28,6 +28,7 @@ function App() {
           <Route path="/StoreData" element={<StoreData />} />
           <Route path="/Leaderboard" element={<Leaderboard />} />
         </Routes>
+        </Wrapper>
     </div>
   </Router>
   );

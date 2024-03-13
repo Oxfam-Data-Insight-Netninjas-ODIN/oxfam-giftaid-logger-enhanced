@@ -1,8 +1,5 @@
-
-<!---React.js version of the screensaver example--->
-
-<!-- import React, { useState, useEffect } from 'react';
-import gsap from 'gsap'; --->
+import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
 
 const Screensaver = () => {
   const [screensaverActive, setScreensaverActive] = useState(false);

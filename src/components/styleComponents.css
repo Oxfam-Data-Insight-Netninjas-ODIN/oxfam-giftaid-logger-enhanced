@@ -149,6 +149,23 @@ button {
 
 /* End of table styling */
 
+/* Start of screensaver styling */
+#screensaver-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: green;
+  display: none;
+}
+#content {
+  padding: 20px;
+}
+.screensaver-active {
+  background-color: black;
+}
+/* End of screensaver styling */
 
 
 

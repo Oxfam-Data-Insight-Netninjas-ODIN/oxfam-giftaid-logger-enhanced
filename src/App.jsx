@@ -12,6 +12,7 @@ import Marquee from './components/Marquee';
 import Login from './components/Login';
 import Counter from './components/Counter';
 import AppDate from './components/AppDate';
+import Screensaver from './components/Screensaver';
 
 function App() {
   return (

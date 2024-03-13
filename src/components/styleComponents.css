@@ -71,8 +71,8 @@ h6 {
 .col {
   flex: 1; /* Each column flexes to fill the space */
   display: flex;
-  justify-content: center; /* Center the .centered-div horizontally */
-  align-items: center; /* Center the .centered-div vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 .circle-wrapper {

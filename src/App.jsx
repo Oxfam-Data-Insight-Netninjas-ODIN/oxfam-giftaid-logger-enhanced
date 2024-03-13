@@ -5,6 +5,7 @@ import StoreData from './components/StoreData'
 import Leaderboard from './components/Leaderboard'
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Date from './components/Date';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
 import Marquee from './components/Marquee';
@@ -17,6 +18,7 @@ function App() {
     <Router>
     <div>
       <Navbar />
+      <Date />
       <Wrapper>
         <Routes>
           <Route path="/" element={<Login />} />

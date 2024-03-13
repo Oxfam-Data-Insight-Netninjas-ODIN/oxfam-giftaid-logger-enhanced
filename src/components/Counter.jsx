@@ -7,22 +7,21 @@ function Counter({incrementGiftAid, incrementNoGiftAid }) {
     <>
 <div className="container">
   <div className="row">
-    <div className="col-sm-4">
+    <div className='col'>
       <div className="circle-wrapper">
-      <button id='ga-btn' className="circle circle-button m-4" onClick={incrementGiftAid}>
-  <img src={tick} alt="Tick" width={150}/>
+      <button className="circle m-4" onClick={incrementGiftAid}>
+  <img src={tick} alt="Tick"/>
   <span>Gift Aid</span>
 </button>
+</div>
+    </div>
+    <div className='col'>
+      <div id='notBtn' className="circle-wrapper">
+        <button className="circle m-4" onClick={incrementNoGiftAid}><img src={cross} className='mb-3'/>Not Gift Aid</button>
       </div>
     </div>
-    <div className="col-sm-4">
-      <div className="circle-wrapper">
-        <button id='nga-btn' className="circle circle-button m-4" onClick={incrementNoGiftAid}><img src={cross} width={75} className='mb-3'/>Not Gift Aid</button>
-      </div>
     </div>
   </div>
-</div>
-
     </>
   )
 }

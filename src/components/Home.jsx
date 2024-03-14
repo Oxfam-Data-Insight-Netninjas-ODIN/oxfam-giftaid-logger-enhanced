@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Hero from "./Hero";
 import Counter from './Counter';
+import FullscreenToggle from './ToggleFullscreen';
 
 function Home() {
   
@@ -39,7 +40,6 @@ function Home() {
 
   const percentage = (GiftAid/ (GiftAid+noGiftAid)) * 100;
   const roundPercentage = Math.round((percentage).toFixed(2));
-  
 
   return (
 <div>
@@ -64,7 +64,7 @@ function Home() {
       </div>
       </div>
     </div>
-    <button className='btn'>Fullscreen</button>
+    <FullscreenToggle />
   </div>
 </div>
 

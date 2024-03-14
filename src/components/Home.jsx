@@ -55,13 +55,16 @@ function Home() {
       <div className='col-12 mb-2'>
         <p>{roundPercentage}% Total</p>
       </div>
-      <div className='col-auto'>
-        <button className='btn' id='undo' onClick={undoGiftAid}>Undo Gift Aid</button>
+      <div className='row justify-content-center'>
+      <div className='col-6'>
+        <button className='btn undo' onClick={undoGiftAid}>Undo Gift Aid</button>
       </div>
-      <div className='col-auto'>
-        <button className='btn' id='undo' onClick={undoNotGiftAid}>Undo Not Gift Aid</button>
+      <div className='col-6'>
+        <button className='btn undo' onClick={undoNotGiftAid}>Undo Not Gift Aid</button>
+      </div>
       </div>
     </div>
+    <button className='btn'>Fullscreen</button>
   </div>
 </div>
 

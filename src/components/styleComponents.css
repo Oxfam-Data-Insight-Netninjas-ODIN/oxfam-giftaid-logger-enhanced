@@ -29,6 +29,7 @@ button {
 }
 
 .btn:hover {
+  background-color: var(--link-colour);
   color: var(--link-color-alt);
 }
 
@@ -120,8 +121,13 @@ h6 {
 
 }
 
-#undo {
+.undo {
   background-color: #DD5147;
+  margin-bottom: 2rem
+}
+
+.undo:hover {
+  background-color: #DD5147; /* Prevents the buttons from going green on hover by overriding previous style */
 }
 /* End of score styling */
 

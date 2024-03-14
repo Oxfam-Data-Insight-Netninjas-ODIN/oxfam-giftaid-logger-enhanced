@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import "./CustomModal.css"; // Import custom CSS file for modal styling
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -23,7 +24,7 @@ function Login() {
   };
 
   return (
-    <Modal show={showModal} backdrop="static">
+    <Modal show={showModal} backdrop="static" className="custom-modal">
       <Modal.Header closeButton>
         <Modal.Title>Login</Modal.Title>
       </Modal.Header>
@@ -33,7 +34,7 @@ function Login() {
             <label htmlFor="username">Username:</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control custom-input"
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -44,7 +45,7 @@ function Login() {
             <label htmlFor="pin">Pin Number:</label>
             <input
               type="password"
-              className="form-control"
+              className="form-control custom-input"
               id="pin"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
@@ -55,7 +56,7 @@ function Login() {
             <label htmlFor="area">Area:</label>
             <select
               id="area"
-              className="form-control"
+              className="form-control custom-input"
               value={selectedArea}
               onChange={(e) => setSelectedArea(e.target.value)}
               required
@@ -68,7 +69,9 @@ function Login() {
               <option value="Wolverhampton">Wolverhampton</option>
             </select>
           </div>
-          <Button variant="primary" type="submit">Access</Button>
+          <div className="form-group mb-3"> {}
+            <Button variant="primary" type="submit">Access</Button>
+          </div>
         </form>
       </Modal.Body>
     </Modal>

@@ -1,0 +1,13 @@
+.custom-modal .modal-content {
+    background-color: darkgreen; /
+    color: Green; 
+  }
+  
+  .custom-modal .modal-header {
+    border-bottom: darkgreen;
+  }
+  
+  .custom-modal .modal-footer {
+    border-top: darkgreen;
+  }
+  

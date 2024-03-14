@@ -15,11 +15,11 @@ function Login() {
 
     if (username === "Test" && pin === "1234") {
       console.log("Admin logged in:", { username, pin, selectedArea });
+      setShowModal(false);
+      window.location.href = "/home"; // Redirect to home page
     } else {
       console.log("Logging in:", { username, pin, selectedArea });
     }
-
-    setShowModal(false);
   };
 
   return (

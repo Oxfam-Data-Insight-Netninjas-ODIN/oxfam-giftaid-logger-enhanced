@@ -7,7 +7,6 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Marquee from './components/Marquee';
 import Login from './components/Login';
-import Counter from './components/Counter';
 import Screensaver from './components/Screensaver';
 import Wrapper from './components/Wrapper';
 

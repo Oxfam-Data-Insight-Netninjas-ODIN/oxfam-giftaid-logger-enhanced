@@ -150,6 +150,13 @@ h6 {
   justify-content: flex-end;
   margin-right: 1rem;
 }
+
+/* Removes print button, marquee, and navbar from page when table is printed. */
+@media print {
+  button, marquee, nav {
+      visibility: hidden;
+  }
+}
 /* End of table styling */
 
 /* Start of screensaver styling */

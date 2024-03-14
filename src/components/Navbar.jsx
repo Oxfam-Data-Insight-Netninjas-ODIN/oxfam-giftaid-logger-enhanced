@@ -43,11 +43,7 @@ function Navbar() {
             Leaderboard
           </Link>
         </li>
-<<<<<<< HEAD
-        <button className="nav-item dropdown">
-          <img src={account} width={40}></img>
-        </button>
-=======
+
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
              <img src={account} alt="Account" onClick={DropMenu} />
@@ -58,7 +54,7 @@ function Navbar() {
             <li><a className="dropdown-item" href="#" onClick={DropMenu}>User3</a></li>
           </ul>
         </li>
->>>>>>> a9f38928ac95ebac5d0d833dd4610ff3e52373a9
+
       </ul>
     </div>
   </nav>

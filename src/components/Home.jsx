@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Hero from "./Hero";
 import Counter from './Counter';
 import FullscreenToggle from './ToggleFullscreen';
 

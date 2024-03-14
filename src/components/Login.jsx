@@ -1,47 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [pin, setPin] = useState("");
-  const [area, setArea] = useState("");
-  const [cityTown, setCityTown] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const loggedIn = sessionStorage.getItem("isLoggedIn");
-    if (loggedIn === "true") {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const [selectedArea, setSelectedArea] = useState("");
+  const [showModal, setShowModal] = useState(true);
 
   const handleAccess = () => {
-    if (!username || !pin || !area || !cityTown) {
-      alert("Please fill in all fields");
+    if (!username || !pin || !selectedArea) {
+      alert("Please enter username, pin, and select an area");
       return;
     }
 
-    // Here you can perform your authentication logic
-    console.log("Logging in:", { username, pin, area, cityTown });
+    if (username === "Test" && pin === "1234") {
+      console.log("Admin logged in:", { username, pin, selectedArea });
+    } else {
+      console.log("Logging in:", { username, pin, selectedArea });
+    }
 
-    // For demonstration purposes, setting isLoggedIn to true
-    setIsLoggedIn(true);
-    sessionStorage.setItem("isLoggedIn", "true");
+    setShowModal(false);
   };
-
-  const handleClose = () => {
-    setUsername("");
-    setPin("");
-    setArea("");
-    setCityTown("");
-  };
-
-  if (isLoggedIn) {
-    return null;
-  }
 
   return (
-    <Modal show={!isLoggedIn} backdrop="static" onHide={handleClose}>
+    <Modal show={showModal} backdrop="static">
       <Modal.Header closeButton>
         <Modal.Title>Login</Modal.Title>
       </Modal.Header>
@@ -71,29 +53,22 @@ function Login() {
           </div>
           <div className="form-group">
             <label htmlFor="area">Area:</label>
-            <input
-              type="text"
-              className="form-control"
+            <select
               id="area"
-              value={area}
-              onChange={(e) => setArea(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="cityTown">City/Town:</label>
-            <input
-              type="text"
               className="form-control"
-              id="cityTown"
-              value={cityTown}
-              onChange={(e) => setCityTown(e.target.value)}
+              value={selectedArea}
+              onChange={(e) => setSelectedArea(e.target.value)}
               required
-            />
+            >
+              <option value="">Select an Area</option>
+              <option value="Yorkshire">Yorkshire</option>
+              <option value="Derbyshire">Derbyshire</option>
+              <option value="Shropshire">Shropshire</option>
+              <option value="Nottingham">Nottingham</option>
+              <option value="Wolverhampton">Wolverhampton</option>
+            </select>
           </div>
-          <Button variant="primary" type="submit">
-            Access
-          </Button>
+          <Button variant="primary" type="submit">Access</Button>
         </form>
       </Modal.Body>
     </Modal>

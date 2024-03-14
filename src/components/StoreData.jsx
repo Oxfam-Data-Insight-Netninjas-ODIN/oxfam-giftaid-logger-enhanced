@@ -19,6 +19,12 @@ const BodyCell = styled(TableCell)(({ theme }) => ({
   fontSize: '1rem',
 }));
 
+const HoverTableRow = styled(TableRow)(({ theme }) => ({
+  '&:hover': {
+    backgroundColor: '#E1E1E1',
+  },
+}));
+
 function LocalScores() {
   return (
     <div>
@@ -37,14 +43,14 @@ function LocalScores() {
           </TableHead>
           <TableBody>
             {LocalUserData.map((item, index) => (
-              <TableRow key={index}>
+              <HoverTableRow key={index}>
                 <BodyCell>{item.userCode}</BodyCell>
                 <BodyCell>{item.firstName}</BodyCell>
                 <BodyCell>{item.giftAid}</BodyCell>
                 <BodyCell>{item.nogiftAid}</BodyCell>
                 <BodyCell>{item.percentage}%</BodyCell>
                 <BodyCell>{item.date}</BodyCell>
-              </TableRow>
+              </HoverTableRow>
             ))}
           </TableBody>
         </Table>

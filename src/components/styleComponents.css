@@ -61,6 +61,7 @@ marquee {
 
 h6 {
   opacity: 75%;
+  font-weight: bold;
 }
 /* End of marquee styling */
 
@@ -134,6 +135,7 @@ h6 {
   background-color: #458532;
   color: white;
 }
+
 /* End of table styling */
 
 /* Start of screensaver styling */

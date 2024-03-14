@@ -45,22 +45,16 @@ function Home() {
   <Counter incrementGiftAid={incrementGiftAid} incrementNoGiftAid={incrementNoGiftAid} />
   <div id='score' className='container text-center'>
     <div className='row justify-content-center'>
-      <div className='col-12 mb-2'>
+      <div className='col-6 mb-2'>
         <p><span id='gaCount'>{GiftAid}</span> Gift Aided</p>
+        <button className='btn undo' onClick={undoGiftAid}>Undo Gift Aid</button>
       </div>
-      <div className='col-12 mb-2'>
+      <div className='col-6 mb-2'>
         <p><span id='ngaCount'>{noGiftAid}</span> Not Gift Aided</p>
+        <button className='btn undo' onClick={undoNotGiftAid}>Undo Not Gift Aid</button>
       </div>
       <div className='col-12 mb-2'>
         <p>{roundPercentage}% Total</p>
-      </div>
-      <div className='row justify-content-center'>
-      <div className='col-6'>
-        <button className='btn undo' onClick={undoGiftAid}>Undo Gift Aid</button>
-      </div>
-      <div className='col-6'>
-        <button className='btn undo' onClick={undoNotGiftAid}>Undo Not Gift Aid</button>
-      </div>
       </div>
     </div>
     <FullscreenToggle />

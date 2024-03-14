@@ -145,6 +145,11 @@ h6 {
   color: white;
 }
 
+#btnFlex { /* Positions the print table button to the right */
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
 /* End of table styling */
 
 /* Start of screensaver styling */

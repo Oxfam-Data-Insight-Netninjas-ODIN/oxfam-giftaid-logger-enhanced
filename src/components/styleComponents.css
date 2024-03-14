@@ -1,7 +1,7 @@
 :root {
   --font-colour: white;
   --link-colour: #458532;
-  --link-color-alt: rgb(30, 34, 73);
+  --danger-colour: #DD5147;
 }
 
 body {
@@ -29,8 +29,9 @@ button {
 }
 
 .btn:hover {
-  background-color: var(--link-colour);
-  color: var(--link-color-alt);
+  background-color: var(--font-colour);
+  color: var(--link-colour);
+  border: var(--link-colour) 0.1rem solid;
 }
 
 
@@ -40,7 +41,6 @@ button {
 }
 
 .nav-link {
-  color: var(--link-colour-alt);
   margin-right: 1.25rem; /* Creates space between navigation links */
 }
 
@@ -69,11 +69,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 1;
 }
 
 .modal-content {
-  background-color: white;
+  background-color: var(--font-colour);
   font-weight: bold;
   padding: 20px;
   border-radius: 5px;
@@ -87,10 +87,13 @@ button {
 .logout-btn {
   background-color: #DD5147;
   margin: 1rem;
+  margin-bottom: 2rem;
 }
 
-.logout-btn:hover {
-  background-color: #F35959;
+.logoutCancel {
+  background-color: var(--font-colour);
+  border: black 0.1rem solid;
+  color: black;
 }
 /* End of logout modal styling */
 
@@ -181,7 +184,8 @@ h6 {
 }
 
 .undo:hover {
-  background-color: #DD5147; /* Prevents the buttons from going green on hover by overriding previous style */
+  color: var(--danger-colour);
+  border: var(--danger-colour) 0.1rem solid;
 }
 /* End of score styling */
 

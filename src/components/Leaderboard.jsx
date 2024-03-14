@@ -1,14 +1,10 @@
 import React from "react";
 import "./styleComponents.css";
-import Hero from "./Hero";
 import GlobalUserData from './globalUserData.json'
 
 function TopScores() {
   return (
     <div>
-      <Hero>
-        <h1>Title here</h1>
-      </Hero>
       <h1>Welcome !</h1>
       <p>text here</p>
       <div className="localScores">

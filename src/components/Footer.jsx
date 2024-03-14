@@ -1,10 +1,9 @@
 import React from "react";
 import "./styleComponents.css";
 
-function Footer({ currentDate, currentTime }) {
+function Footer({}) {
   return (
     <footer className="footer">
-      <span>Updated {currentDate} {currentTime}</span>
     </footer>
   );
 }

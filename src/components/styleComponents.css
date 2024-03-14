@@ -47,7 +47,52 @@ button {
 .nav-link:hover {
   color: var(--link-colour);
 }
+
+.logout {
+    display: flex;
+    align-items: center;
+}
+
+#logoutText {
+  color: #DD5147;
+}
 /* End of navigation bar styling */
+
+/* Start of logout modal styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.modal-content {
+  background-color: white;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto; /* Adds scroll for overflow content */
+}
+
+.logout-btn {
+  background-color: #DD5147;
+  margin: 1rem;
+}
+
+.logout-btn:hover {
+  background-color: #F35959;
+}
+/* End of logout modal styling */
 
 
 /* Start of marquee styling */
@@ -88,6 +133,12 @@ h6 {
   font-size: 2rem;
   box-shadow: 0 0 10px #454545;
   border: white solid 10px;
+}
+
+.content-wrapper {
+  display: flex; /* Aligns items horizontally within the circle */
+  align-items: center; /* Centers items vertically within the content wrapper */
+  color: var(--font-colour);
 }
 
 #notBtn {

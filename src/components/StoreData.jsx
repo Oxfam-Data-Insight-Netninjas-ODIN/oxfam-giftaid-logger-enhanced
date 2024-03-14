@@ -20,8 +20,17 @@ const BodyCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const HoverTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  transition: 'background-color 0.3s ease-in-out, color 1s ease', // Delay for the hover effect
   '&:hover': {
-    backgroundColor: '#E1E1E1',
+    backgroundColor: '#458532',
+    color: 'white', // Text color on hover
+  },
+  // Ensures cells within the row also transition to white text on hover
+  '&:hover .MuiTableCell-root': {
+    color: 'white',
   },
 }));
 

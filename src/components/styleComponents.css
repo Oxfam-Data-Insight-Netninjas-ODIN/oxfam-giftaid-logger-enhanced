@@ -94,6 +94,10 @@ h6 {
   background-color: #DD5147;
 }
 
+#notBtn span {
+  margin-left: 20px;
+}
+
 .circle-wrapper img {
   max-width: 150px;
   margin-bottom: 1rem; /* Space between image and text */
@@ -118,7 +122,6 @@ h6 {
 #ngaCount {
   color: #F35959;
   font-size: 2rem;
-
 }
 
 .undo {

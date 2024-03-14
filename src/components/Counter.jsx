@@ -8,17 +8,17 @@ function Counter({incrementGiftAid, incrementNoGiftAid }) {
 <div className="container">
   <div className="row">
     <div className='col'>
-      <div className="circle-wrapper">
-      <button onClick={incrementGiftAid}>
+      <button className="circle-wrapper" onClick={incrementGiftAid}>
+      <button >
   <img src={tick} alt="Tick"/>
   <span>Gift Aid</span>
 </button>
-</div>
+</button>
     </div>
     <div className='col'>
-      <div id='notBtn' className="circle-wrapper">
-        <button onClick={incrementNoGiftAid}><img src={cross}/> Not Gift Aid</button>
-      </div>
+      <button id='notBtn' className="circle-wrapper" onClick={incrementNoGiftAid}>
+        <button><img src={cross}/> Not Gift Aid</button>
+      </button>
     </div>
     </div>
   </div>

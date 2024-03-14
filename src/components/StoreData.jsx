@@ -65,6 +65,9 @@ function LocalScores() {
         </Table>
       </TableContainer>
     </div>
+    <div id="btnFlex">
+    <button className="btn" onClick={() => window.print()}>Print Table</button>
+    </div>
   </div>
   );
 }

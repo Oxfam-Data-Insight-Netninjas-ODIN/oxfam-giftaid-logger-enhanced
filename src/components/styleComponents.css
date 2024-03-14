@@ -135,6 +135,12 @@ h6 {
   border: white solid 10px;
 }
 
+.content-wrapper {
+  display: flex; /* Aligns items horizontally within the circle */
+  align-items: center; /* Centers items vertically within the content wrapper */
+  color: var(--font-colour);
+}
+
 #notBtn {
   background-color: #DD5147;
 }

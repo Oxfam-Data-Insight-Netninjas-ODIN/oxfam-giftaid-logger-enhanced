@@ -19,6 +19,21 @@ const BodyCell = styled(TableCell)(({ theme }) => ({
   fontSize: '1rem',
 }));
 
+const HoverTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  transition: 'background-color 0.3s ease-in-out, color 1s ease', // Delay for the hover effect
+  '&:hover': {
+    backgroundColor: '#458532',
+    color: 'white', // Text color on hover
+  },
+  // Ensures cells within the row also transition to white text on hover
+  '&:hover .MuiTableCell-root': {
+    color: 'white',
+  },
+}));
+
 function LocalScores() {
   return (
     <div>
@@ -37,14 +52,14 @@ function LocalScores() {
           </TableHead>
           <TableBody>
             {LocalUserData.map((item, index) => (
-              <TableRow key={index}>
+              <HoverTableRow key={index}>
                 <BodyCell>{item.userCode}</BodyCell>
                 <BodyCell>{item.firstName}</BodyCell>
                 <BodyCell>{item.giftAid}</BodyCell>
                 <BodyCell>{item.nogiftAid}</BodyCell>
                 <BodyCell>{item.percentage}%</BodyCell>
                 <BodyCell>{item.date}</BodyCell>
-              </TableRow>
+              </HoverTableRow>
             ))}
           </TableBody>
         </Table>

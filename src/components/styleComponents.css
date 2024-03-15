@@ -187,8 +187,18 @@ h6 {
   color: var(--danger-colour);
   border: var(--danger-colour) 0.1rem solid;
 }
+
+#total {
+  font-size: 2rem;
+}
 /* End of score styling */
 
+/* Fullscreen button positioning */
+#fullscreenBtn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
 
 /* Start of table styling */
 .localScores {

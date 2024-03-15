@@ -1,15 +1,37 @@
-const express = require("express");
-const app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const csv = require('csv-parser');
+const fs = require('fs');
 
-// This is the endpoint to get cashiers data
-app.get("/api/cashiers", (req, res) => {
-  // We will add logic to fetch cashiers data from the database
-  const cashiers = [];
-  res.json(cashiers);
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
+
+// Import usernames from CSV file
+app.post('/import', (req, res) => {
+  const usernames = [];
+
+  fs.createReadStream('usernames.csv')
+    .pipe(csv())
+    .on('data', (data) => usernames.push(data.username))
+    .on('end', () => {
+      // Process usernames
+      res.json({ success: true, usernames });
+    });
 });
 
-// This will start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Export usernames to CSV file
+app.get('/export', (req, res) => {
+  const usernames = ['user1', 'user2', 'user3']; // Example usernames
+
+  const csvData = usernames.map(username => ({ username }));
+
+  res.setHeader('Content-Type', 'text/csv');
+  res.setHeader('Content-Disposition', 'attachment; filename="usernames.csv"');
+  res.csv(csvData, { header: true });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });

@@ -54,7 +54,7 @@ button {
 }
 
 #logoutText {
-  color: #DD5147;
+  color: var(--danger-colour);
 }
 /* End of navigation bar styling */
 
@@ -85,7 +85,7 @@ button {
 }
 
 .logout-btn {
-  background-color: #DD5147;
+  background-color: var(--danger-colour);
   margin: 1rem;
   margin-bottom: 2rem;
 }
@@ -145,7 +145,7 @@ h6 {
 }
 
 #notBtn {
-  background-color: #DD5147;
+  background-color: var(--danger-colour);
 }
 
 #notBtn span {
@@ -170,16 +170,16 @@ h6 {
 
 #gaCount {
   color: #99CC00;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 #ngaCount {
   color: #F35959;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .undo {
-  background-color: #DD5147;
+  background-color: var(--danger-colour);
   margin-bottom: 2rem
 }
 

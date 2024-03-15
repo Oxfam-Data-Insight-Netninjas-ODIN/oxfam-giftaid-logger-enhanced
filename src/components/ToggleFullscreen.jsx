@@ -11,7 +11,11 @@ const FullscreenToggle = () => {
     }
   };
 
-  return <button className='btn' onClick={toggleFullscreen}>Fullscreen</button>;
+  return <>
+    <div id='fullscreenBtn'>
+    <button className='btn' onClick={toggleFullscreen}>Fullscreen</button>
+    </div>
+  </>
 };
 
 export default FullscreenToggle;

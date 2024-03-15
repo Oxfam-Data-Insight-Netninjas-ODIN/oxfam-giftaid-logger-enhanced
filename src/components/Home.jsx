@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Counter from './Counter';
-import FullscreenToggle from './ToggleFullscreen';
+import Footer from './Footer';
 
 function Home() {
   
@@ -53,12 +53,12 @@ function Home() {
         <p><span id='ngaCount'>{noGiftAid}</span> Not Gift Aided</p>
         <button className='btn undo' onClick={undoNotGiftAid}>Undo Not Gift Aid</button>
       </div>
-      <div className='col-12 mb-2'>
+      <div id='total' className='col-12 mb-2'>
         <p>{roundPercentage}% Total</p>
       </div>
     </div>
-    <FullscreenToggle />
   </div>
+  <Footer />
 </div>
 
 

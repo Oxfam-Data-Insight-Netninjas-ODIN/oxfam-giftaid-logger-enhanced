@@ -37,7 +37,7 @@ const HoverTableRow = styled(TableRow)(({ theme }) => ({
 function LocalScores() {
   return (
     <div>
-    <div className="localScores">
+    <div id="localScores">
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead id='header'>
@@ -65,7 +65,8 @@ function LocalScores() {
         </Table>
       </TableContainer>
     </div>
-    <div id="btnFlex">
+    {/* Prints the table using the browser's print function */}
+    <div id="btnFlex"> 
     <button className="btn" onClick={() => window.print()}>Print Table</button>
     </div>
   </div>

@@ -16,7 +16,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         {children}
         <h3>Are you sure you want to log out?</h3>
         <div className='logout'>
-          <button className='btn logout-btn logoutCancel' onClick={onClose}>Cancel</button>
+          <button className='btn logout-btn logout-cancel' onClick={onClose}>Cancel</button>
           <button className='btn logout-btn undo' onClick={handleLogout}>Log Out</button>
         </div>
       </div>

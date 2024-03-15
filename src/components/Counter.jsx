@@ -16,7 +16,7 @@ function Counter({incrementGiftAid, incrementNoGiftAid }) {
           </div>
         </div>
         <div className='col'>
-          <div id='notBtn' className="circle-wrapper" onClick={incrementNoGiftAid}>
+          <div id='notBtn' className="button circle-wrapper" onClick={incrementNoGiftAid}>
             <div className="content-wrapper">
               <img src={cross} alt="Cross" className="icon"/>
               <span>Not Gift Aid</span>

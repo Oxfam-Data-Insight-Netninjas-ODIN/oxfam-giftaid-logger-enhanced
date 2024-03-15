@@ -15,3 +15,7 @@
     color: white;
     font-weight: bolder;
   }
+ 
+  .custom-modal .modal-body {
+    color: white;
+  }

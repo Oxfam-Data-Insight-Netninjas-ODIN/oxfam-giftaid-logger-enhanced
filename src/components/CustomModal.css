@@ -11,3 +11,7 @@
     border-top: darkgreen;
   }
   
+  .custom-modal .modal-title {
+    color: white;
+    font-weight: bolder;
+  }

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import "./CustomModal.css"; // Import custom CSS file for modal styling
-import { initializeApp } from "firebase/app";
-import "firebase/database";
-import { getDatabase, ref, set, child, get } from "firebase/database";
+// import { initializeApp } from "firebase/app";
+// import "firebase/database";
+// import { getDatabase, ref, set, child, get } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCFPnbo7r2xIKUqW0I-2vqQS8Cz9G9M_tA",
@@ -16,10 +16,10 @@ const firebaseConfig = {
   appId: "1:142768490360:web:24e86a272d49e2ded82a8d",
   measurementId: "G-KY1EJ33Z6G",
 };
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-// console.log(app);
-// console.log(database);
+// const app = initializeApp(firebaseConfig);
+// const database = getDatabase(app);
+// // console.log(app);
+// // console.log(database);
 
 
 function Login() {

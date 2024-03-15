@@ -47,7 +47,7 @@ const Screensaver = () => {
 
   return (
     <>
-      <div id="screensaver-text">Test Screensaver</div>
+      <div id="screensaverText">Test Screensaver</div>
       <div id="content">
         {/* Lorem ipsum filler content */}
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>

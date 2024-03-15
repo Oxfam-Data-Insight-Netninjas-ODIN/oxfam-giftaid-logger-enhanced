@@ -38,8 +38,8 @@ function Marquee() {
         <div className="d-inline-flex align-items-baseline m-4">
           <h2>Welcome, (User)</h2>
           <h6 className="ms-2">CITY NAME</h6>
-          <h2 className='marqSpace'>Today is {currentDay} {currentDate}</h2>
-          <h2 className='marqSpace'>The time is {currentTime}</h2>
+          <h2 className='marq-space'>Today is {currentDay} {currentDate}</h2>
+          <h2 className='marq-space'>The time is {currentTime}</h2>
         </div>
       </marquee>
     </div>  

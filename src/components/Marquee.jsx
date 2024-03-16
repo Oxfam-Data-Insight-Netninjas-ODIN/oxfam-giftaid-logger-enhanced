@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
+
 function Marquee() {
+
+  // Retrieve username from local storage
+  const storedUsername = localStorage.getItem("username");
+
+
   
   const [cityName, setCityName] = useState('Loading...');
   const currentDate = new Date().toLocaleDateString("en-GB", {
@@ -40,7 +46,7 @@ function Marquee() {
     <div>
       <marquee behavior="scroll" direction="left" scrollamount={10}>
         <div className="d-inline-flex align-items-baseline m-4">
-          <h2>Welcome, CASHIER | TEMP</h2>
+          <h2>Welcome, {storedUsername}</h2>
           <h6 className="ms-2">{cityName}</h6>
           <h2 className='marq-space'>Today is {currentDate}</h2>
           <h2 className='marq-space'>The time is {currentTime}</h2>

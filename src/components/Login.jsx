@@ -44,6 +44,9 @@ function Login() {
             
             console.log("Admin logged in:", { username, pin, selectedArea });
             setShowModal(false);
+            console.log(username);
+            // Save username in local storage
+            localStorage.setItem("username", username);
             window.location.href = "/home"; // Redirect to home page
           } else {
             console.log("Passwords do not match");
@@ -113,5 +116,6 @@ function Login() {
     </Modal>
   );
 }
+
 
 export default Login;

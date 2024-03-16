@@ -3,6 +3,12 @@ import React from 'react';
 const Modal = ({ isOpen, onClose, children }) => {
   // Logs out the application and returns the user to the login modal
   const handleLogout = () => {
+     // Retrieve username and counter values from local storage
+    const storedUsername = localStorage.getItem("username");
+    const localUserGAid = localStorage.getItem("countGiftAid");
+    const localUserNoGAid = localStorage.getItem("countNoGiftAid");
+     // Write/save username and counter data to server before logout - code here
+
     window.location.href = "/";
   };
 

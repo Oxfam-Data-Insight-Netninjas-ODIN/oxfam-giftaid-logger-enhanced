@@ -18,8 +18,6 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-// console.log(app);
-// console.log(database);
 
 
 function Login() {
@@ -38,10 +36,8 @@ function Login() {
       .then((snapshot) => {
         if (snapshot.exists()) {
           const retrievedPassword = snapshot.val().password;
-
-
+          
           if (retrievedPassword === pin) {
-            
             console.log("Admin logged in:", { username, pin, selectedArea });
             setShowModal(false);
             console.log(username);
@@ -59,7 +55,6 @@ function Login() {
       .catch((error) => {
         console.error(error);
       });
-
   };
 
   return (

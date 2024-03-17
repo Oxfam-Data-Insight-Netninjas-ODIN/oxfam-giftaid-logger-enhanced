@@ -4,18 +4,8 @@ import Footer from './Footer';
 import { initializeApp } from "firebase/app";
 import "firebase/database";
 import { getDatabase, ref, set, child, get } from "firebase/database";
+import firebaseConfig from './FirebaseConfig';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCFPnbo7r2xIKUqW0I-2vqQS8Cz9G9M_tA",
-  authDomain: "oxfamlogger.firebaseapp.com",
-  databaseURL:
-    "https://oxfamlogger-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "oxfamlogger",
-  storageBucket: "oxfamlogger.appspot.com",
-  messagingSenderId: "142768490360",
-  appId: "1:142768490360:web:24e86a272d49e2ded82a8d",
-  measurementId: "G-KY1EJ33Z6G",
-};
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 

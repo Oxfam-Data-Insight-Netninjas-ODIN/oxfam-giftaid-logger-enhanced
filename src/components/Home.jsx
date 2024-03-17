@@ -29,15 +29,14 @@ function Home() {
       .then((snapshot) => {
         let initialGiftAid = 0;
         let initialNoGiftAid = 0;
-
         if (snapshot.exists()) {
           initialGiftAid  = snapshot.val().gAid;
           localStorage.setItem('countGiftAid', initialGiftAid);
           initialNoGiftAid = snapshot.val().noGAid;
           localStorage.setItem('countNoGiftAid', initialNoGiftAid);
-
           setGiftAid(initialGiftAid);
           setNoGiftAid(initialNoGiftAid);
+          
         } else {
           console.log("User data on specific date does not exist");
           // !!!! == to define later the userId format == !!!!!!!
@@ -65,15 +64,18 @@ function Home() {
 
 
   const incrementGiftAid = () => {
-    setGiftAid(GiftAid + 1);
-    console.log("GiftAid= "+GiftAid);
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    // to prevent delay in serverdata receiving the last updated value:
+    const updatedGiftAid = GiftAid + 1;
+    setGiftAid(updatedGiftAid);
+    console.log("GiftAid= "+updatedGiftAid);
+    writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
   };
 
   const incrementNoGiftAid = () => {
-    setNoGiftAid(noGiftAid + 1);
-    console.log("Nogigt="+noGiftAid);
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    const updatedNoGiftAid = noGiftAid + 1;
+    setNoGiftAid(updatedNoGiftAid);
+    console.log("Nogigt="+updatedNoGiftAid);
+    writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
 
   const undoGiftAid = () => {

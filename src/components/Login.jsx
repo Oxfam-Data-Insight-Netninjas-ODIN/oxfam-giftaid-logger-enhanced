@@ -24,7 +24,7 @@ function Login() {
     // NEW CODE to retrieve the user and password from server and check if are same with input
     const dbRef = ref(getDatabase());
     const userId = username + "1234";
-    get(child(dbRef, `users/`+ username))
+    get(child(dbRef, `users/`+ userId))
       .then((snapshot) => {
         if (snapshot.exists()) {
           const retrievedPassword = snapshot.val().pass.password;

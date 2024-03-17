@@ -41,36 +41,37 @@ export function writeUserData(userId, name, gAid, noGAid, date) {
   return userId;
 }
 
-export function writeMultipleUsersData(userId, password, name, gAid, noGAid, date) {
+export function writeMultipleUsersData(username, password, name, gAid, noGAid, date) {
   const db = getDatabase();
 
   // Iterate over the array of objects
   for (let i = 0; i < usersDataJson.length; i++) {
     const userData = usersDataJson[i];
-
+    console.log(usersDataJson[i]);
+    console.log(username, password, name, gAid, noGAid, date)
     // Set the values from the current object in the array
-    userId = userData.userId;
-    password = userData.password;
+    username = userData.username;
     name = userData.name;
     gAid = userData.gAid;
     noGAid = userData.noGAid;
     date = userData.date;
 
     // Set the data in the database
-    set(ref(db, "users/" + userId + "/" + date), {
-      username: userId,
-      password: password,
-      name: name,
-      gAid: gAid,
-      noGAid: noGAid,
-      date: date,
+    set(ref(db, "users/" + username + "/" + "2024-03-17"), { 
+      username: username, 
+      name: name, 
+      gAid: gAid, 
+      noGAid: noGAid, 
+      date: date 
     });
-
+    console.log(password);
     // Save password under a different path
-    set(ref(db, "users/" + userId + "/pass"), {
-      password: password,
-    });
+    set(ref(db, "users/" + username + "/pass"), {
+      
+      password: userData.password
+     });
   }
+  
 
-  return userId; // Return the last userId processed
+  return username; // Return the last username processed
 }

@@ -18,19 +18,26 @@ function Home() {
   const dbRef = ref(getDatabase());
   // create a constant date with current date in js standard format
   const date = new Date().toISOString().split('T')[0];
-
   // check if user is already in server db and update server data 
   const userId = username + "1234";
-  get(child(dbRef, `users/`+ username+"1234" + '/'+ date))
-      .then((snapshot) => {
-        console.log(snapshot.key);
-        if (snapshot.exists()) {
-          console.log("server: " +  snapshot.val().gAid);
-          const retrievedGAid = snapshot.val().gAid;
-          localStorage.setItem('countGiftAid', retrievedGAid);
-          const retrievedNoGAid = snapshot.val().noGAid;
-          localStorage.setItem('countNoGiftAid', retrievedNoGAid);
 
+  const [GiftAid, setGiftAid] = useState(0);
+  const [noGiftAid, setNoGiftAid] = useState(0);
+
+  useEffect(() => {
+  get(child(dbRef, `users/`+ userId + '/'+ date))
+      .then((snapshot) => {
+        let initialGiftAid = 0;
+        let initialNoGiftAid = 0;
+
+        if (snapshot.exists()) {
+          initialGiftAid  = snapshot.val().gAid;
+          localStorage.setItem('countGiftAid', initialGiftAid);
+          initialNoGiftAid = snapshot.val().noGAid;
+          localStorage.setItem('countNoGiftAid', initialNoGiftAid);
+
+          setGiftAid(initialGiftAid);
+          setNoGiftAid(initialNoGiftAid);
         } else {
           console.log("User data on specific date does not exist");
           // !!!! == to define later the userId format == !!!!!!!
@@ -45,32 +52,27 @@ function Home() {
       .catch((error) => {
         console.error(error);
       });
+    }, [dbRef, userId, date]);  
 
-  const [GiftAid, setGiftAid] = useState(() => {
-    const savedCountYes = localStorage.getItem('countGiftAid');
-    return savedCountYes ? parseInt(savedCountYes, 10) : 0;
-  });
-  
   useEffect(() => {
     localStorage.setItem('countGiftAid', GiftAid);
-  }, [GiftAid]);  
+  }, [GiftAid]);
 
-
-  const [noGiftAid, setNoGiftAid] = useState(() => {
-    const savedCountNo = localStorage.getItem('countNoGiftAid');
-    return savedCountNo ? parseInt(savedCountNo, 10) : 0;
-  });
   useEffect(() => {
     localStorage.setItem('countNoGiftAid', noGiftAid);
-  }, [noGiftAid]); 
+  }, [noGiftAid]);  
+
+
 
   const incrementGiftAid = () => {
     setGiftAid(GiftAid + 1);
+    console.log("GiftAid= "+GiftAid);
     writeUserData(userId, username, GiftAid, noGiftAid, date);
   };
 
   const incrementNoGiftAid = () => {
     setNoGiftAid(noGiftAid + 1);
+    console.log("Nogigt="+noGiftAid);
     writeUserData(userId, username, GiftAid, noGiftAid, date);
   };
 

@@ -1,9 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import Counter from './Counter';
 import Footer from './Footer';
+import { initializeApp } from "firebase/app";
+import "firebase/database";
+import { getDatabase, ref, set, child, get } from "firebase/database";
+import firebaseConfig from './FirebaseConfig';
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
 
 function Home() {
-  
+  // code here to retrieve user counter history from server for curent date if exist
+  // and save it to local storage 
+  const username = localStorage.getItem("username");
+  const dbRef = ref(getDatabase());
+  const currentDate = new Date().toISOString().split('T')[0];
+  console.log(currentDate);
+  get(child(dbRef, `users/`+ username + '/'+ currentDate))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log("server: " +  snapshot.val());
+          const retrievedGAid = snapshot.val().gAid;
+          localStorage.setItem('countGiftAid', retrievedGAid);
+          const retrievedNoGAid = snapshot.val().NogAid;
+          localStorage.setItem('countNoGiftAid', retrievedNoGAid);
+
+        }
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
   const [GiftAid, setGiftAid] = useState(() => {
     const savedCountYes = localStorage.getItem('countGiftAid');
     return savedCountYes ? parseInt(savedCountYes, 10) : 0;

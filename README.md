@@ -1,6 +1,8 @@
 # oxfam-giftaid-logger-enhanced
 
-# Utilization of an Internet-enabled phone for Streamlining Operations
+This program is a continuation of the Original Gift Aid Logger. It has been converted into a react.js application and utilizes a variety of libraries, packages, and technologies such as () It has added functionality from the first iteration which essentially implemented the following strategy:
+
+## Utilization of an Internet-enabled phone for Streamlining Operations
 
 This platform leverages an internet-enabled old phone to optimize operations. Here's how it works:
 
@@ -22,6 +24,8 @@ This streamlined approach enhances efficiency and accountability in operations.
 this is the incomplete version, the full version, which will be able to be used by multiple shops simultaneously, enables users to log in from any area, or shop, It also has a button to register and record when someone has persuaded a customer to sign up for gift aid.
 
 IMPORTANT: No financial data is contained within these programs, there are no shop codes, nor any other information contained within this program that can breach GDPR rules. Security has been at the forefront of our team's objective when developing this application.
+
+
 
 # User requirements
 

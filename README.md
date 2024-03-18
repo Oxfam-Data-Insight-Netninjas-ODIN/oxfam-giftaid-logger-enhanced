@@ -1,6 +1,27 @@
 # oxfam-giftaid-logger-enhanced
 
-This is a continuation of project one. - please read further to see the proposed changes to each section.
+# Utilization of an Internet-enabled phone for Streamlining Operations
+
+This platform leverages an internet-enabled old phone to optimize operations. Here's how it works:
+
+1. **Setup**:
+   - Users connect the phone to a power outlet at the beginning of each day.
+   - The screensaver is disabled for uninterrupted operation.
+   - The phone is placed in a dashboard holder near the till for easy access.
+
+2. **Transaction Process**:
+   - During transactions, users select between 'gift-aided' or 'not gift-aided' buttons.
+   - This facilitates real-time tracking of gift aid sales percentages by username.
+
+3. **Managerial Insights**:
+   - Friendly competition is encouraged among users.
+   - Managers analyze dynamic leaderboards and tables to identify operational irregularities.
+   - Insights enable the pinpointing of overlooked scans or missed sign-ups with ease.
+
+This streamlined approach enhances efficiency and accountability in operations.
+this is the incomplete version, the full version, which will be able to be used by multiple shops simultaneously, enables users to log in from any area, or shop, It also has a button to register and record when someone has persuaded a customer to sign up for gift aid.
+
+IMPORTANT: No financial data is contained within these programs, there are no shop codes, nor any other information contained within this program that can breach GDPR rules. Security has been at the forefront of our team's objective when developing this application.
 
 # User requirements
 

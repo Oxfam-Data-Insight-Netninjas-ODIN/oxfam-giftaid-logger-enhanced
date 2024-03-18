@@ -42,7 +42,7 @@ const fetchData = () => {
 
 // Usage
 fetchData().then((filteredData) => {
-  console.log(filteredData); // Access filteredData here
+  console.log("no errors"); // Access filteredData here
 }).catch((error) => {
   console.error(error);
 });

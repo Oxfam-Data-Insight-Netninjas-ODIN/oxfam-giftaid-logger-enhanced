@@ -31,8 +31,7 @@ const fetchData = () => {
       });
       // Sort filteredData in descending order based on the 'proc' key
       filteredData.sort((a, b) => b.proc - a.proc);
-      
-      console.log(filteredData);
+
       resolve(filteredData);
     }).catch((error) => {
       reject(error);
@@ -43,7 +42,7 @@ const fetchData = () => {
 
 // Usage
 fetchData().then((filteredData) => {
-  console.log(filteredData); // Access filteredData here
+  console.log("no errors"); // Access filteredData here
 }).catch((error) => {
   console.error(error);
 });

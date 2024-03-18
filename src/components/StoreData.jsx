@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LocalUserData from "./localUserData.json";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -8,6 +8,45 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+
+import { initializeApp } from "firebase/app";
+import "firebase/database";
+import { getDatabase, ref, set, child, get } from "firebase/database";
+import firebaseConfig from "./FirebaseConfig";
+import { writeUserData } from "./firebaseFunct.js";
+
+const app = initializeApp(firebaseConfig);
+const dbRef = ref(getDatabase());
+
+// Fetch and filter data from server
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    get(child(dbRef, `users/`)).then((snapshot) => {
+      let storageData = snapshot.val();
+      let historyData = [];
+      Object.keys(storageData).forEach((key) => {
+        const newObject = storageData[key];
+        Object.values(newObject).forEach((nestedValue) => {
+          historyData.unshift(nestedValue);
+        });
+      });
+      const filteredData = historyData.filter(
+        (obj) => !Object.keys(obj).includes("password")
+      );
+      resolve(filteredData);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
+};
+
+// Usage
+fetchData().then((filteredData) => {
+  console.log(filteredData); // Access filteredData here
+}).catch((error) => {
+  console.error(error);
+});
+
 
 // Directly style the header cell
 const HeaderCell = styled(TableCell)(({ theme }) => ({
@@ -35,6 +74,18 @@ const HoverTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function LocalScores() {
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    fetchData()
+      .then((data) => {
+        setFilteredData(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div>
     <div id="localScores">
@@ -51,13 +102,13 @@ function LocalScores() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {LocalUserData.map((item, index) => (
+            {filteredData.map((item, index) => (
               <HoverTableRow key={index}>
-                <BodyCell>{item.userCode}</BodyCell>
-                <BodyCell>{item.firstName}</BodyCell>
-                <BodyCell>{item.giftAid}</BodyCell>
-                <BodyCell>{item.nogiftAid}</BodyCell>
-                <BodyCell>{item.percentage}%</BodyCell>
+                <BodyCell>{item.username}</BodyCell>
+                <BodyCell>{item.name}</BodyCell>
+                <BodyCell>{item.gAid}</BodyCell>
+                <BodyCell>{item.noGAid}</BodyCell>
+                <BodyCell>{Math.round((item.gAid + 100) / (item.gAid + item.noGAid))}%</BodyCell>
                 <BodyCell>{item.date}</BodyCell>
               </HoverTableRow>
             ))}

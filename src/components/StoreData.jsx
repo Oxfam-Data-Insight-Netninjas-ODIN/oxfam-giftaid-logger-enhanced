@@ -108,7 +108,7 @@ function LocalScores() {
                 <BodyCell>{item.name}</BodyCell>
                 <BodyCell>{item.gAid}</BodyCell>
                 <BodyCell>{item.noGAid}</BodyCell>
-                <BodyCell>{Math.round((item.gAid + 100) / (item.gAid + item.noGAid))}%</BodyCell>
+                <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
                 <BodyCell>{item.date}</BodyCell>
               </HoverTableRow>
             ))}

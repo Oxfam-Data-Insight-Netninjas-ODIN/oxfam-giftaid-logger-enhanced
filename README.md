@@ -4,20 +4,20 @@
 
 Our goal is to enhance the efficiency of Gift Aid Sale at Oxfam, aiming for maximum impact. Gift Aid allows us to amplify the value of donations without any extra cost to donors, enabling Oxfam to reclaim 25% of the basic tax paid on their gifts. By partnering with Gift Aid providers, we’re streamlining the process by tagging donated items with barcode labels for better integration with our systems.
 
-However, certani Oxfam GB shops are facing challenges, such as lagging Gift Aid sales. To address this, we’re taking a systematic approach to identify and rectify issues, including till operator errors and anomalies in Gift Aid contributions. We’re also exploring technological solutions, like developing an application to improve data recording and analysis.
+However, certanin Oxfam GB shops are facing challenges, such as lagging Gift Aid sales. To address this, we’re systematically identifying and rectifying issues, including till operator errors and anomalies in Gift Aid contributions. We’re also exploring technological solutions, like developing an application to improve data recording and analysis.
 
-One contributing factor may be insufficient hardware in the till scanners receiving this data, leading operators to forgo manual input during peak times. To address this issue, we propose the development of an application utilising suitable hardware sources. The application aims to:
+One contributing factor may be insufficient hardware in the till scanners receiving this data, leading operators to forgo manual input during peak times. To address this issue, we proposed developing an application using suitable hardware sources. In particular, augmenting the epos till, using old smartphones connected to the shops wifi. The application aims to:
 
 - record gift aid sales per till operator
 - identify potential anomalies
 - encourage participation through gamification
 - provide feedback to area managers, for further analysis
 
-## Current practices and there limits
+## Current practices and their limits
 
-There is a six sheet objectives chart that managers are to fill in, reminding them the basics of gift aid sign up protocol, and reminding them to complete inductions with volunteers. This method could and will be improved.
+There is a six-sheet objectives chart that managers are to fill in, reminding them the basics of gift aid sign-up protocol, and reminding them to complete inductions with volunteers. This method could and will be improved.
 
-The team's previous system was successfully implemented on a local level in a single shop, and was used to fulfil these objectives identifying candidates who perhaps needed a friendly reminder to scan the codes whilst on the till.
+The team's previous system was successfully implemented on a local level in a single shop, and was used to fulfill these objectives identifying candidates who perhaps needed a friendly reminder to scan the codes whilst on the till.
 
 However after user feedback, and additional project requirements, it was decided to continue another iteration of the project as part of the agile development process, so that the system could be used across the divisions of shops and shop areas, primarily by implementing the ability for users to log in and out, as well as save data to a database, as opposed to relying on local storage.
 
@@ -31,7 +31,7 @@ Oxfam as a company can become deeply concerned at the prospect of haemorrhaging 
 
 ## Risks & Rewards
 
-Some of the risks that we have to consider are security, and data accuracy, as well as technophobia, from not just volunteers, but managers, who have seen an increase in I.T. Security due to data breaches and phishing attacks. In one example, phisers were able to obtain the format of the shop codes and attach it to spoof emails, leaving shop computers open to SSH attacks and suchlike.  In order to combat that we propose three things:
+Some of the risks that we have to consider are security, data accuracy, and technophobia from not just volunteers, but managers, who have seen an increase in I.T. Security due to data breaches and phishing attacks. In one example, phisers were able to obtain the format of the shop codes and attach it to spoof emails, leaving shop computers open to SSH attacks and suchlike.  In order to combat that we propose three things:
 
 - No vulnerabilities allowed in NPM packages
 - Data format to not include area or shop codes

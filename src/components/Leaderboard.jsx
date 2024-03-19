@@ -29,7 +29,7 @@ const fetchData = () => {
       filteredData.forEach((item) => {
         item.proc = Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0;
       });
-      // Sort filteredData in descending order based on the 'proc' key
+      // Sort filteredData in descending order based on the percentage
       filteredData.sort((a, b) => b.proc - a.proc);
 
       resolve(filteredData);

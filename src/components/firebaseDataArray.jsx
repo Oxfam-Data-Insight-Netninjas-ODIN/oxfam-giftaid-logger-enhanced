@@ -21,8 +21,7 @@ get(child(dbRef, `users/`)).then((snapshot) => {
   const filteredData = historyData.filter(
     (obj) => !Object.keys(obj).includes("password")
   );
-  return filteredData
+  return filteredData;
 });
 
 
-export default filteredData;

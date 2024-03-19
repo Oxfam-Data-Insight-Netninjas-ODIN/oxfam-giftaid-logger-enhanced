@@ -24,6 +24,8 @@ const fetchData = () => {
   return new Promise((resolve, reject) => {
     get(child(dbRef, `users/`)).then((snapshot) => {
       let storageData = snapshot.val();
+
+
       let historyData = [];
       Object.keys(storageData).forEach((key) => {
         const newObject = storageData[key];
@@ -33,15 +35,25 @@ const fetchData = () => {
       });
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password")
-      );
+      );     
+      const finalData = Object.values(filteredData.reduce((acc, cur) => {
+        if (!acc[cur.username]) {
+          acc[cur.username] = { ...cur, date: undefined }; // Remove the date key
+        } else {
+          acc[cur.username].gAid += cur.gAid;
+          acc[cur.username].noGAid += cur.noGAid;
+        }
+        return acc;
+      }, {}));
+      
       // add procentage to database array
-      filteredData.forEach((item) => {
+      finalData.forEach((item) => {
         item.proc = Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0;
       });
-      // Sort filteredData in descending order based on the 'proc' key
-      filteredData.sort((a, b) => b.proc - a.proc);
+      // Sort filteredData in descending order based on the percentage
+      finalData.sort((a, b) => b.proc - a.proc);
 
-      resolve(filteredData);
+      resolve(finalData);
     }).catch((error) => {
       reject(error);
     });
@@ -50,19 +62,19 @@ const fetchData = () => {
 };
 
 // Usage
-fetchData().then((filteredData) => {
+fetchData().then((finalData) => {
   console.log("no errors"); // Access filteredData here
 }).catch((error) => {
   console.error(error);
 });
 
 function TopScores() {
-  const [filteredData, setFilteredData] = useState([]);
+  const [finalData, setFinalData] = useState([]);
 
   useEffect(() => {
     fetchData()
       .then((data) => {
-        setFilteredData(data);
+        setFinalData(data);
       })
       .catch((error) => {
         console.error(error);
@@ -105,25 +117,23 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
         <Table aria-label="simple table">
           <TableHead id='header'>
             <TableRow>
-              <HeaderCell>Position</HeaderCell>
               <HeaderCell>User Code</HeaderCell>
               <HeaderCell>Name</HeaderCell>
               <HeaderCell>Gift Aid</HeaderCell>
               <HeaderCell>No Gift Aid</HeaderCell>
               <HeaderCell>Percentage</HeaderCell>
-              <HeaderCell>Date</HeaderCell>
+              <HeaderCell>Signups</HeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredData.map((item, index) => (
+            {finalData.map((item, index) => (
               <BodyTableRow key={index}>
-                <BodyCell>Position no.</BodyCell>
                 <BodyCell>{item.username}</BodyCell>
                 <BodyCell>{item.name}</BodyCell>
                 <BodyCell>{item.gAid}</BodyCell>
                 <BodyCell>{item.noGAid}</BodyCell>
                 <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
-                <BodyCell>{item.date}</BodyCell>
+                <BodyCell>Signups</BodyCell>
               </BodyTableRow>
             ))}
           </TableBody>

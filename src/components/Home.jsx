@@ -66,25 +66,29 @@ function Home() {
     // to prevent delay in serverdata receiving the last updated value:
     const updatedGiftAid = GiftAid + 1;
     setGiftAid(updatedGiftAid);
-    console.log("GiftAid= " + updatedGiftAid);
+ 
     writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
   };
 
   const incrementNoGiftAid = () => {
     const updatedNoGiftAid = noGiftAid + 1;
     setNoGiftAid(updatedNoGiftAid);
-    console.log("Nogigt=" + updatedNoGiftAid);
+
     writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
 
   const undoGiftAid = () => {
-    setGiftAid(GiftAid - 1);
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    if (GiftAid >= 1) {
+      setGiftAid(GiftAid - 1);
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
+    }
   };
 
   const undoNotGiftAid = () => {
-    setNoGiftAid(noGiftAid - 1);
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    if (noGiftAid >= 1){
+      setNoGiftAid(noGiftAid - 1);
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
+    }
   };
   // check to see if number are 0, if not calculate the percentage
   const percentage =

@@ -98,11 +98,11 @@ function Login() {
               required
             >
               <option value="">Select an Area</option>
-              <option value="Yorkshire">Yorkshire</option>
-              <option value="Derbyshire">Derbyshire</option>
-              <option value="Shropshire">Shropshire</option>
-              <option value="Nottingham">Nottingham</option>
-              <option value="Wolverhampton">Wolverhampton</option>
+              <option value="Chesterfield">Chesterfield</option>
+              <option value="Leek">Leek</option>
+              <option value="Derby">Derby</option>
+              <option value="Macclesfield">Macclesfield</option>
+              <option value="Buxton">Buxton</option>
             </select>
           </div>
           <div className="form-group mb-3"> {}

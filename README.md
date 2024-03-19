@@ -88,3 +88,17 @@ Material UI - Installation
 npmjs.com - Axios
 npmjs.com - react-router-dom
 Stack Overflow - NPM error while running npm install @mui/material ...
+
+# structure for presentation
+# project title
+# concept
+- description
+- motivation for development
+- user story
+# process
+- technologies used
+- breakdown of tasks and roles
+- challenges
+- successes
+# demo
+- directions for future development

@@ -78,13 +78,17 @@ function Home() {
   };
 
   const undoGiftAid = () => {
-    setGiftAid(GiftAid - 1);
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    if (GiftAid >= 1) {
+      setGiftAid(GiftAid - 1);
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
+    }
   };
 
   const undoNotGiftAid = () => {
-    setNoGiftAid(noGiftAid - 1);
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    if (noGiftAid >= 1){
+      setNoGiftAid(noGiftAid - 1);
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
+    }
   };
   // check to see if number are 0, if not calculate the percentage
   const percentage =

@@ -35,10 +35,7 @@ const fetchData = () => {
       });
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password")
-      );
-
-      console.log(filteredData);
-      
+      );     
       const finalData = Object.values(filteredData.reduce((acc, cur) => {
         if (!acc[cur.username]) {
           acc[cur.username] = { ...cur, date: undefined }; // Remove the date key
@@ -49,7 +46,6 @@ const fetchData = () => {
         return acc;
       }, {}));
       
-      console.log(finalData);
       // add procentage to database array
       finalData.forEach((item) => {
         item.proc = Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0;

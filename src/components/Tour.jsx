@@ -1,8 +1,20 @@
 import React from 'react';
 import Tour from 'reactour';
+// import { useHistory } from 'react-router-dom';
 
 const TourComponent = ({ steps, isOpen, onRequestClose }) => {
-    return <Tour steps={steps} isOpen={isOpen} onRequestClose={onRequestClose} />;
+    return (
+        <Tour
+            steps={steps}
+            isOpen={isOpen}
+            onRequestClose={onRequestClose}
+            // onAfterOpen={({ currentStep }) => {
+            //     if (steps[currentStep].action) {
+            //         steps[currentStep].action();
+            //     }
+            // }}
+        />
+    );
 };
 
 const TourSteps = [
@@ -26,9 +38,15 @@ const TourSteps = [
         selector: '.row.justify-content-center',
         content: 'Scroll down to check your total score. If you made a mistake, use the undo buttons to adjust your score.',
     },
+    // Navigate to the leaderboard page
     {
-        selector: '.leaderboard-step',
-        content: 'Navigate to the leaderboard to check your ranking among other users.',
+        selector: '.nav-link[href="/Leaderboard"]',
+        content: 'Click on Leaderboard to view the leaderboard and see how you compare to your colleagues.',
+        action: (node) => {
+            if (node) {
+                node.click();
+            }
+        }
     },
     {
         selector: '.sixth-step',

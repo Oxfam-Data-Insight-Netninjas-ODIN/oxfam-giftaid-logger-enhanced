@@ -66,7 +66,7 @@ function Home() {
     // to prevent delay in serverdata receiving the last updated value:
     const updatedGiftAid = GiftAid + 1;
     setGiftAid(updatedGiftAid);
-    console.log("GiftAid= " + updatedGiftAid);
+ 
     writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
   };
 

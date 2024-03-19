@@ -73,7 +73,7 @@ function Home() {
   const incrementNoGiftAid = () => {
     const updatedNoGiftAid = noGiftAid + 1;
     setNoGiftAid(updatedNoGiftAid);
-    console.log("Nogigt=" + updatedNoGiftAid);
+
     writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
 

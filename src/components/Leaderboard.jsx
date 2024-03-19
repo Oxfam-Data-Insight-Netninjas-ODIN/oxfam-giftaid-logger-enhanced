@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./styleComponents.css";
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 import GlobalUserData from './globalUserData.json'
 import { initializeApp } from "firebase/app";
 import "firebase/database";
@@ -60,38 +69,70 @@ function TopScores() {
       });
   }, []);
 
+  // Directly style the header cell
+const HeaderCell = styled(TableCell)(({ theme }) => ({
+  color: 'white',
+  fontSize: '1.2rem',
+}));
+
+const BodyCell = styled(TableCell)(({ theme }) => ({
+  fontSize: '1rem',
+}));
+
+const BodyTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+
+  // Styles the row for the top 3 positions
+  '&:nth-of-type(1)': {
+    backgroundColor: '#FFC30B',
+  },
+
+  '&:nth-of-type(2)': {
+    backgroundColor: '#C0C0C0',
+  },
+
+  '&:nth-of-type(3)': {
+    backgroundColor: '#CD7F32',
+  },
+}));
+
   return (
     <div>
-      <h1>Welcome !</h1>
-      <p>text here</p>
-      <div className="localScores">
-        <h3>Local Scores here</h3>
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>User Code</th>
-              <th>Name</th>
-              <th>Gift Aid</th>
-              <th>No Gift Aid</th>
-              <th>Percentage</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-          {filteredData.map((item, index) => (
-              <tr key={index}>
-                <td>{item.username}</td>
-                <td>{item.name}</td>
-                <td>{item.gAid}</td>
-                <td>{item.noGAid}</td>
-                <td>{item.proc}%</td>
-                <td>{item.date}</td>
-              </tr>
+    <div id="localScores">
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead id='header'>
+            <TableRow>
+              <HeaderCell>User Code</HeaderCell>
+              <HeaderCell>Name</HeaderCell>
+              <HeaderCell>Gift Aid</HeaderCell>
+              <HeaderCell>No Gift Aid</HeaderCell>
+              <HeaderCell>Percentage</HeaderCell>
+              <HeaderCell>Signups</HeaderCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {filteredData.map((item, index) => (
+              <BodyTableRow key={index}>
+                <BodyCell>{item.username}</BodyCell>
+                <BodyCell>{item.name}</BodyCell>
+                <BodyCell>{item.gAid}</BodyCell>
+                <BodyCell>{item.noGAid}</BodyCell>
+                <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
+                <BodyCell>Signups</BodyCell>
+              </BodyTableRow>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
+    {/* Prints the table using the browser's print function */}
+    <div id="btnFlex"> 
+    <button className="btn" onClick={() => window.print()}>Print Table</button>
+    </div>
+  </div>
   );
 }
 

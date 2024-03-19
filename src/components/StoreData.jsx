@@ -65,7 +65,7 @@ const HoverTableRow = styled(TableRow)(({ theme }) => ({
   transition: 'background-color 0.3s ease-in-out, color 1s ease', // Delay for the hover effect
   '&:hover': {
     backgroundColor: '#458532',
-    color: 'white', // Text color on hover
+    color: 'white', // Text colour on hover
   },
   // Ensures cells within the row also transition to white text on hover
   '&:hover .MuiTableCell-root': {

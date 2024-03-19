@@ -1,159 +1,90 @@
-# oxfam-giftaid-logger-enhanced
+# Boosting Gift Aid Sales Efficiency at Oxfam: Maximizing Impact
 
-This program is a continuation of the Original Gift Aid Logger. It has been converted into a react.js application and utilizes a variety of libraries, packages, and technologies such as () It has added functionality from the first iteration which essentially implemented the following strategy:
+## What we aim to achieve
 
-## Utilization of an Internet-enabled phone for Streamlining Operations
+Our goal is to enhance the efficiency of Gift Aid Sale at Oxfam, aiming for maximum impact. Gift Aid allows us to amplify the value of donations without any extra cost to donors, enabling Oxfam to reclaim 25% of the basic tax paid on their gifts. By partnering with Gift Aid providers, we’re streamlining the process by tagging donated items with barcode labels for better integration with our systems.
 
-This platform leverages an internet-enabled old phone to optimize operations. Here's how it works:
+However, certanin Oxfam GB shops are facing challenges, such as lagging Gift Aid sales. To address this, we’re systematically identifying and rectifying issues, including till operator errors and anomalies in Gift Aid contributions. We’re also exploring technological solutions, like developing an application to improve data recording and analysis.
 
-1. **Setup**:
-   - Users connect the phone to a power outlet at the beginning of each day.
-   - The screensaver is disabled for uninterrupted operation.
-   - The phone is placed in a dashboard holder near the till for easy access.
+One contributing factor may be insufficient hardware in the till scanners receiving this data, leading operators to forgo manual input during peak times. To address this issue, we proposed developing an application using suitable hardware sources. In particular, augmenting the epos till, using old smartphones connected to the shops wifi. The application aims to:
 
-2. **Transaction Process**:
-   - During transactions, users select between 'gift-aided' or 'not gift-aided' buttons.
-   - This facilitates real-time tracking of gift aid sales percentages by username.
+- record gift aid sales per till operator
+- identify potential anomalies
+- encourage participation through gamification
+- provide feedback to area managers, for further analysis
 
-3. **Managerial Insights**:
-   - Friendly competition is encouraged among users.
-   - Managers analyze dynamic leaderboards and tables to identify operational irregularities.
-   - Insights enable the pinpointing of overlooked scans or missed sign-ups with ease.
+## Current practices and their limits
 
-This streamlined approach enhances efficiency and accountability in operations.
-this is the incomplete version, the full version, which will be able to be used by multiple shops simultaneously, enables users to log in from any area, or shop, It also has a button to register and record when someone has persuaded a customer to sign up for gift aid.
+There is a six-sheet objectives chart that managers are to fill in, reminding them the basics of gift aid sign-up protocol, and reminding them to complete inductions with volunteers. This method could and will be improved.
 
-IMPORTANT: No financial data is contained within these programs, there are no shop codes, nor any other information contained within this program that can breach GDPR rules. Security has been at the forefront of our team's objective when developing this application.
+The team's previous system was successfully implemented on a local level in a single shop, and was used to fulfill these objectives identifying candidates who perhaps needed a friendly reminder to scan the codes whilst on the till.
 
+However after user feedback, and additional project requirements, it was decided to continue another iteration of the project as part of the agile development process, so that the system could be used across the divisions of shops and shop areas, primarily by implementing the ability for users to log in and out, as well as save data to a database, as opposed to relying on local storage.
 
+## Innovations in Our Approach
 
-# User requirements
+This time round, the team focused upon using React and Node, for the creation of dynamic user interfaces in order to streamline the development process by providing reusable components, modular code structure, and efficient server-side rendering using React's virtual DOM that enables better performance, and scalability. Node.JS enables server side rendering of react applications which improves page load times and facilitates search engine optimization. It also has extensive community support and a variety of readily available resources in the form of libraries and tools with documentation to assist in enhancing the user experience.
 
-Page 1 - landing page/logger
+## Impact and Stakeholders
 
-- This is the Landing page and displays the Oxfam heading and title
-- The page will ask to confirm a user location, and display if allowed.
-- The page shows the current date and temperature.
-- The page shows a message saying welcome, and then the name of who is 'logged in' or says 'volunteer'.
-- The page has a drop-down form that lets the user select their name if they are using the till, this will carry across page changes
-- It has 2 x buttons, 1 for add gift aid, and one for not gift aid. These are large for the user to see and responsive (sound/visual cues)
-- An animated marquee. this could maybe be replaced with another animation in the future -it is just something to grab the user's attention, containing a motivational script.
+Oxfam as a company can become deeply concerned at the prospect of haemorrhaging money in the form of unsold gift aid donations. Any data that can be acquired from this program will be used in order to analyse anomalies, as well as encourage friendly competition, not just amongst volunteers, but across shops. 25% on every pound made in tax, on top of a donation is a lot of money, and it all adds up.   
 
-A single table row with the days' data: Gift Aided / Not Gift Aided / Percentage
-information that is being used on this page is:
+## Risks & Rewards
 
-- shopCode is 1 letter followed by 4 numbers e.g.. F1924 (this is not included on the prototype landing page)
-- userFirstName is a string of up to 12 characters (this is not included on the prototype landing page)
-- giftAided is an int number value
-- notGiftAided is an int number value
-- Date is a date value, maybe using DateJS API
-- Percentage, is an int value that is the percentage of GiftAid over the total sales (giftAided and notGiftAided)
+Some of the risks that we have to consider are security, data accuracy, and technophobia from not just volunteers, but managers, who have seen an increase in I.T. Security due to data breaches and phishing attacks. In one example, phisers were able to obtain the format of the shop codes and attach it to spoof emails, leaving shop computers open to SSH attacks and suchlike.  In order to combat that we propose three things:
 
-## proposed changes to page 1 a.k.a Logger(homepage)
-- enhance the buttons to make them feel more tactile, make them look convex or concave when pressed, to help them feel more 'clicky.
-- add more variety of GIFFS to the application that is displayed to the user upon GA sale - user feedback was very positive on this.
-- parallax scrolling to be added to the background gradient perhaps, or another image, as long as it isn't busy.
-- a screen saver for the application, that could display animated text and images to tell the volunteers what campaigns Oxfam works on, to help motivate them.
-- shopCode must become cityTown. Security breaches and Phishing attempts have led to increased security with Oxfam's internal systems, to counter this, no shop codes must be used, when a user's information is added to any form of storage. Instead, use a 'city/town name' Bear in mind, that there can be more than one Oxfam shop in a town or city.
-- A user must not be identifiable other than their first name or nickname ( some users have the same name, do a check for this, mention alternatives such as Sue2, or Sue3 etc). they should have a brief password to enter to enter a session, that is created by them upon user name creation. they should have the option to delete the account ( prompted with an 'Are you sure' y/n ) an email signup for user authentication is not required.
-  
+- No vulnerabilities allowed in NPM packages
+- Data format to not include area or shop codes
+- Onboarding process to help users become familiar with navigation
 
-## IMPORTANT CONSIDERATION: the sizing of the layout must be adequate for the phones that they are to be displayed on.
-eg - small iPhone 4 phones, and also a tablet that could be used to demo the application.
+## TimeLines and Deliverables
 
-Page 2, table of data
-screenshot2final
+The team Gained two new members, and we had two weeks to complete the assignment, ensuring timely delivery before the introduction of the new EPOS system.
+192 hours at roughly £25 per hour for 6 junior developers = £4,800
 
-This contains:
+## What are the measures of success?
 
-small logo, page description title, page header, username/temperature, and location if applicable.
-A table that is the same as the table row on the main page except containing more rows (the previous days) is added to as each day goes by (this is the current functionality of the landing page, however, the List that it adds to, should be added to is the one on this page) Ideally, finding a way of printing this data into a readable format on paper would be good (to be sorted by date).
+In the near future, an undisclosed EPOS company will be implementing a new till systems as part of an ongoing contract worth a considerable amount. A point of contact will hopefully be established between them after a successful trail run within one of the shop areas, of which we hope to demonstrate the utility of the program, and ask for consideration of features to be implemented. The measures of success will be:
 
-Data Rows contain:
+1. A trail run by Area
+2. Useful data extraction
+3. Introduction to new EPOS till systems provider, to discuss features
+4. Increase in Gift Aid Sales of any shops using the system
 
-Date/employee (shop) code/employee (volunteer) name / Gift Aided / Not Gift Aided / Percentage of GA sales
+## Packages used:
 
-Refer to page 1 for the data types of each of these pieces of information.
+# Package: Axios
+Axios is a JavaScript library that simplifies making HTTP requests from your applications. Imagine your application needs to fetch data from a server or interact with an API (like fetching weather information or sending a form to a server). Axios helps with that process by providing an easy-to-use interface for sending and receiving data over the internet. It's like a messenger that delivers your requests to the server and brings back the responses, making it easier for your application to communicate with external services.
 
-a link to page 1 (the landing page), possibly small and discrete as well
-a link to page 3 (the high score table), also possibly small and discrete.
+# Package: React-router-dom
+React-router-dom is a package for managing navigation in React applications. It allows you to create different pages or views in your single-page React application. Think of it as a map that guides users through your application's different sections or pages. With React-router-dom, you can define routes for different URLs, and based on these routes, the appropriate components are rendered. This package helps in creating dynamic and interactive user interfaces in React applications. [2][5]
 
-## proposed changes to Page 2, Store Data:
+# Package: @mui/material, @emotion/react, @emotion/styled
+These packages are used for styling React applications, particularly when using the Material-UI framework. @mui/material provides ready-made components and styles based on the Material Design guidelines. @emotion/react and @emotion/styled are packages that enable writing CSS styles within JavaScript files, offering a more convenient way to style React components. Together, they provide a powerful solution for creating visually appealing and responsive user interfaces in React applications. [3][6]
+Package: @gsap/react
 
-- employee code, must be replaced with city/town
-
-- another data type, that needs to be added when adding a new user is - AREA, this would be a string data format, something like 'NW', 'Yorkshire&Dales', 'Birmingham'etc
-  the following point shows how the data row should look. ( I have changed Employee Name to OperatorName as users are mostly volunteers )
-
-- Date / Area / cityTown / OperatorName / Gift Aided / Not Gift Aided / Percentage of sales
-
-- the screensaver if applied in time should apply to this part of the site as well.
-
-page 3 - Score Table
-
-This contains:
-
-smaller logo, page description title, page header, username
-This page is similar to page 2 except it is a high-score table of users with the highest gift aid percentage per day at the top. This page should differentiate between 1st, 2nd, and 3rd places, and also show the current users position. A motivational giff is placed at the top as part of the gamification process.
-
-a link to pages 1 and 2, possibly small and discrete as well
-a link to page 2, also possibly small and discrete.
-
-page 4 / modal input
-
-- this could be part of the burger menu at the top of the nav bar it needs to allow for a user to be added, modified, or deleted, and to log in or out.
+# @gsap/react is a package that integrates the GSAP 
+(GreenSock Animation Platform) library with React applications. GSAP is a robust animation library used for creating smooth and sophisticated animations on the web. With @gsap/react, developers can easily incorporate GSAP animations into their React projects, adding visually engaging effects to their user interfaces. It simplifies the process of animating React components, making it accessible to developers of all skill levels.
 
 
-# Final Project
-## Application Requirements
-You and your group will use everything you’ve learned to create a real-world client-side single-page application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:
-* Must use ReactJS.
-* Must use Node.
-* Must have both GET and POST routes for retrieving and adding new data.
-* Must deploy this application using Netlify.
-* Must utilize at least two libraries, packages, or technologies that we haven't discussed.
-* Must have a polished front end/UI.
-* Must meet good quality coding standards (indentation, scoping, naming).
-* Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-## Presentation Requirements
-Use this [project presentation template](https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing) to address the following:
-* Elevator pitch: a one minute description of your application.
-* Concept: What is your user story? What was your motivation for development?
-* Process: What were the technologies used? How were tasks and group roles broken down and assigned? What challenges did you encounter? What were your successes?
-* Demo: Show your stuff!
-* Directions for future development
-* Links to to the deployed application and the GitHub repository
-## Grading Requirements
-This project is graded based on the following criteria:
-### Technical Acceptance Criteria: 20%
-* Satisfies the following code requirements:
-  * Application uses React.
-  * Application uses Node.
-  * Application uses at least two libraries, packages, or technologies that we haven't discussed.
-  * Application has both GET and POST routes for retrieving and adding new data.
-### Concept 10%
-* Application should be a unique and novel idea.
-* Your group should clearly and concisely articulate your project idea.
-### Deployment: 20%
-* Application deployed at live URL using Netlify and loads with no errors.
-* Application GitHub URL submitted.
-### Repository Quality: 10%
-* Repository has a unique name.
-* Repository follows best practices for file structure and naming conventions.
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-* Repository contains multiple descriptive commit messages.
-* Repository contains a quality README file with description, screenshot, and link to deployed application.
-### Application Quality: 15%
-* Application user experience is intuitive and easy to navigate.
-* Application user interface style is clean and polished.
-* Application is responsive.
-### Presentation 10%
-* Your group should present using Powerpoint or a similar presentation software.
-* Every group member should speak during the presentation.
-* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-### Collaboration 15%
-* There are no major disparities in the number of GitHub contributions between group members.
-## How to Submit Your Client-Side Single-Page Application
-**Each member of your group** is required to submit the following for review:
-* The URL of the deployed application.
-* The URL of the GitHub repository, with a unique name and a README describing the project.
+# Package: @mui/material, @emotion/react, @emotion/styled
+These packages are used for styling React applications, particularly when using the Material-UI framework. @mui/material provides ready-made components and styles based on the Material Design guidelines. @emotion/react and @emotion/styled are packages that enable writing CSS styles within JavaScript files, offering a more convenient way to style React components. Together, they provide a powerful solution for creating visually appealing and responsive user interfaces in React applications. [3][6]
+
+# Package: @gsap/react
+@gsap/react is a package that integrates the GSAP (GreenSock Animation Platform) library with React applications. GSAP is a robust animation library used for creating smooth and sophisticated animations on the web. With @gsap/react, developers can easily incorporate GSAP animations into their React projects, adding visually engaging effects to their user interfaces. It simplifies the process of animating React components, making it accessible to developers of all skill levels.
+
+# Package: reactour
+Reactour is a package used for creating guided tours within React applications. It allows developers to create interactive tours that guide users through the features or functionalities of their application. This is useful for onboarding new users or providing help within the application by highlighting important elements and explaining their purpose. Reactour simplifies the process of creating step-by-step tours, enhancing the user experience and usability of React applications.
+
+# Package: express, body-parser, csv-parser, fs
+These packages are commonly used in Node.js applications for building server-side applications or APIs. Express is a web application framework for Node.js that simplifies the process of building web servers. Body-parser is middleware for Express that helps parse incoming request bodies. Csv-parser is specifically designed for parsing CSV files, while fs is a core module in Node.js used for interacting with the file system. Together, these packages provide essential tools for building robust and scalable server-side applications in Node.js.
+
+# Package: Firebase
+Firebase is a comprehensive platform provided by Google for building mobile and web applications. It offers various services such as authentication, real-time database, cloud storage, hosting, and more. npm i Firebase would likely be an attempt to install Firebase-related packages for integrating Firebase services into a JavaScript application.
+
+KnowledgeHut - Use Axios NPM to Generate HTTP Requests [Step-by-Step]
+GeeksforGeeks - What is react-router-dom?
+Material UI - Installation
+npmjs.com - Axios
+npmjs.com - react-router-dom
+Stack Overflow - NPM error while running npm install @mui/material ...

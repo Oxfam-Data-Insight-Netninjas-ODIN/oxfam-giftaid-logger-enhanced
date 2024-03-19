@@ -39,17 +39,17 @@ Some of the risks that we have to consider are security, data accuracy, and tech
 
 ## TimeLines and Deliverables
 
-The team Gained two new members, and we had two weeks to complete the assignment, ensuring timely delivery before the implementation of the new EPOS system.
+The team Gained two new members, and we had two weeks to complete the assignment, ensuring timely delivery before the introduction of the new EPOS system.
 192 hours at roughly £25 per hour for 6 junior developers = £4,800
 
 ## What are the measures of success?
 
 In the near future, an undisclosed EPOS company will be implementing a new till systems as part of an ongoing contract worth a considerable amount. A point of contact will hopefully be established between them after a successful trail run within one of the shop areas, of which we hope to demonstrate the utility of the program, and ask for consideration of features to be implemented. The measures of success will be:
 
-1 A trail run by Area
-2 Useful data extraction
-3 Introduction to new EPOS till systems provider, to discuss features
-4 Increase in Gift Aid Sales of any shops using the system
+1. A trail run by Area
+2. Useful data extraction
+3. Introduction to new EPOS till systems provider, to discuss features
+4. Increase in Gift Aid Sales of any shops using the system
 
 ## Packages used:
 

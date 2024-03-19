@@ -59,18 +59,18 @@ Axios is a JavaScript library that simplifies making HTTP requests from your app
 # Package: React-router-dom
 React-router-dom is a package for managing navigation in React applications. It allows you to create different pages or views in your single-page React application. Think of it as a map that guides users through your application's different sections or pages. With React-router-dom, you can define routes for different URLs, and based on these routes, the appropriate components are rendered. This package helps in creating dynamic and interactive user interfaces in React applications. [2][5]
 
-#Package: @mui/material, @emotion/react, @emotion/styled
+# Package: @mui/material, @emotion/react, @emotion/styled
 These packages are used for styling React applications, particularly when using the Material-UI framework. @mui/material provides ready-made components and styles based on the Material Design guidelines. @emotion/react and @emotion/styled are packages that enable writing CSS styles within JavaScript files, offering a more convenient way to style React components. Together, they provide a powerful solution for creating visually appealing and responsive user interfaces in React applications. [3][6]
 Package: @gsap/react
 
-#@gsap/react is a package that integrates the GSAP 
+# @gsap/react is a package that integrates the GSAP 
 (GreenSock Animation Platform) library with React applications. GSAP is a robust animation library used for creating smooth and sophisticated animations on the web. With @gsap/react, developers can easily incorporate GSAP animations into their React projects, adding visually engaging effects to their user interfaces. It simplifies the process of animating React components, making it accessible to developers of all skill levels.
 
 
-#Package: @mui/material, @emotion/react, @emotion/styled
+# Package: @mui/material, @emotion/react, @emotion/styled
 These packages are used for styling React applications, particularly when using the Material-UI framework. @mui/material provides ready-made components and styles based on the Material Design guidelines. @emotion/react and @emotion/styled are packages that enable writing CSS styles within JavaScript files, offering a more convenient way to style React components. Together, they provide a powerful solution for creating visually appealing and responsive user interfaces in React applications. [3][6]
 
-#Package: @gsap/react
+# Package: @gsap/react
 @gsap/react is a package that integrates the GSAP (GreenSock Animation Platform) library with React applications. GSAP is a robust animation library used for creating smooth and sophisticated animations on the web. With @gsap/react, developers can easily incorporate GSAP animations into their React projects, adding visually engaging effects to their user interfaces. It simplifies the process of animating React components, making it accessible to developers of all skill levels.
 
 # Package: reactour

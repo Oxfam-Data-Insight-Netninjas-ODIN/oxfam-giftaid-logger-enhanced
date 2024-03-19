@@ -38,7 +38,7 @@ const fetchData = () => {
       filteredData.forEach((item) => {
         item.proc = Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0;
       });
-      // Sort filteredData in descending order based on the 'proc' key
+      // Sort filteredData in descending order based on the percentage
       filteredData.sort((a, b) => b.proc - a.proc);
 
       resolve(filteredData);
@@ -105,25 +105,23 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
         <Table aria-label="simple table">
           <TableHead id='header'>
             <TableRow>
-              <HeaderCell>Position</HeaderCell>
               <HeaderCell>User Code</HeaderCell>
               <HeaderCell>Name</HeaderCell>
               <HeaderCell>Gift Aid</HeaderCell>
               <HeaderCell>No Gift Aid</HeaderCell>
               <HeaderCell>Percentage</HeaderCell>
-              <HeaderCell>Date</HeaderCell>
+              <HeaderCell>Signups</HeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {filteredData.map((item, index) => (
               <BodyTableRow key={index}>
-                <BodyCell>Position no.</BodyCell>
                 <BodyCell>{item.username}</BodyCell>
                 <BodyCell>{item.name}</BodyCell>
                 <BodyCell>{item.gAid}</BodyCell>
                 <BodyCell>{item.noGAid}</BodyCell>
                 <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
-                <BodyCell>{item.date}</BodyCell>
+                <BodyCell>Signups</BodyCell>
               </BodyTableRow>
             ))}
           </TableBody>

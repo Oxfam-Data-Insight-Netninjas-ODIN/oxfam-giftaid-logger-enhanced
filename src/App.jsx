@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StoreData from './components/StoreData'
@@ -9,14 +9,17 @@ import Marquee from './components/Marquee';
 import Login from './components/Login';
 import Screensaver from './components/Screensaver';
 import Wrapper from './components/Wrapper';
-
-
+import { TourComponent, TourSteps } from './components/Tour';
 
 function App() {
+  const [isTourOpen, setIsTourOpen] = useState(false);
+
   return (
     <Router>
     <div>
       <Navbar />
+      <button onClick={() => setIsTourOpen(true)}>Start Tour</button>
+        <TourComponent steps={TourSteps} isOpen={isTourOpen} onRequestClose={() => setIsTourOpen(false)} />
       <Wrapper>
         <Routes>
           <Route path="/" element={<Login />} />

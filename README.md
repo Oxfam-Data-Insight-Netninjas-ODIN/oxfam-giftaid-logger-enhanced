@@ -61,6 +61,14 @@ React-router-dom is a package for managing navigation in React applications. It 
 
 #Package: @mui/material, @emotion/react, @emotion/styled
 These packages are used for styling React applications, particularly when using the Material-UI framework. @mui/material provides ready-made components and styles based on the Material Design guidelines. @emotion/react and @emotion/styled are packages that enable writing CSS styles within JavaScript files, offering a more convenient way to style React components. Together, they provide a powerful solution for creating visually appealing and responsive user interfaces in React applications. [3][6]
+Package: @gsap/react
+
+#@gsap/react is a package that integrates the GSAP 
+(GreenSock Animation Platform) library with React applications. GSAP is a robust animation library used for creating smooth and sophisticated animations on the web. With @gsap/react, developers can easily incorporate GSAP animations into their React projects, adding visually engaging effects to their user interfaces. It simplifies the process of animating React components, making it accessible to developers of all skill levels.
+
+
+#Package: @mui/material, @emotion/react, @emotion/styled
+These packages are used for styling React applications, particularly when using the Material-UI framework. @mui/material provides ready-made components and styles based on the Material Design guidelines. @emotion/react and @emotion/styled are packages that enable writing CSS styles within JavaScript files, offering a more convenient way to style React components. Together, they provide a powerful solution for creating visually appealing and responsive user interfaces in React applications. [3][6]
 
 #Package: @gsap/react
 @gsap/react is a package that integrates the GSAP (GreenSock Animation Platform) library with React applications. GSAP is a robust animation library used for creating smooth and sophisticated animations on the web. With @gsap/react, developers can easily incorporate GSAP animations into their React projects, adding visually engaging effects to their user interfaces. It simplifies the process of animating React components, making it accessible to developers of all skill levels.

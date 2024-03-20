@@ -286,6 +286,11 @@ a:active.circle-wrapper::after {
   color: var(--font-colour);
 }
 
+#trophyWrapper {
+  display: flex;
+  align-items: center;
+}
+
 #btnFlex { /* Positions the print table button to the right */
   display: flex;
   justify-content: flex-end;

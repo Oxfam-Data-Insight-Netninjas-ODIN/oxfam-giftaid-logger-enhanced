@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import LocalUserData from "./localUserData.json";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -30,7 +29,11 @@ const fetchData = () => {
           historyData.unshift(nestedValue);
         });
       });
-      historyData.sort((a, b) => {
+      const filteredData = historyData.filter(
+        (obj) => !Object.keys(obj).includes("password")
+      );
+
+      filteredData.sort((a, b) => {
         // First, sort by date
         if (a.date > b.date) {
           return -1;
@@ -48,9 +51,6 @@ const fetchData = () => {
         }
       });
 
-      const filteredData = historyData.filter(
-        (obj) => !Object.keys(obj).includes("password")
-      );
 
       resolve(filteredData);
     }).catch((error) => {

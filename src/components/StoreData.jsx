@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import LocalUserData from "./localUserData.json";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -33,6 +32,26 @@ const fetchData = () => {
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password")
       );
+
+      filteredData.sort((a, b) => {
+        // First, sort by date
+        if (a.date > b.date) {
+          return -1;
+        } else if (a.date < b.date) {
+          return 1;
+        } else {
+          // If dates are the same, sort by username in ascending order
+          if (a.username < b.username) {
+            return -1;
+          } else if (a.username > b.username) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      });
+
+
       resolve(filteredData);
     }).catch((error) => {
       reject(error);
@@ -108,7 +127,7 @@ function LocalScores() {
                 <BodyCell>{item.name}</BodyCell>
                 <BodyCell>{item.gAid}</BodyCell>
                 <BodyCell>{item.noGAid}</BodyCell>
-                <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
+                <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0}%</BodyCell>
                 <BodyCell>{item.date}</BodyCell>
               </HoverTableRow>
             ))}

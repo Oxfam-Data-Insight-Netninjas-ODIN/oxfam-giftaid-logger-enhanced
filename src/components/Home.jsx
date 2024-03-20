@@ -160,9 +160,7 @@ function Home() {
       </div>
       <Footer />
     </div>
-    
   );
-
 }
 
 export default Home;

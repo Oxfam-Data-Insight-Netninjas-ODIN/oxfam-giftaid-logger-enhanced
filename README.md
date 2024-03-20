@@ -15,9 +15,9 @@ One contributing factor may be insufficient hardware in the till scanners receiv
 
 ## Current practices and their limits
 
-There is a six-sheet objectives chart that managers are to fill in, reminding them the basics of gift aid sign-up protocol, and reminding them to complete inductions with volunteers. This method could and will be improved.
+There is a six-sheet objectives chart that managers are to fill in, during review, to remind them the basics of gift aid sign-up protocol, and reminding them to complete inductions with volunteers. This method could and will be improved.
 
-The team's previous system was successfully implemented on a local level in a single shop, and was used to fulfill these objectives identifying candidates who perhaps needed a friendly reminder to scan the codes whilst on the till.
+The team's previous system, was tested in a single shop, and was used to identify candidates who perhaps needed a friendly reminder to scan the codes whilst on the till.
 
 However after user feedback, and additional project requirements, it was decided to continue another iteration of the project as part of the agile development process, so that the system could be used across the divisions of shops and shop areas, primarily by implementing the ability for users to log in and out, as well as save data to a database, as opposed to relying on local storage.
 
@@ -27,20 +27,20 @@ This time round, the team focused upon using React and Node, for the creation of
 
 ## Impact and Stakeholders
 
-Oxfam as a company can become deeply concerned at the prospect of hemorrhaging money in the form of unsold gift aid donations. Any data that can be acquired from this program will be used in order to analyze anomalies, as well as encourage friendly competition, not just amongst volunteers, but across shops. 25% on every pound made in tax, on top of a donation, is a lot of money, and it all adds up.   
+Oxfam as a company can become deeply concerned at the prospect of hemorrhaging money in the form of unsold gift aid donations. Any data that can be acquired from this program will be used in order to analyze anomalies, as well as encourage friendly competition, not just amongst volunteers, but across shops. 25% on every pound made in tax, on top of a donation, can contribute significantly to the charitys turnover.
 
-## Risks & Rewards
+## Risks
 
 Some of the risks that we have to consider are security, data accuracy, and technophobia from not just volunteers, but managers, who have seen an increase in I.T. Security due to data breaches and phishing attacks. In one example, phisers were able to obtain the format of the shop codes and attach it to spoof emails, leaving shop computers open to SSH attacks and such-like.  In order to combat that we propose three things:
 
 - No vulnerabilities allowed in NPM packages
-- Data format to not include area or shop codes
+- Client side data format to not include area or shop codes
 - Onboarding process to help users become familiar with navigation
+- No financial data, or Potential GDPR breaches possible
 
-## TimeLines and Deliverables
-
+## TimeLines
 The team Gained two new members, and we had two weeks to complete the assignment, ensuring timely delivery before the introduction of the new EPOS system.
-192 hours at roughly £25 per hour for 6 junior developers = £4,800
+We estimate that 192 hours at roughly £25 per hour for 6 junior developers would theroretically cost around £4,800.
 
 ## What are the measures of success?
 
@@ -50,6 +50,8 @@ In the near future, an undisclosed EPOS company will be implementing a new till 
 2. Useful data extraction
 3. Introduction to new EPOS till systems provider, to discuss features
 4. Increase in Gift Aid Sales of any shops using the system
+
+There are approximatley 600 shops in the uk, and say on average they have 25 shops per area code, which would mean 24 areas. Say the bottom 3 shops of each of these areas (72 shops) participated in using the program, over a period of 7 months (estimated time frame until new epos is implemented), a measure of success would be looking to see if the gift aid sales over this period of time was greater than the cost it would cost to implement it.
 
 ## Packages used:
 

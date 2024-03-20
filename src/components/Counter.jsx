@@ -42,24 +42,24 @@ function Counter({incrementGiftAid, incrementNoGiftAid }) {
     <>
     <div className="container">
       <div className="row">
-        <div className='col'>
+        <div className='col px-4'>
           <div className="circle-wrapper" onClick={() => {
             gaClick();
             gaMessage();
           }}>
             <div className="content-wrapper">
-              <img src={tick} alt="Tick" className="icon"/>
+              <img src={tick} alt="Tick icon" className="icon"/>
               <span>{gaText}</span>
             </div>
           </div>
         </div>
-        <div className='col'>
+        <div className='col px-4'>
           <div id='notBtn' className="button circle-wrapper" onClick={() => {
             ngaClick();
             ngaMessage();
           }}>
             <div className="content-wrapper">
-              <img src={cross} alt="Cross" className="icon"/>
+              <img src={cross} alt="Cross icon" className="icon"/>
               <span>{ngaText}</span>
             </div>
           </div>

@@ -301,7 +301,7 @@ a:active.circle-wrapper::after {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
-  padding: 20px;
+   padding: 20px;
 }
 
 /* Start of table styling */

@@ -24,18 +24,39 @@ function Login() {
     // NEW CODE to retrieve the user and password from server and check if are same with input
     const dbRef = ref(getDatabase());
     const userId = username + "1234";
+    // check if is and admin login
+    get(child(dbRef, "admin"))
+            .then ((snapshot) => {
+              if (snapshot.exists()) {
+                if (username === snapshot.val().name && pin === snapshot.val().pass) {
+                  const date = new Date().toISOString().split('T')[0];
+                  localStorage.setItem('countGiftAid', snapshot.val().gAid);
+                  localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
+                  localStorage.setItem('username', "admin");
+                  // code to be executed here only for admin !!!!
+
+                  // end of code to be executed for admin ++++++++
+                  window.location.href = "/Leaderboard"
+                }
+              }
+
+            })
+    // login for normal user
     get(child(dbRef, `users/`+ userId))
       .then((snapshot) => {
         if (snapshot.exists()) {
           const retrievedPassword = snapshot.val().pass.password;
           console.log(snapshot.val().pass.password);
+          // set date in format yyyy-mm-dd
           const date = new Date().toISOString().split('T')[0];
           console.log(date);   
+          
           // check if user is already in server db and update server data 
           get(child(dbRef, `users/`+ userId + '/'+ date))
               .then((snapshot) => {
                 if (snapshot.exists()) {
-                  console.log(snapshot.val().gAid);}});
+                  console.log(snapshot.val().gAid);}
+                });
                   localStorage.setItem('countGiftAid', snapshot.val().gAid);
                   localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
 

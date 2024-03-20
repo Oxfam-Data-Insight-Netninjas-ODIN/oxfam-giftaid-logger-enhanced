@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./styleComponents.css";
 import logo from '../assets/oxfam_logo.png';
 import logout from '../assets/logout.svg';
 import LogoutModal from './LogoutModal';
+// import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +14,7 @@ function Navbar() {
   const handleLogoutClick = () => {
     setIsModalOpen(true);
   };
+
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary container-fluid">

@@ -349,40 +349,19 @@ a:active.circle-wrapper::after {
   background-color: black;
 }
 /* End of screensaver styling */
-/* start of description styling */
-.with-border {
-  border: 2px solid #ffffff; /* border thickness and colour
-  padding: 20px; /* Optional: Add padding to the section */
-}
 
-.spread-box {
-  display: flex;
-  justify-content: center;
-}
 
-.box {
-  width: 250px; /* Adjust the width of the box */
-  height: 150px; /* Adjust the height of the box */
-  background-color: #99CC00; /* Example background color */
-  margin: 10px; /* Optional: Adjust the margin between boxes */
-  border-radius: 15px; /* Adjust the border radius to make the boxes more curved */
-}
 
-.box {
+/* KEEP THESE HERE FOR NOW STYLING THE SKELETON */
+.data-table {
+  border-collapse: collapse;
   width: 100%;
-  height: 100%;
-  border: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.box img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* Optional: to add spacing around the images */
-.box-image {
-  padding: 10px;
-}
+.data-table th, .data-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+    min-height: 100%;
+    padding-bottom: 100px;
+  }

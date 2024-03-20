@@ -11,6 +11,14 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function Home() {
+  const [isTourOpen, setIsTourOpen] = useState(localStorage.getItem('hasShownTour') === null);
+
+    // Show the tour if it's the first login
+    useEffect(() => {
+      if (isTourOpen) {
+        localStorage.setItem('hasShownTour', true);
+      }
+    }, [isTourOpen]);
   // code here to retrieve user counter history from server for curent date if exist
   // and save it to local storage
   const username = localStorage.getItem("username");
@@ -43,10 +51,12 @@ function Home() {
           console.log("User data on specific date does not exist");
           // !!!! == to define later the userId format == !!!!!!!
           // const userId = username + "1234"
-          const password = "1234";
-          console.log(userId, username, GiftAid, noGiftAid, date);
-          // write data to server
-          writeUserData(userId, username, GiftAid, noGiftAid, date);
+            if (localStorage.getItem("username") !== "admin") {
+              console.log(userId, username, GiftAid, noGiftAid, date);
+              // write data to server
+              writeUserData(userId, username, GiftAid, noGiftAid, date);
+            };
+
         }
       })
       .catch((error) => {
@@ -66,28 +76,46 @@ function Home() {
     // to prevent delay in serverdata receiving the last updated value:
     const updatedGiftAid = GiftAid + 1;
     setGiftAid(updatedGiftAid);
- 
-    writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
+    if (localStorage.getItem("username") !== "admin") {
+      console.log(userId, username, GiftAid, noGiftAid, date);
+      // write data to server
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
+    };
+
   };
 
   const incrementNoGiftAid = () => {
     const updatedNoGiftAid = noGiftAid + 1;
     setNoGiftAid(updatedNoGiftAid);
+    if (localStorage.getItem("username") !== "admin") {
+      console.log(userId, username, GiftAid, noGiftAid, date);
+      // write data to server
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
+    };
 
-    writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
 
   const undoGiftAid = () => {
     if (GiftAid >= 1) {
       setGiftAid(GiftAid - 1);
-      writeUserData(userId, username, GiftAid, noGiftAid, date);
+      if (localStorage.getItem("username") !== "admin") {
+        console.log(userId, username, GiftAid, noGiftAid, date);
+        // write data to server
+        writeUserData(userId, username, GiftAid, noGiftAid, date);
+      };
+
     }
   };
 
   const undoNotGiftAid = () => {
     if (noGiftAid >= 1){
       setNoGiftAid(noGiftAid - 1);
-      writeUserData(userId, username, GiftAid, noGiftAid, date);
+      if (localStorage.getItem("username") !== "admin") {
+        console.log(userId, username, GiftAid, noGiftAid, date);
+        // write data to server
+        writeUserData(userId, username, GiftAid, noGiftAid, date);
+      };
+
     }
   };
   // check to see if number are 0, if not calculate the percentage

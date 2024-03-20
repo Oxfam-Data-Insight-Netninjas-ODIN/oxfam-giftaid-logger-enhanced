@@ -1,0 +1,51 @@
+.modal-content {
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  .modal-header {
+    background-color: #005721;
+    color: #ffffff;
+    border-bottom: none;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: #ffffff;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: #ffffff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  .modal-footer .btn:not(:last-child) {
+    margin-right: 10px;
+  }

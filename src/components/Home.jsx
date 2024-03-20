@@ -6,19 +6,17 @@ import "firebase/database";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from "./FirebaseConfig";
 import { writeUserData } from "./firebaseFunct.js";
+import { TourComponent, TourSteps } from './Tour';
+import qmark from '../assets/qmark.svg';
+
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function Home() {
-  const [isTourOpen, setIsTourOpen] = useState(localStorage.getItem('hasShownTour') === null);
 
-    // Show the tour if it's the first login
-    useEffect(() => {
-      if (isTourOpen) {
-        localStorage.setItem('hasShownTour', true);
-      }
-    }, [isTourOpen]);
+
+
   // code here to retrieve user counter history from server for curent date if exist
   // and save it to local storage
   const username = localStorage.getItem("username");
@@ -123,8 +121,19 @@ function Home() {
     GiftAid + noGiftAid !== 0 ? (GiftAid / (GiftAid + noGiftAid)) * 100 : 0;
   const roundPercentage = Math.round(percentage.toFixed(2));
 
+  // Show the tour if it's the first login
+  const [isTourOpen, setIsTourOpen] = useState(localStorage.getItem('hasShownTour') === null)
+  useEffect(() => {
+    if (isTourOpen) {
+      localStorage.setItem('hasShownTour', true);
+    }
+  }, [isTourOpen]);
+  
+
   return (
     <div>
+      <img id='tour' src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
+      <TourComponent steps={TourSteps} isOpen={isTourOpen} onRequestClose={() => setIsTourOpen(false)} />
       <Counter
         incrementGiftAid={incrementGiftAid}
         incrementNoGiftAid={incrementNoGiftAid}

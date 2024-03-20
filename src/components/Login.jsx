@@ -55,7 +55,10 @@ function Login() {
           get(child(dbRef, `users/`+ userId + '/'+ date))
               .then((snapshot) => {
                 if (snapshot.exists()) {
-                  console.log(snapshot.val().gAid);}
+                  console.log(snapshot.val().gAid);
+                } else {
+                  localStorage.setItem('hasShownTour', false);
+                }
                 });
                   localStorage.setItem('countGiftAid', snapshot.val().gAid);
                   localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);

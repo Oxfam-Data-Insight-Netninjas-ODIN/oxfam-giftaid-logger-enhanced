@@ -11,6 +11,14 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function Home() {
+  const [isTourOpen, setIsTourOpen] = useState(localStorage.getItem('hasShownTour') === null);
+
+    // Show the tour if it's the first login
+    useEffect(() => {
+      if (isTourOpen) {
+        localStorage.setItem('hasShownTour', true);
+      }
+    }, [isTourOpen]);
   // code here to retrieve user counter history from server for curent date if exist
   // and save it to local storage
   const username = localStorage.getItem("username");

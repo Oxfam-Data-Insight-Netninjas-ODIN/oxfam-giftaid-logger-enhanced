@@ -122,6 +122,7 @@ function Home() {
 
     }
   };
+
   // check to see if number are 0, if not calculate the percentage
   const percentage =
     GiftAid + noGiftAid !== 0 ? (GiftAid / (GiftAid + noGiftAid)) * 100 : 0;

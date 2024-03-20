@@ -44,9 +44,15 @@ function Login() {
     // login for normal user
     get(child(dbRef, `users/`+ userId))
       .then((snapshot) => {
+
+
         if (snapshot.exists()) {
+          // Check if "pass" exists and no other values are present
+          if (snapshot.val().pass && Object.keys(snapshot.val()).length === 1) {
+            // Update the value in local storage to false
+            localStorage.setItem('hasShownTour', 'false');
+          }
           const retrievedPassword = snapshot.val().pass.password;
-          console.log(snapshot.val().pass.password);
           // set date in format yyyy-mm-dd
           const date = new Date().toISOString().split('T')[0];
           console.log(date);   

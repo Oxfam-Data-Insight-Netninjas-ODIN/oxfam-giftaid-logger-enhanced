@@ -6,6 +6,7 @@ import "firebase/database";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from "./FirebaseConfig";
 import { writeUserData } from "./firebaseFunct.js";
+import giftaidproject from "../assets/giftaidproject.png";
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
@@ -124,8 +125,10 @@ function Home() {
           </div>
         </div>
       </div>
+      <div><img src={giftaidproject}></img></div>
       <Footer />
     </div>
+
   );
 }
 

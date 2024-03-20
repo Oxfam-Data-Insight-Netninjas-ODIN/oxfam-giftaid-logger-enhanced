@@ -9,6 +9,7 @@ import { writeUserData } from "./firebaseFunct.js";
 import { TourComponent, TourSteps } from './Tour';
 import qmark from '../assets/qmark.svg';
 
+import giftaidproject from "../assets/giftaidproject.png";
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
@@ -140,8 +141,10 @@ function Home() {
           </div>
         </div>
       </div>
+      <div><img src={giftaidproject}></img></div>
       <Footer />
     </div>
+
   );
 }
 

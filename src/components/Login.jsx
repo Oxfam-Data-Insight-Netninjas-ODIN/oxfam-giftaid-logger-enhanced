@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import "./CustomModal.css"; // Import custom CSS file for modal styling
 import { initializeApp } from "firebase/app";
 import "firebase/database";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from './FirebaseConfig';
 import AdminModal from './AdminModal'; // Import the AdminModal component
 
@@ -24,13 +24,37 @@ function Login() {
       alert("Please enter username, pin, and select an area");
       return;
     }
+    // NEW CODE to retrieve the user and password from server and check if are same with input
+    const dbRef = ref(getDatabase());
+    const userId = username + "1234";
+    // check if is and admin login
+    get(child(dbRef, "admin"))
+      .then ((snapshot) => {
+        if (snapshot.exists()) {
+          if (username === snapshot.val().name && pin === snapshot.val().pass) {
+            const date = new Date().toISOString().split('T')[0];
+            localStorage.setItem('countGiftAid', snapshot.val().gAid);
+            localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
+            localStorage.setItem('username', "admin");
+            // code to be executed here only for admin !!!!
+            // end of code to be executed for admin ++++++++
+               // Check if the user is an admin
+            const adminUsername = snapshot.val().name;
+            const adminPassword = snapshot.val().pass;
 
-    // Check if the user is an admin
-    const adminUsername = "ADMIN01";
-    const adminPassword = "5678";
+            if (username === adminUsername && pin === adminPassword) {
+              setIsAdmin(true);
+              setShowAdminModal(true);
+              return;
+            }
+            window.location.href = "/Leaderboard"
+          }
+        }
+      });
 
-<<<<<<< HEAD
-            })
+
+
+            
     // login for normal user
     get(child(dbRef, `users/`+ userId))
       .then((snapshot) => {
@@ -75,12 +99,6 @@ function Login() {
        
         console.error(error);
       });
-=======
-    if (username === adminUsername && pin === adminPassword) {
-      setIsAdmin(true);
-      setShowAdminModal(true);
-      return;
-    }
 
     // If not admin, close modal
     setShowModal(false);
@@ -89,7 +107,7 @@ function Login() {
   const handleAdminModalClose = () => {
     setShowAdminModal(false);
     setShowModal(false); // Close the main login modal as well
->>>>>>> 21168a4c7ac555cd71db577d88c2220a455d84b6
+
   };
 
   return (

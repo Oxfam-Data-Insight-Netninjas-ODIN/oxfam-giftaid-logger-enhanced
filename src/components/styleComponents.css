@@ -345,3 +345,21 @@ a:active.circle-wrapper::after {
   background-color: black;
 }
 /* End of screensaver styling */
+/* start of description styling */
+.with-border {
+  border: 2px solid #ffffff; /* border thickness and colour
+  padding: 20px; /* Optional: Add padding to the section */
+}
+
+.spread-box {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  width: 150px; /* Adjust the width of the box */
+  height: 150px; /* Adjust the height of the box */
+  background-color: #99CC00; /* Example background color */
+  margin: 10px; /* Optional: Adjust the margin between boxes */
+  border-radius: 15px; /* Adjust the border radius to make the boxes more curved */
+}

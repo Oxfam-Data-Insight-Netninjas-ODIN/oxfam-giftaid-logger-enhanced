@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StoreData from './components/StoreData'
 import Leaderboard from './components/Leaderboard'
+import AdminComponent from './components/AdminComponent'
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Marquee from './components/Marquee';
@@ -13,6 +14,8 @@ import Wrapper from './components/Wrapper';
 
 
 function App() {
+
+
   return (
     <Router>
     <div>

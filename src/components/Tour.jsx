@@ -1,6 +1,6 @@
 import React from 'react';
 import Tour from 'reactour';
-// import { useHistory } from 'react-router-dom';
+
 
 const TourComponent = ({ steps, isOpen, onRequestClose }) => {
     return (
@@ -8,11 +8,6 @@ const TourComponent = ({ steps, isOpen, onRequestClose }) => {
             steps={steps}
             isOpen={isOpen}
             onRequestClose={onRequestClose}
-            // onAfterOpen={({ currentStep }) => {
-            //     if (steps[currentStep].action) {
-            //         steps[currentStep].action();
-            //     }
-            // }}
         />
     );
 };
@@ -24,7 +19,7 @@ const TourSteps = [
     },
     {
         selector: '.second-step',
-        content: 'The application will prompt you to login using your ... This will be done for each session.',
+        content: 'The application will prompt you to login using your Username, Pin Number and Area. This will need to be entered for each session.',
     },
     {
         selector: '.circle-wrapper',
@@ -38,7 +33,6 @@ const TourSteps = [
         selector: '.row.justify-content-center',
         content: 'Scroll down to check your total score. If you made a mistake, use the undo buttons to adjust your score.',
     },
-    // Navigate to the leaderboard page
     {
         selector: '.nav-link[href="/Leaderboard"]',
         content: 'Click on Leaderboard to view the leaderboard and see how you compare to your colleagues.',
@@ -49,8 +43,17 @@ const TourSteps = [
         }
     },
     {
+        selector: '.nav-link[href="/StoreData"]',
+        content: 'Click on Store Data to view a summary.',
+        action: (node) => {
+            if (node) {
+                node.click();
+            }
+        }
+    },
+    {
         selector: '.sixth-step',
-        content: 'That concludes the tour of the gift aid logger. If you have any questions, please ask your manager, deputy manager, or supervisor.richest ',
+        content: 'That concludes the tour of the gift aid logger. If you have any questions, please ask your manager, deputy manager, or supervisor.',
     },
     // Add more steps as needed
 ];

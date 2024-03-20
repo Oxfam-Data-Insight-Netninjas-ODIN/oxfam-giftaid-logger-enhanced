@@ -2,22 +2,29 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./AdminModal.css"; // Import AdminModal.css file
 import { writeUserData } from "./firebaseFunct.js";
+import { deleteUser } from "./firebaseFunct.js";
+
 
 function AdminModal({ show, onClose }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [sufix, setSufix] = useState("");
+ 
 
   const handleAddUser = () => {
     console.log(name);
     console.log(password);
     console.log(sufix);
-    writeUserData(sufix, name, password)
+    writeUserData(sufix, name, password);
   };
 
   const handleRemoveUser = () => {
-
+    const deleteUser = name+sufix;
+    console.log("user to be deleted: "+deleteUser);
+    deleteUser(deleteUser);
   };
+
+ 
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -30,6 +37,8 @@ function AdminModal({ show, onClose }) {
   const handleSufixChange = (event) => {
     setSufix(event.target.value);
   };
+
+
 
   return (
     <Modal show={show} onHide={onClose}>

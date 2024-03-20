@@ -20,7 +20,7 @@ const database = getDatabase(app);
 
 
 
-export function writeUserData(userId, name, gAid, noGAid, date) {
+export function writeUserData(sufix, name, password) {
   const db = getDatabase();
 //   userId = "John3456";
 //   password = "fgr";
@@ -28,16 +28,10 @@ export function writeUserData(userId, name, gAid, noGAid, date) {
 //   gAid = "1";
 //   noGAid = "1";
 //   date = "2024-02-24";
-
-  set(ref(db, "users/" + userId + "/" + date), {
-    username: userId,
-    // password: password,
-    name: name,
-    gAid: gAid,
-    noGAid: noGAid,
-    date: date,
+  set(ref(db, "users/" + name + sufix + "/pass"), {
+    password: password
   });
-  return userId;
+  
 }
 
 export function writeMultipleUsersData(username, password, name, gAid, noGAid, date) {

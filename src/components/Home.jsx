@@ -50,7 +50,7 @@ function Home() {
           // !!!! == to define later the userId format == !!!!!!!
           // const userId = username + "1234"
             if (localStorage.getItem("username") !== "admin") {
-              console.log(userId, username, GiftAid, noGiftAid, date);
+             
               // write data to server
               writeUserData(userId, username, GiftAid, noGiftAid, date);
             };

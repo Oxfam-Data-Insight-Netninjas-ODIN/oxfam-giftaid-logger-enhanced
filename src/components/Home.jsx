@@ -86,18 +86,17 @@ function Home() {
 
   const incrementGiftAid = () => {
     // to prevent delay in serverdata receiving the last updated value:
-    setGiftAid(GiftAid+1);
-    if (localStorage.getItem("username") !== "admin") {
-
-
-    };
+    const updatedGiftAid = GiftAid + 1;
+    setGiftAid(updatedGiftAid);
+ 
+    writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
   };
 
   const incrementNoGiftAid = () => {
-    setNoGiftAid(noGiftAid + 1);
-    if (localStorage.getItem("username") !== "admin") {
+    const updatedNoGiftAid = noGiftAid + 1;
+    setNoGiftAid(updatedNoGiftAid);
 
-    };
+    writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
 
   const undoGiftAid = () => {

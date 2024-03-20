@@ -71,46 +71,28 @@ function Home() {
     // to prevent delay in serverdata receiving the last updated value:
     const updatedGiftAid = GiftAid + 1;
     setGiftAid(updatedGiftAid);
-    if (localStorage.getItem("username") !== "admin") {
-      console.log(userId, username, GiftAid, noGiftAid, date);
-      // write data to server
-      writeUserData(userId, username, GiftAid, noGiftAid, date);
-    };
-
+ 
+    writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
   };
 
   const incrementNoGiftAid = () => {
     const updatedNoGiftAid = noGiftAid + 1;
     setNoGiftAid(updatedNoGiftAid);
-    if (localStorage.getItem("username") !== "admin") {
-      console.log(userId, username, GiftAid, noGiftAid, date);
-      // write data to server
-      writeUserData(userId, username, GiftAid, noGiftAid, date);
-    };
 
+    writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
 
   const undoGiftAid = () => {
     if (GiftAid >= 1) {
       setGiftAid(GiftAid - 1);
-      if (localStorage.getItem("username") !== "admin") {
-        console.log(userId, username, GiftAid, noGiftAid, date);
-        // write data to server
-        writeUserData(userId, username, GiftAid, noGiftAid, date);
-      };
-
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
     }
   };
 
   const undoNotGiftAid = () => {
     if (noGiftAid >= 1){
       setNoGiftAid(noGiftAid - 1);
-      if (localStorage.getItem("username") !== "admin") {
-        console.log(userId, username, GiftAid, noGiftAid, date);
-        // write data to server
-        writeUserData(userId, username, GiftAid, noGiftAid, date);
-      };
-
+      writeUserData(userId, username, GiftAid, noGiftAid, date);
     }
   };
   // check to see if number are 0, if not calculate the percentage

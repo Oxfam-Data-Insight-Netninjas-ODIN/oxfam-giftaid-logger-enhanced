@@ -27,11 +27,11 @@ This time round, the team focused upon using React and Node, for the creation of
 
 ## Impact and Stakeholders
 
-Oxfam as a company can become deeply concerned at the prospect of haemorrhaging money in the form of unsold gift aid donations. Any data that can be acquired from this program will be used in order to analyse anomalies, as well as encourage friendly competition, not just amongst volunteers, but across shops. 25% on every pound made in tax, on top of a donation is a lot of money, and it all adds up.   
+Oxfam as a company can become deeply concerned at the prospect of hemorrhaging money in the form of unsold gift aid donations. Any data that can be acquired from this program will be used in order to analyze anomalies, as well as encourage friendly competition, not just amongst volunteers, but across shops. 25% on every pound made in tax, on top of a donation, is a lot of money, and it all adds up.   
 
 ## Risks & Rewards
 
-Some of the risks that we have to consider are security, data accuracy, and technophobia from not just volunteers, but managers, who have seen an increase in I.T. Security due to data breaches and phishing attacks. In one example, phisers were able to obtain the format of the shop codes and attach it to spoof emails, leaving shop computers open to SSH attacks and suchlike.  In order to combat that we propose three things:
+Some of the risks that we have to consider are security, data accuracy, and technophobia from not just volunteers, but managers, who have seen an increase in I.T. Security due to data breaches and phishing attacks. In one example, phisers were able to obtain the format of the shop codes and attach it to spoof emails, leaving shop computers open to SSH attacks and such-like.  In order to combat that we propose three things:
 
 - No vulnerabilities allowed in NPM packages
 - Data format to not include area or shop codes

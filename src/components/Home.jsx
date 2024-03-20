@@ -167,25 +167,23 @@ function Home() {
       </div>
       <div className="col"><img src={giftaidproject}></img></div>
       
-     {/* New section with three separate boxes */}
-<div className="new-section container with-border">
+      {/* New section with three separate boxes */}
+      <div className="new-section container with-border">
     <h2>New Section</h2>
     <div className="row">
         <div className="col-12 col-md-4">
             <div className="spread-box">
-                <div className="box">
-                    <img src="assets/logout.svg" alt="Description of image">
-                </div>
-            </div>
-        </div>
-        <div className="col-12 col-md-4">
-            <div className="spread-box">
                 <div className="box"></div>
             </div>
         </div>
         <div className="col-12 col-md-4">
             <div className="spread-box">
                 <div className="box"></div>
+            </div>
+        </div>
+        <div className="col-12 col-md-4">
+            <div className="spread-box">
+                <div className="box"> <img src={till} alt="Description of image"></img></div>
             </div>
         </div>
     </div>

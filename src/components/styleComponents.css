@@ -235,9 +235,9 @@ a:active.circle-wrapper::after {
 @media only screen and (max-width: 500px) {
   .circle-wrapper {
     margin-top: 50px;
-    width: 300px; /* Smaller width */
-    height: 300px; /* Smaller height to maintain circle shape */
-    font-size: 1.5rem;
+    width: 100px; /* Smaller width */
+    height: 100px; /* Smaller height to maintain circle shape */
+    font-size: 0.7rem;
     border: 5px solid rgba(255, 255, 255, 0.5); /* Thinner border */
     box-shadow: 8px 8px 3px 0 var(--shadow);
     }
@@ -250,9 +250,13 @@ a:active.circle-wrapper::after {
       margin-left: 0;
     }
 
+    .icon {
+      width: 25%;
+    }
+
     .btn {  /* Scales down buttons for smaller screens */
       padding: 1rem;
-      font-size: 1rem;
+      font-size: 0.5rem;
     }
   }
 /* End of button styling */

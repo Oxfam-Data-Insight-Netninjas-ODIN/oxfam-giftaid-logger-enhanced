@@ -141,7 +141,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <div><img src={giftaidproject}></img></div>
+      <div className="col"><img src={giftaidproject}></img></div>
+      
+
       <Footer />
     </div>
 

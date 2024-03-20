@@ -14,7 +14,7 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function Home() {
-  // code here to retrieve user counter history from server for current date if exist
+  // code here to retrieve user counter history from server for curent date if exist
   // and save it to local storage
   const username = localStorage.getItem("username");
   const dbRef = ref(getDatabase());
@@ -27,7 +27,7 @@ function Home() {
 
   const [GiftAid, setGiftAid] = useState(0);
   const [noGiftAid, setNoGiftAid] = useState(0);
-  // ==============testing retrieve object ===============
+  // ==============testin retrieve object ===============
 
   // ++++++++++++++++++end of test area  +++++++++++++++++
 
@@ -119,8 +119,7 @@ function Home() {
 
     }
   };
-
-  // check to see if numbers are 0, if not calculate the percentage
+  // check to see if number are 0, if not calculate the percentage
   const percentage =
     GiftAid + noGiftAid !== 0 ? (GiftAid / (GiftAid + noGiftAid)) * 100 : 0;
   const roundPercentage = Math.round(percentage.toFixed(2));
@@ -165,34 +164,11 @@ function Home() {
           </div>
         </div>
       </div>
-      
-      {/* New section with three separate boxes */}
-      <div className="new-section container with-border">
-    <h2>New Section</h2>
-    <div className="row">
-        <div className="col-12 col-md-4">
-            <div className="spread-box">
-                <div className="box"></div>
-            </div>
-        </div>
-        <div className="col-12 col-md-4">
-            <div className="spread-box">
-                <div className="box"></div>
-            </div>
-        </div>
-        <div className="col-12 col-md-4">
-            <div className="spread-box">
-                <div className="box"> <img src={till} alt="Description of image"></img></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-      
       <Footer />
     </div>
+    
   );
+
 }
 
 export default Home;

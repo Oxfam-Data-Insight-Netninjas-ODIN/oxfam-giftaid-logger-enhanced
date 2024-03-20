@@ -122,7 +122,6 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
               <HeaderCell>Gift Aid</HeaderCell>
               <HeaderCell>No Gift Aid</HeaderCell>
               <HeaderCell>Percentage</HeaderCell>
-              <HeaderCell>Signups</HeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -133,8 +132,7 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
                 <BodyCell>{item.gAid}</BodyCell>
                 <BodyCell>{item.noGAid}</BodyCell>
                 <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
-                <BodyCell>Signups</BodyCell>
-              </BodyTableRow>
+                              </BodyTableRow>
             ))}
           </TableBody>
         </Table>

@@ -18,23 +18,23 @@ button {
   cursor: pointer;
   border: none; /* Removes default styling from button elements */
   color: var(--font-colour);
-  background-color: transparent;
+  background-color: green;
   font-weight: bold;
 }
 
 .btn {
   background-color: var(--link-colour);
   color: var(--font-colour);
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
-  padding: 1rem 2rem;
-  border-radius: 0.8rem;
+  padding: 2rem 2rem;
+  border-radius: 2rem;
 }
 
 .btn:hover {
   background-color: var(--font-colour);
   color: var(--link-colour);
-  border: var(--link-colour) 0.1rem solid;
+  border: var(--link-colour) 1rem solid;
 }
 
 

@@ -26,51 +26,47 @@ const trophies = [firstTrophy, secondTrophy, thirdTrophy];
 // Fetch and filter data from server
 const fetchData = () => {
   return new Promise((resolve, reject) => {
-    get(child(dbRef, `users/`))
-      .then((snapshot) => {
-        let storageData = snapshot.val();
-        let historyData = [];
-        Object.keys(storageData).forEach((key) => {
-          const newObject = storageData[key];
-          Object.values(newObject).forEach((nestedValue) => {
-            historyData.unshift(nestedValue);
-          });
+    get(child(dbRef, `users/`)).then((snapshot) => {
+      let storageData = snapshot.val();
+      let historyData = [];
+      Object.keys(storageData).forEach((key) => {
+        const newObject = storageData[key];
+        Object.values(newObject).forEach((nestedValue) => {
+          historyData.unshift(nestedValue);
         });
-        const filteredData = historyData.filter(
-          (obj) => !Object.keys(obj).includes("password"),
-        );
-        // add procentage to database array
-        filteredData.forEach((item) => {
-          item.proc =
-            Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0;
-        });
-        // Sort filteredData in descending order based on the percentage
-        filteredData.sort((a, b) => b.proc - a.proc);
-
-        resolve(filteredData);
-      })
-      .catch((error) => {
-        reject(error);
       });
+      const filteredData = historyData.filter(
+        (obj) => !Object.keys(obj).includes("password")
+      );
+      // add procentage to database array
+      filteredData.forEach((item) => {
+        item.proc = Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0;
+      });
+      // Sort filteredData in descending order based on the percentage
+      filteredData.sort((a, b) => b.proc - a.proc);
+
+      resolve(filteredData);
+    }).catch((error) => {
+      reject(error);
+    });
+
   });
 };
 
 // Usage
-fetchData()
-  .then((filteredData) => {
-    console.log("no errors"); // Access filteredData here
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+fetchData().then((filteredData) => {
+  console.log("no errors"); // Access filteredData here
+}).catch((error) => {
+  console.error(error);
+});
 
 function TopScores() {
-  const [filteredData, setFilteredData] = useState([]);
+  const [finalData, setFinalData] = useState([]);
 
   useEffect(() => {
     fetchData()
       .then((data) => {
-        setFilteredData(data);
+        setFinalData(data);
       })
       .catch((error) => {
         console.error(error);
@@ -110,49 +106,39 @@ function TopScores() {
 
   return (
     <div>
-      <div id="localScores">
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableHead id="header">
-              <TableRow>
-                <HeaderCell>User Code</HeaderCell>
-                <HeaderCell>Name</HeaderCell>
-                <HeaderCell>Gift Aid</HeaderCell>
-                <HeaderCell>No Gift Aid</HeaderCell>
-                <HeaderCell>Percentage</HeaderCell>
-                <HeaderCell>Signups</HeaderCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {filteredData.map((item, index) => (
-                <BodyTableRow key={index}>
-                  <BodyCell id="trophyWrapper">
-                  {index < 3 && (
-                    <BodyCell>
-                      <img id="trophy" src={trophies[index]} width={40} />
-                    </BodyCell>
-                  )}
-                    {item.username}</BodyCell>
-                  <BodyCell>{item.name}</BodyCell>
-                  <BodyCell>{item.gAid}</BodyCell>
-                  <BodyCell>{item.noGAid}</BodyCell>
-                  <BodyCell>
-                    {Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%
-                  </BodyCell>
-                  <BodyCell>Signups</BodyCell>
-                </BodyTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-      {/* Prints the table using the browser's print function */}
-      <div id="btnFlex">
-        <button className="btn" onClick={() => window.print()}>
-          Print Table
-        </button>
-      </div>
+    <div id="localScores">
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead id='header'>
+            <TableRow>
+              <HeaderCell>User Code</HeaderCell>
+              <HeaderCell>Name</HeaderCell>
+              <HeaderCell>Gift Aid</HeaderCell>
+              <HeaderCell>No Gift Aid</HeaderCell>
+              <HeaderCell>Percentage</HeaderCell>
+              <HeaderCell>Signups</HeaderCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {filteredData.map((item, index) => (
+              <BodyTableRow key={index}>
+                <BodyCell>{item.username}</BodyCell>
+                <BodyCell>{item.name}</BodyCell>
+                <BodyCell>{item.gAid}</BodyCell>
+                <BodyCell>{item.noGAid}</BodyCell>
+                <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
+                <BodyCell>Signups</BodyCell>
+              </BodyTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
+    {/* Prints the table using the browser's print function */}
+    <div id="btnFlex"> 
+    <button className="btn" onClick={() => window.print()}>Print Table</button>
+    </div>
+  </div>
   );
 }
 

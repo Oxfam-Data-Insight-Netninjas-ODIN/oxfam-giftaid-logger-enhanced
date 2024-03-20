@@ -318,18 +318,6 @@ a:active.circle-wrapper::after {
 }
 /* End of screensaver styling */
 
-
-
-/* KEEP THESE HERE FOR NOW STYLING THE SKELETON */
-.data-table {
-  border-collapse: collapse;
-  width: 100%;
+#tour {
+  cursor: pointer;
 }
-
-.data-table th, .data-table td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-    min-height: 100%;
-    padding-bottom: 100px;
-  }

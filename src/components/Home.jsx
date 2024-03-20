@@ -6,7 +6,7 @@ import "firebase/database";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from "./FirebaseConfig";
 import { writeUserData } from "./firebaseFunct.js";
-import { Image } from "react-bootstrap";
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
@@ -126,9 +126,7 @@ function Home() {
       </div>
       <Footer />
     </div>
-    
   );
-
 }
 
 export default Home;

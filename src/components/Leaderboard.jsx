@@ -96,7 +96,6 @@ function TopScores() {
     // Styles the row for the top 3 positions
     "&:nth-of-type(1)": {
       backgroundColor: "#FFC30B",
-      fontWeight: "bold",
     },
 
     "&:nth-of-type(2)": {

@@ -301,6 +301,7 @@ a:active.circle-wrapper::after {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+  padding: 20px;
 }
 
 /* Start of table styling */
@@ -365,3 +366,13 @@ a:active.circle-wrapper::after {
     min-height: 100%;
     padding-bottom: 100px;
   }
+  .centered-image {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .centered-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  

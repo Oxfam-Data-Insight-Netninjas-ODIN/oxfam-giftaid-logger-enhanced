@@ -19,7 +19,7 @@ function App() {
     <Router>
     <div>
       <Navbar />
-      <img src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
+      <img id='tour' src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
         <TourComponent steps={TourSteps} isOpen={isTourOpen} onRequestClose={() => setIsTourOpen(false)} />
       <Wrapper>
         <Routes>

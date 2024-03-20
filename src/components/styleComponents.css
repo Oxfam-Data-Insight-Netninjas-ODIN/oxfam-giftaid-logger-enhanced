@@ -319,5 +319,5 @@ a:active.circle-wrapper::after {
 /* End of screensaver styling */
 
 #tour {
-  
+  cursor: pointer;
 }

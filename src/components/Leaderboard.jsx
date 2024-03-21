@@ -34,7 +34,7 @@ const fetchData = () => {
         });
       });
       const filteredData = historyData.filter(
-        (obj) => !Object.keys(obj).includes("password")
+        (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix")
       );     
       const finalData = Object.values(filteredData.reduce((acc, cur) => {
         if (!acc[cur.username]) {
@@ -52,7 +52,7 @@ const fetchData = () => {
       });
       // Sort filteredData in descending order based on the percentage
       finalData.sort((a, b) => b.proc - a.proc);
-
+      console.log(finalData);
       resolve(finalData);
     }).catch((error) => {
       reject(error);

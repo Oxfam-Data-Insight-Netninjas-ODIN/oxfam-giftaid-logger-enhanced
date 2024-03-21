@@ -21,6 +21,7 @@ function Home() {
   // and save it to local storage
   const username = localStorage.getItem("username");
   const dbRef = ref(getDatabase());
+  const db = getDatabase();
 
   // create a constant date with current date in js standard format
   const date = new Date().toISOString().split("T")[0];
@@ -50,13 +51,25 @@ function Home() {
           // !!!! == to define later the userId format == !!!!!!!
           // const userId = username + "1234"
             if (localStorage.getItem("username") !== "admin") {
-             
+              const username = localStorage.getItem("username")
+              const gAid = 0;
+              const noGAid = 0;
+              const userId = username + "1234";
+              const date = new Date().toISOString().split("T")[0];
               // write data to server
-              writeUserData(userId, username, GiftAid, noGiftAid, date);
+              set(ref(db, "users/" + userId + "/" + date), {
+                username : userId,
+                name: username,
+                GiftAid: gAid,
+                noGiftAid: noGAid,
+                date: date
+              });
+            }
+              // writeUserData(userId, username, GiftAid, noGiftAid, date);
             };
 
-        }
-      })
+        })
+     
       .catch((error) => {
         console.error(error);
       });
@@ -64,42 +77,37 @@ function Home() {
 
   useEffect(() => {
     localStorage.setItem("countGiftAid", GiftAid);
+    // write data to server
+    writeUserData(userId, username, GiftAid, noGiftAid, date);
   }, [GiftAid]);
 
   useEffect(() => {
     localStorage.setItem("countNoGiftAid", noGiftAid);
+    // write datat to server
+    writeUserData(userId, username, GiftAid, noGiftAid, date);
   }, [noGiftAid]);
 
   const incrementGiftAid = () => {
     // to prevent delay in serverdata receiving the last updated value:
-    const updatedGiftAid = GiftAid + 1;
-    setGiftAid(updatedGiftAid);
+    setGiftAid(GiftAid+1);
     if (localStorage.getItem("username") !== "admin") {
-      console.log(userId, username, GiftAid, noGiftAid, date);
-      // write data to server
-      writeUserData(userId, username, GiftAid, noGiftAid, date);
-    };
 
+
+    };
   };
 
   const incrementNoGiftAid = () => {
-    const updatedNoGiftAid = noGiftAid + 1;
-    setNoGiftAid(updatedNoGiftAid);
+    setNoGiftAid(noGiftAid + 1);
     if (localStorage.getItem("username") !== "admin") {
-      console.log(userId, username, GiftAid, noGiftAid, date);
-      // write data to server
-      writeUserData(userId, username, GiftAid, noGiftAid, date);
-    };
 
+    };
   };
 
   const undoGiftAid = () => {
     if (GiftAid >= 1) {
       setGiftAid(GiftAid - 1);
       if (localStorage.getItem("username") !== "admin") {
-        console.log(userId, username, GiftAid, noGiftAid, date);
-        // write data to server
-        writeUserData(userId, username, GiftAid, noGiftAid, date);
+
       };
 
     }
@@ -109,9 +117,7 @@ function Home() {
     if (noGiftAid >= 1){
       setNoGiftAid(noGiftAid - 1);
       if (localStorage.getItem("username") !== "admin") {
-        console.log(userId, username, GiftAid, noGiftAid, date);
-        // write data to server
-        writeUserData(userId, username, GiftAid, noGiftAid, date);
+
       };
 
     }

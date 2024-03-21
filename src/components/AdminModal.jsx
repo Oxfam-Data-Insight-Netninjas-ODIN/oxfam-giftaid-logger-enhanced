@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./AdminModal.css"; // Import AdminModal.css file
-import { writeUserData } from "./firebaseFunct.js";
+import { writeNewUserData } from "./firebaseFunct.js";
 import { initializeApp } from "firebase/app";
 import "firebase/database";
 import { getDatabase, ref, set, child, get, remove } from "firebase/database";
@@ -13,28 +13,28 @@ const db = getDatabase();
 
 
 function AdminModal({ show, onClose }) {
-  const [name, setName] = useState("");
+  const [modifyname, setModifyName] = useState("");
   const [password, setPassword] = useState("");
   const [sufix, setSufix] = useState("");
  
 
   const handleAddUser = () => {
-    console.log(name);
+    console.log(modifyname);
     console.log(password);
     console.log(sufix);
-    writeUserData(sufix, name, password);
+    writeNewUserData(sufix, modifyname, password);
   };
 
   const handleRemoveUser = () => {
-    const userId = name+sufix;
-    console.log("username to be deleted: "  + userId);
-    remove(ref(db, `users/${userId}`));
+    const addUserId = modifyname+sufix;
+    console.log("username to be deleted: "  + addUserId);
+    remove(ref(db, `users/${addUserId}`));
   };
 
  
 
   const handleNameChange = (event) => {
-    setName(event.target.value);
+    setModifyName(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -65,7 +65,7 @@ function AdminModal({ show, onClose }) {
             <Form.Label>Name:</Form.Label>
             <Form.Control
               type="text"
-              value={name}
+              value={modifyname}
               onChange={handleNameChange}
             />
           </Form.Group>

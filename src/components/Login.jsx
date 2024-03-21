@@ -36,25 +36,12 @@ function Login() {
             localStorage.setItem('countGiftAid', snapshot.val().gAid);
             localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
             localStorage.setItem('username', "admin");
-            // code to be executed here only for admin !!!!
-            // end of code to be executed for admin ++++++++
-               // Check if the user is an admin
-            const adminUsername = snapshot.val().name;
-            const adminPassword = snapshot.val().pass;
+            setIsAdmin(true);
+            setShowAdminModal(true);
 
-            if (username === adminUsername && pin === adminPassword) {
-              setIsAdmin(true);
-              setShowAdminModal(true);
-              return;
-            }
-            window.location.href = "/Leaderboard"
           }
         }
       });
-
-
-
-            
     // login for normal user
     get(child(dbRef, `users/`+ userId))
       .then((snapshot) => {
@@ -89,10 +76,13 @@ function Login() {
           } else {
             console.log("Passwords do not match");
             console.log("Logging in:", { username, pin, selectedArea });
+            setShowModal(true);
           }
         } else {
           console.log("No data available");
           console.log(snapshot.val());
+          setShowModal(true);
+          return
         }
       })
       .catch((error) => {
@@ -106,8 +96,8 @@ function Login() {
 
   const handleAdminModalClose = () => {
     setShowAdminModal(false);
-    setShowModal(false); // Close the main login modal as well
-
+    setShowModal(false); // show again the main login modal as well
+    window.location.href = "/home"; //once admin modal is closed, is going to page
   };
 
   return (

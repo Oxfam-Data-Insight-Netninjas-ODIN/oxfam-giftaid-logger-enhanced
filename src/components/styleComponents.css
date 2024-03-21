@@ -355,13 +355,6 @@ a:active.circle-wrapper::after {
   cursor: pointer;
 }
 
-.data-table th, .data-table td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-    min-height: 100%;
-    padding-bottom: 100px;
-  }
   .centered-image {
     display: flex;
     justify-content: center;

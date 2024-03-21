@@ -9,14 +9,12 @@ import { writeUserData } from "./firebaseFunct.js";
 import { TourComponent, TourSteps } from './Tour';
 import qmark from '../assets/qmark.svg';
 
+import giftaidproject from "../assets/giftaidsales1.png";
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function Home() {
-
-
-
   // code here to retrieve user counter history from server for curent date if exist
   // and save it to local storage
   const username = localStorage.getItem("username");
@@ -89,18 +87,17 @@ function Home() {
 
   const incrementGiftAid = () => {
     // to prevent delay in serverdata receiving the last updated value:
-    setGiftAid(GiftAid+1);
-    if (localStorage.getItem("username") !== "admin") {
-
-
-    };
+    const updatedGiftAid = GiftAid + 1;
+    setGiftAid(updatedGiftAid);
+ 
+    writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
   };
 
   const incrementNoGiftAid = () => {
-    setNoGiftAid(noGiftAid + 1);
-    if (localStorage.getItem("username") !== "admin") {
+    const updatedNoGiftAid = noGiftAid + 1;
+    setNoGiftAid(updatedNoGiftAid);
 
-    };
+    writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
 
   const undoGiftAid = () => {
@@ -167,8 +164,12 @@ function Home() {
           </div>
         </div>
       </div>
+      <div className="col"><img src={giftaidsales1}></img></div>
+      
+
       <Footer />
     </div>
+
   );
 }
 

@@ -21,7 +21,6 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <img id='tour' src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
         <Wrapper>
           <Routes>
             <Route path="/" element={<Login />} />

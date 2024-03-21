@@ -131,7 +131,6 @@ return (
               <HeaderCell>Gift Aid</HeaderCell>
               <HeaderCell>No Gift Aid</HeaderCell>
               <HeaderCell>Percentage</HeaderCell>
-              <HeaderCell>Signups</HeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -150,7 +149,6 @@ return (
       <BodyCell>
         {Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%
       </BodyCell>
-      <BodyCell>Signups</BodyCell>
     </BodyTableRow>
   ))}
 </TableBody>

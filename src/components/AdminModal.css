@@ -49,3 +49,22 @@
   .modal-footer .btn:not(:last-child) {
     margin-right: 10px;
   }
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+
+  /* Custom CSS for positioning the confirmation dialog */
+.confirmation-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050; /* Ensure the dialog is above the modal */
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: red;
+}

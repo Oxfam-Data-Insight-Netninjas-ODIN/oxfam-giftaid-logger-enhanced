@@ -10,28 +10,54 @@ import firebaseConfig from "./FirebaseConfig";
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const db = getDatabase();
+const dbRef = ref(getDatabase());
 
 
 function AdminModal({ show, onClose }) {
   const [modifyname, setModifyName] = useState("");
   const [password, setPassword] = useState("");
   const [sufix, setSufix] = useState("");
- 
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  // create a variable for the need to change userid
+  const addUserId = modifyname + sufix
 
   const handleAddUser = () => {
-    console.log(modifyname);
-    console.log(password);
-    console.log(sufix);
-    writeNewUserData(sufix, modifyname, password);
+    
+    get(child(dbRef, `users/`+ addUserId))
+      .then((snapshot) => {
+        if (!snapshot.exists()) {
+          console.log(modifyname);
+          console.log(password);
+          console.log(sufix);
+          writeNewUserData(sufix, modifyname, password);
+          // Reset error message when user is successfully added
+          setErrorMessage("User added !");
+        } else {
+          setErrorMessage("User already exists");
+        }
+      });
   };
 
   const handleRemoveUser = () => {
-    const addUserId = modifyname+sufix;
-    console.log("username to be deleted: "  + addUserId);
+    setShowConfirmation(true);
+  };
+  const confirmRemoveUser = () => {
     remove(ref(db, `users/${addUserId}`));
+    setErrorMessage(`User ${addUserId} was deleted !`);
+    setShowConfirmation(false);
   };
 
- 
+  const cancelRemoveUser = () => {
+    setShowConfirmation(false);
+  };
+  // const handleRemoveUser = () => {
+  //   const confirmed = window.confirm("Are you sure you want to remove this user?");
+  //   if (confirmed) {
+  //     remove(ref(db, `users/${addUserId}`));
+  //     setErrorMessage(`User ${addUserId} was deleted !`);
+  //   }
+  // };
 
   const handleNameChange = (event) => {
     setModifyName(event.target.value);
@@ -53,6 +79,7 @@ function AdminModal({ show, onClose }) {
         <Modal.Title>Admin Panel</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <Button variant="primary" onClick={handleAddUser}>
           Add User
         </Button>
@@ -88,6 +115,17 @@ function AdminModal({ show, onClose }) {
             />
           </Form.Group>
         </Form>
+        {showConfirmation && (
+          <div className="confirmation-dialog">
+            <p>Are you sure you want to remove this user?</p>
+            <Button variant="primary" onClick={confirmRemoveUser}>
+              Yes
+            </Button>
+            <Button variant="secondary" onClick={cancelRemoveUser}>
+              No
+            </Button>
+          </div>
+        )}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>

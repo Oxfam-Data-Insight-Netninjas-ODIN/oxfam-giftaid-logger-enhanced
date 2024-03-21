@@ -135,7 +135,6 @@ function Home() {
 
   return (
     <div>
-      <img id='tour' src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
       <TourComponent steps={TourSteps} isOpen={isTourOpen} onRequestClose={() => setIsTourOpen(false)} />
       <Counter
         incrementGiftAid={incrementGiftAid}
@@ -164,10 +163,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="col"><img src={giftaidproject} width={1000}></img></div>
-      
-
+      <div className="col"><img id="desc" src={giftaidproject} width={1000}></img></div>
       <Footer />
+        <img className='float-end mx-3 my-3' id='tour' src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
     </div>
 
   );

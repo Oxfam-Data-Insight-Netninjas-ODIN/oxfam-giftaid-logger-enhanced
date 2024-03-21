@@ -22,13 +22,13 @@ button {
   font-weight: bold;
 }
 
-.btn {
+.btn.btn {
   background-color: var(--link-colour);
   color: var(--font-colour);
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 2rem 2rem;
-  border-radius: 2rem;
+  padding: 1.5rem 1.5rem;
+  border-radius: 1.8rem;
   margin-bottom: 2rem;
 }
 
@@ -260,6 +260,12 @@ a:active.circle-wrapper::after {
       font-size: 0.5rem;
     }
   }
+
+  @media only screen and (max-width: 980px) {
+    #desc {
+      display: none; /* Hides description at smaller screen size */
+    }
+  }
 /* End of button styling */
 
 
@@ -282,14 +288,15 @@ a:active.circle-wrapper::after {
   font-size: 3rem;
 }
 
-.undo {
+.undo.undo {
   background-color: var(--danger-colour);
   margin-bottom: 2rem;
 }
 
-.undo:hover {
+.undo.undo:hover {
   color: var(--danger-colour);
   border: var(--danger-colour) 0.1rem solid;
+  background-color: transparent;
 }
 
 #total {

@@ -17,6 +17,7 @@ function AdminModal({ show, onClose }) {
   const [modifyname, setModifyName] = useState("");
   const [password, setPassword] = useState("");
   const [suffix, setsuffix] = useState("");
+  const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   // create a variable for the need to change userid
@@ -29,7 +30,8 @@ function AdminModal({ show, onClose }) {
           console.log(modifyname);
           console.log(password);
           console.log(suffix);
-          writeNewUserData(suffix, modifyname, password);
+          console.log(location);
+          writeNewUserData(suffix, modifyname, password, location);
           // Reset error message when user is successfully added
           setErrorMessage(`User ${addUserId} added !`);
         } else {
@@ -50,13 +52,6 @@ function AdminModal({ show, onClose }) {
   const cancelRemoveUser = () => {
     setShowConfirmation(false);
   };
-  // const handleRemoveUser = () => {
-  //   const confirmed = window.confirm("Are you sure you want to remove this user?");
-  //   if (confirmed) {
-  //     remove(ref(db, `users/${addUserId}`));
-  //     setErrorMessage(`User ${addUserId} was deleted !`);
-  //   }
-  // };
 
   const handleNameChange = (event) => {
     setModifyName(event.target.value);
@@ -70,7 +65,9 @@ function AdminModal({ show, onClose }) {
     setsuffix(event.target.value);
   };
 
-
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  };
 
   return (
     <Modal show={show} onHide={onClose}>
@@ -113,6 +110,16 @@ function AdminModal({ show, onClose }) {
               onChange={handlesuffixChange}
             />
           </Form.Group>
+
+          <Form.Group controlId="location">
+            <Form.Label>Location:</Form.Label>
+            <Form.Control
+              type="text"
+              value={location}
+              onChange={handleLocationChange}
+            />
+          </Form.Group>
+
         </Form>
         {showConfirmation && (
           <div className="confirmation-dialog">

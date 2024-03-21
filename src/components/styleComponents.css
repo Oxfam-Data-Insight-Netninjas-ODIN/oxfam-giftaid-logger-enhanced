@@ -29,6 +29,7 @@ button {
   font-weight: bold;
   padding: 2rem 2rem;
   border-radius: 2rem;
+  margin-bottom: 2rem;
 }
 
 .btn:hover {

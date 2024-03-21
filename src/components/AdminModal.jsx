@@ -16,11 +16,11 @@ const dbRef = ref(getDatabase());
 function AdminModal({ show, onClose }) {
   const [modifyname, setModifyName] = useState("");
   const [password, setPassword] = useState("");
-  const [sufix, setSufix] = useState("");
+  const [suffix, setsuffix] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   // create a variable for the need to change userid
-  const addUserId = modifyname + sufix
+  const addUserId = modifyname + suffix
 
   const handleAddUser = () => {
     get(child(dbRef, `users/`+ addUserId))
@@ -28,12 +28,12 @@ function AdminModal({ show, onClose }) {
         if (!snapshot.exists()) {
           console.log(modifyname);
           console.log(password);
-          console.log(sufix);
-          writeNewUserData(sufix, modifyname, password);
+          console.log(suffix);
+          writeNewUserData(suffix, modifyname, password);
           // Reset error message when user is successfully added
-          setErrorMessage("User added !");
+          setErrorMessage(`User ${addUserId} added !`);
         } else {
-          setErrorMessage("User already exists");
+          setErrorMessage(`User ${addUserId} already exists`);
         }
       });
   };
@@ -66,8 +66,8 @@ function AdminModal({ show, onClose }) {
     setPassword(event.target.value);
   };
 
-  const handleSufixChange = (event) => {
-    setSufix(event.target.value);
+  const handlesuffixChange = (event) => {
+    setsuffix(event.target.value);
   };
 
 
@@ -105,12 +105,12 @@ function AdminModal({ show, onClose }) {
             />
           </Form.Group>
 
-          <Form.Group controlId="sufix">
-            <Form.Label>Sufix:</Form.Label>
+          <Form.Group controlId="suffix">
+            <Form.Label>Suffix:</Form.Label>
             <Form.Control
               type="text"
-              value={sufix}
-              onChange={handleSufixChange}
+              value={suffix}
+              onChange={handlesuffixChange}
             />
           </Form.Group>
         </Form>

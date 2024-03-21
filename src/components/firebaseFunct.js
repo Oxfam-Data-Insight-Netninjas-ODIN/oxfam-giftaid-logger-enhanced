@@ -29,28 +29,28 @@ export function writeUserData(userId, username, GiftAid, noGiftAid, date) {
     noGAid: noGiftAid,
     date: date
   });
-  // set(ref(db, "users/" + name + sufix + "/pass"), {
+  // set(ref(db, "users/" + name + suffix + "/pass"), {
   //   password: password
   // });
-  // set(ref(db, "users/" + name + sufix + "/sufix"), {
-  //   sufix: sufix
+  // set(ref(db, "users/" + name + suffix + "/suffix"), {
+  //   suffix: suffix
   // });
 }
 
 
 // function to add a NEW user to databse
-export function writeNewUserData(sufix, name, password) {
-  set(ref(db, "users/" + name + sufix + "/pass"), {
+export function writeNewUserData(suffix, name, password) {
+  set(ref(db, "users/" + name + suffix + "/pass"), {
     password: password
   });
-  set(ref(db, "users/" + name + sufix + "/sufix"), {
-    sufix: sufix
+  set(ref(db, "users/" + name + suffix + "/suffix"), {
+    suffix: suffix
   });
 }
 // function to add a NEW user to databse
-// export function writeNewUserData(sufix, name) {
-//   set(ref(db, "users/" + name + sufix + "/sufix"), {
-//     sufix: sufix
+// export function writeNewUserData(suffix, name) {
+//   set(ref(db, "users/" + name + suffix + "/suffix"), {
+//     suffix: suffix
 //   });
 // }
 

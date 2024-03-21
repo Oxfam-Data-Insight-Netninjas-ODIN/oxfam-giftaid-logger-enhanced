@@ -7,6 +7,7 @@ import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from './FirebaseConfig';
 import AdminModal from './AdminModal'; // Import the AdminModal component
 
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
@@ -26,7 +27,7 @@ function Login() {
     }
     // NEW CODE to retrieve the user and password from server and check if are same with input
     const dbRef = ref(getDatabase());
-    const userId = username + "1234";
+    const userId = username;
     // check if is and admin login
     get(child(dbRef, "admin"))
       .then ((snapshot) => {
@@ -36,6 +37,7 @@ function Login() {
             localStorage.setItem('countGiftAid', snapshot.val().gAid);
             localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
             localStorage.setItem('username', "admin");
+
             setIsAdmin(true);
             setShowAdminModal(true);
 
@@ -67,10 +69,12 @@ function Login() {
                   localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
 
           if (retrievedPassword === pin) {
+            const retrievedSufix = snapshot.val().sufix.sufix;
             console.log("Admin logged in:", { username, pin, selectedArea });
             setShowModal(false);
             console.log(username);
             localStorage.setItem("username", username);
+            localStorage.setItem("sufix", retrievedSufix);
             
             window.location.href = "/home"; // Redirect to home page
           } else {

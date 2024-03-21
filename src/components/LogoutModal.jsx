@@ -1,4 +1,8 @@
 import React from 'react';
+import { initializeApp } from "firebase/app";
+import "firebase/database";
+import { getDatabase, ref, set, child, get, remove } from "firebase/database";
+import firebaseConfig from "./FirebaseConfig";
 
 const Modal = ({ isOpen, onClose, children }) => {
   // Logs out the application and returns the user to the login modal
@@ -6,6 +10,14 @@ const Modal = ({ isOpen, onClose, children }) => {
      // Retrieve username and counter values from local storage
     const storedUsername = localStorage.getItem("username");
     e.preventDefault()
+    if (storedUsername === "admin") {
+      // clear admin data at logout
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const db = getDatabase();
+      const dbRef = ref(getDatabase());
+      remove(ref(db, `users/${storedUsername}`));
+    }
     window.location.href = "/";
   };
 

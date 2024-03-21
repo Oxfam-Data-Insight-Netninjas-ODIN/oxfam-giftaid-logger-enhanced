@@ -23,7 +23,6 @@ function AdminModal({ show, onClose }) {
   const addUserId = modifyname + sufix
 
   const handleAddUser = () => {
-    
     get(child(dbRef, `users/`+ addUserId))
       .then((snapshot) => {
         if (!snapshot.exists()) {
@@ -39,6 +38,7 @@ function AdminModal({ show, onClose }) {
       });
   };
 
+  // modal for remove user with confirmation
   const handleRemoveUser = () => {
     setShowConfirmation(true);
   };
@@ -47,7 +47,6 @@ function AdminModal({ show, onClose }) {
     setErrorMessage(`User ${addUserId} was deleted !`);
     setShowConfirmation(false);
   };
-
   const cancelRemoveUser = () => {
     setShowConfirmation(false);
   };

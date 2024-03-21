@@ -26,7 +26,7 @@ function Home() {
   // create a constant date with current date in js standard format
   const date = new Date().toISOString().split("T")[0];
   // check if user is already in server db and update server data
-  const userId = username + "1234";
+  const userId = username;
 
   const [GiftAid, setGiftAid] = useState(0);
   const [noGiftAid, setNoGiftAid] = useState(0);
@@ -54,7 +54,7 @@ function Home() {
               const username = localStorage.getItem("username")
               const gAid = 0;
               const noGAid = 0;
-              const userId = username + "1234";
+              const userId = username + localStorage.getItem("sufix");
               const date = new Date().toISOString().split("T")[0];
               // write data to server
               set(ref(db, "users/" + userId + "/" + date), {

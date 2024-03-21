@@ -30,9 +30,9 @@ const fetchData = () => {
         });
       });
       const filteredData = historyData.filter(
-        (obj) => !Object.keys(obj).includes("password")
+        (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix")
       );
-
+      console.log(filteredData);  
       filteredData.sort((a, b) => {
         // First, sort by date
         if (a.date > b.date) {

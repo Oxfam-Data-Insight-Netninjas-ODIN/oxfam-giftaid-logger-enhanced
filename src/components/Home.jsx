@@ -54,7 +54,7 @@ function Home() {
               const username = localStorage.getItem("username")
               const gAid = 0;
               const noGAid = 0;
-              const userId = username + localStorage.getItem("sufix");
+              const userId = username + localStorage.getItem("suffix");
               const date = new Date().toISOString().split("T")[0];
               // write data to server
               set(ref(db, "users/" + userId + "/" + date), {

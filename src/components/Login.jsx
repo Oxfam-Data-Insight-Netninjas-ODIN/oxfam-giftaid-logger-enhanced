@@ -69,12 +69,12 @@ function Login() {
                   localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
 
           if (retrievedPassword === pin) {
-            const retrievedSufix = snapshot.val().sufix.sufix;
+            const retrievedsuffix = snapshot.val().suffix.suffix;
             console.log("Admin logged in:", { username, pin, selectedArea });
             setShowModal(false);
             console.log(username);
             localStorage.setItem("username", username);
-            localStorage.setItem("sufix", retrievedSufix);
+            localStorage.setItem("suffix", retrievedsuffix);
             
             window.location.href = "/home"; // Redirect to home page
           } else {

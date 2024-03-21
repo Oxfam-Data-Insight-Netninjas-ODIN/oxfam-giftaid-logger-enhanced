@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./AdminModal.css"; // Import AdminModal.css file
 import { writeUserData } from "./firebaseFunct.js";
-import { deleteUser } from "./firebaseFunct.js";
+import { initializeApp } from "firebase/app";
+import "firebase/database";
+import { getDatabase, ref, set, child, get, remove } from "firebase/database";
+import firebaseConfig from "./FirebaseConfig";
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const db = getDatabase();
 
 
 function AdminModal({ show, onClose }) {
@@ -19,9 +26,9 @@ function AdminModal({ show, onClose }) {
   };
 
   const handleRemoveUser = () => {
-    const deleteUser = name+sufix;
-    console.log("user to be deleted: "+deleteUser);
-    deleteUser(deleteUser);
+    const userId = name+sufix;
+    console.log("username to be deleted: "  + userId);
+    remove(ref(db, `users/${userId}`));
   };
 
  

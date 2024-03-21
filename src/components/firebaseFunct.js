@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import "firebase/database";
-import { getDatabase, ref, set, child, get } from "firebase/database";
+import { getDatabase, ref, set, child, get, remove } from "firebase/database";
 // import usersDataJson from './assets/UsersData.json';
 
 const firebaseConfig = {
@@ -17,23 +17,23 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const db = getDatabase();
 
 
-
+// function to add a user to databse
 export function writeUserData(sufix, name, password) {
-  const db = getDatabase();
-//   userId = "John3456";
-//   password = "fgr";
-//   name = "John";
-//   gAid = "1";
-//   noGAid = "1";
-//   date = "2024-02-24";
   set(ref(db, "users/" + name + sufix + "/pass"), {
     password: password
   });
-  
 }
 
+// function to delete a user
+export function deleteUser(user) {
+  remove(ref(db, "users/" +user))
+}
+
+
+// function for writing multiple users
 export function writeMultipleUsersData(username, password, name, gAid, noGAid, date) {
   const db = getDatabase();
 

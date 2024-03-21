@@ -16,12 +16,13 @@ function AdminModal({ show, onClose }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [sufix, setSufix] = useState("");
+ 
 
   const handleAddUser = () => {
     console.log(name);
     console.log(password);
     console.log(sufix);
-    writeUserData(sufix, name, password)
+    writeUserData(sufix, name, password);
   };
 
   const handleRemoveUser = () => {
@@ -29,6 +30,8 @@ function AdminModal({ show, onClose }) {
     console.log("username to be deleted: "  + userId);
     remove(ref(db, `users/${userId}`));
   };
+
+ 
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -41,6 +44,8 @@ function AdminModal({ show, onClose }) {
   const handleSufixChange = (event) => {
     setSufix(event.target.value);
   };
+
+
 
   return (
     <Modal show={show} onHide={onClose}>

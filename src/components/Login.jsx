@@ -61,25 +61,25 @@ function Login() {
           // check if user is already in server db and update server data 
           get(child(dbRef, `users/`+ userId + '/'+ date))
               .then((snapshot) => {
-                if (!snapshot.exists()) {
-                  localStorage.removeItem('hasShownTour')
-                } 
-                });
+                if (snapshot.exists()) {
                   localStorage.setItem('countGiftAid', snapshot.val().gAid);
                   localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
+                } 
+                });
+
 
           if (retrievedPassword === pin) {
             const retrievedsuffix = snapshot.val().suffix.suffix;
-
+ 
             setShowModal(false);
-            console.log(username);
+ 
             localStorage.setItem("username", username);
             localStorage.setItem("suffix", retrievedsuffix);
             
             window.location.href = "/home"; // Redirect to home page
           } else {
             console.log("Passwords do not match");
- 
+            console.log("Logging in:", { username, pin, selectedArea });
             setShowModal(true);
           }
         } else {

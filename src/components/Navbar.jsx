@@ -5,12 +5,9 @@ import "./styleComponents.css";
 import logo from '../assets/oxfam_logo.png';
 import logout from '../assets/logout.svg';
 import LogoutModal from './LogoutModal';
-// import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleLogoutClick = () => {
     setIsModalOpen(true);
   };

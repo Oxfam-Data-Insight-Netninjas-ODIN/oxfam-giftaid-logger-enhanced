@@ -7,7 +7,7 @@ import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from './FirebaseConfig';
 import AdminModal from './AdminModal'; // Import the AdminModal component
 
-
+// initialise firebase 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
@@ -21,6 +21,7 @@ function Login() {
 
   const handleAccess = (event) => {
     event.preventDefault();
+    // check if all data field are filled
     if (!username || !pin || !selectedArea) {
       alert("Please enter username, pin, and select an area");
       return;
@@ -28,19 +29,19 @@ function Login() {
     // NEW CODE to retrieve the user and password from server and check if are same with input
     const dbRef = ref(getDatabase());
     const userId = username;
-    // check if is and admin login
+    // check if it is an admin login
     get(child(dbRef, "admin"))
       .then ((snapshot) => {
         if (snapshot.exists()) {
           if (username === snapshot.val().name && pin === snapshot.val().pass) {
             const date = new Date().toISOString().split('T')[0];
+            // set local data
             localStorage.setItem('countGiftAid', snapshot.val().gAid);
             localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
             localStorage.setItem('username', "admin");
-
+            // start admin modal
             setIsAdmin(true);
             setShowAdminModal(true);
-
           }
         }
       });
@@ -62,35 +63,32 @@ function Login() {
           get(child(dbRef, `users/`+ userId + '/'+ date))
               .then((snapshot) => {
                 if (snapshot.exists()) {
-                  console.log(snapshot.val().gAid);
-                } 
-                });
                   localStorage.setItem('countGiftAid', snapshot.val().gAid);
                   localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
+                } 
+                });
+
 
           if (retrievedPassword === pin) {
+            // is password correct then close login modal, update local storage
+            // and start the app at "Home" page
             const retrievedsuffix = snapshot.val().suffix.suffix;
-            console.log("Admin logged in:", { username, pin, selectedArea });
             setShowModal(false);
-            console.log(username);
             localStorage.setItem("username", username);
             localStorage.setItem("suffix", retrievedsuffix);
-            
             window.location.href = "/home"; // Redirect to home page
           } else {
             console.log("Passwords do not match");
-            console.log("Logging in:", { username, pin, selectedArea });
             setShowModal(true);
           }
         } else {
+          // if the user doesn't exist 
           console.log("No data available");
-          console.log(snapshot.val());
           setShowModal(true);
           return
         }
       })
       .catch((error) => {
-       
         console.error(error);
       });
 
@@ -98,6 +96,7 @@ function Login() {
     setShowModal(false);
   };
 
+  // once admin close his modal it will be routed to "Home" page
   const handleAdminModalClose = () => {
     setShowAdminModal(false);
     setShowModal(false); // show again the main login modal as well

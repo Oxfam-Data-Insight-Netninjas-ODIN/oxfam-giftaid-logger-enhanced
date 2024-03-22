@@ -1,34 +1,72 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./AdminModal.css"; // Import AdminModal.css file
-import { writeUserData } from "./firebaseFunct.js";
+import { writeNewUserData } from "./firebaseFunct.js";
+import { initializeApp } from "firebase/app";
+import "firebase/database";
+import { getDatabase, ref, set, child, get, remove } from "firebase/database";
+import firebaseConfig from "./FirebaseConfig";
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const db = getDatabase();
+const dbRef = ref(getDatabase());
+
 
 function AdminModal({ show, onClose }) {
-  const [name, setName] = useState("");
+  const [modifyname, setModifyName] = useState("");
   const [password, setPassword] = useState("");
-  const [sufix, setSufix] = useState("");
+  const [suffix, setsuffix] = useState("");
+  const [location, setLocation] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  // create a variable for the need to change userid
+  const addUserId = modifyname + suffix
 
   const handleAddUser = () => {
-    console.log(name);
-    console.log(password);
-    console.log(sufix);
-    writeUserData(sufix, name, password)
+    get(child(dbRef, `users/`+ addUserId))
+      .then((snapshot) => {
+        if (!snapshot.exists()) {
+          console.log(modifyname);
+          console.log(password);
+          console.log(suffix);
+          console.log(location);
+          writeNewUserData(suffix, modifyname, password, location);
+          // Reset error message when user is successfully added
+          setErrorMessage(`User ${addUserId} added !`);
+        } else {
+          setErrorMessage(`User ${addUserId} already exists`);
+        }
+      });
   };
 
+  // modal for remove user with confirmation
   const handleRemoveUser = () => {
-
+    setShowConfirmation(true);
+  };
+  const confirmRemoveUser = () => {
+    remove(ref(db, `users/${addUserId}`));
+    setErrorMessage(`User ${addUserId} was deleted !`);
+    setShowConfirmation(false);
+  };
+  const cancelRemoveUser = () => {
+    setShowConfirmation(false);
   };
 
   const handleNameChange = (event) => {
-    setName(event.target.value);
+    setModifyName(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  const handleSufixChange = (event) => {
-    setSufix(event.target.value);
+  const handlesuffixChange = (event) => {
+    setsuffix(event.target.value);
+  };
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
   };
 
   return (
@@ -37,6 +75,7 @@ function AdminModal({ show, onClose }) {
         <Modal.Title>Admin Panel</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <Button variant="primary" onClick={handleAddUser}>
           Add User
         </Button>
@@ -49,7 +88,7 @@ function AdminModal({ show, onClose }) {
             <Form.Label>Name:</Form.Label>
             <Form.Control
               type="text"
-              value={name}
+              value={modifyname}
               onChange={handleNameChange}
             />
           </Form.Group>
@@ -63,15 +102,36 @@ function AdminModal({ show, onClose }) {
             />
           </Form.Group>
 
-          <Form.Group controlId="sufix">
-            <Form.Label>Sufix:</Form.Label>
+          <Form.Group controlId="suffix">
+            <Form.Label>Suffix:</Form.Label>
             <Form.Control
               type="text"
-              value={sufix}
-              onChange={handleSufixChange}
+              value={suffix}
+              onChange={handlesuffixChange}
             />
           </Form.Group>
+
+          <Form.Group controlId="location">
+            <Form.Label>Location:</Form.Label>
+            <Form.Control
+              type="text"
+              value={location}
+              onChange={handleLocationChange}
+            />
+          </Form.Group>
+
         </Form>
+        {showConfirmation && (
+          <div className="confirmation-dialog">
+            <p>Are you sure you want to remove this user?</p>
+            <Button variant="primary" onClick={confirmRemoveUser}>
+              Yes
+            </Button>
+            <Button variant="secondary" onClick={cancelRemoveUser}>
+              No
+            </Button>
+          </div>
+        )}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>

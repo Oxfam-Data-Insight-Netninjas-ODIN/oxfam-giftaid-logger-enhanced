@@ -10,7 +10,6 @@ import Marquee from './components/Marquee';
 import Login from './components/Login';
 import Screensaver from './components/Screensaver';
 import Wrapper from './components/Wrapper';
-import { TourComponent, TourSteps } from './components/Tour';
 import qmark from '../src/assets/qmark.svg';
 
 
@@ -22,8 +21,6 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <img id='tour' src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
-        <TourComponent steps={TourSteps} isOpen={isTourOpen} onRequestClose={() => setIsTourOpen(false)} />
         <Wrapper>
           <Routes>
             <Route path="/" element={<Login />} />

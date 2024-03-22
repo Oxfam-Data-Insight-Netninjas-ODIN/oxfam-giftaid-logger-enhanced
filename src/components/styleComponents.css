@@ -18,23 +18,24 @@ button {
   cursor: pointer;
   border: none; /* Removes default styling from button elements */
   color: var(--font-colour);
-  background-color: transparent;
+  background-color: green;
   font-weight: bold;
 }
 
 .btn {
   background-color: var(--link-colour);
   color: var(--font-colour);
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
-  padding: 1rem 2rem;
-  border-radius: 0.8rem;
+  padding: 2rem 2rem;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
 }
 
 .btn:hover {
   background-color: var(--font-colour);
   color: var(--link-colour);
-  border: var(--link-colour) 0.1rem solid;
+  border: var(--link-colour) 1rem solid;
 }
 
 
@@ -129,7 +130,6 @@ h6 {
 
 .circle-wrapper {
   display: flex; /* Stacks button content (icons and text) vertically */
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #54A051;
@@ -225,13 +225,41 @@ a:active.circle-wrapper::after {
 }
 
 #notBtn span {
-  margin-left: 20px;
+  margin-left: 20px; /* Space between icon and text */
 }
 
 .circle-wrapper img {
   max-width: 150px;
   margin-bottom: 1rem; /* Space between image and text */
 }
+
+@media only screen and (max-width: 500px) {
+  .circle-wrapper {
+    margin-top: 50px;
+    width: 100px; /* Smaller width */
+    height: 100px; /* Smaller height to maintain circle shape */
+    font-size: 0.7rem;
+    border: 5px solid rgba(255, 255, 255, 0.5); /* Thinner border */
+    box-shadow: 8px 8px 3px 0 var(--shadow);
+    }
+
+    .content-wrapper {
+      flex-direction: column; /* Changes the button content structure to a column layout for smaller screens */
+    }
+
+    #notBtn span {
+      margin-left: 0;
+    }
+
+    .icon {
+      width: 25%;
+    }
+
+    .btn {  /* Scales down buttons for smaller screens */
+      padding: 1rem;
+      font-size: 0.5rem;
+    }
+  }
 /* End of button styling */
 
 
@@ -274,6 +302,7 @@ a:active.circle-wrapper::after {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+   padding: 20px;
 }
 
 /* Start of table styling */
@@ -284,6 +313,11 @@ a:active.circle-wrapper::after {
 #header {
   background-color: #458532;
   color: var(--font-colour);
+}
+
+#trophyWrapper {
+  display: flex;
+  align-items: center;
 }
 
 #btnFlex { /* Positions the print table button to the right */
@@ -321,3 +355,14 @@ a:active.circle-wrapper::after {
 #tour {
   cursor: pointer;
 }
+
+  .centered-image {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .centered-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  

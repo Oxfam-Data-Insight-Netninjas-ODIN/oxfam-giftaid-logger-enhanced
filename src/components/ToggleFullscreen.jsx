@@ -19,3 +19,4 @@ const FullscreenToggle = () => {
 };
 
 export default FullscreenToggle;
+

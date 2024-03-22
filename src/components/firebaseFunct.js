@@ -1,10 +1,10 @@
 
 import { initializeApp } from "firebase/app";
 import "firebase/database";
-import { getDatabase, ref, set, child, get } from "firebase/database";
+import { getDatabase, ref, set, child, get, remove } from "firebase/database";
 // import usersDataJson from './assets/UsersData.json';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyD7ZE16YXh3C_qntK8rDOJXIeFznpGAKJ4",
   authDomain: "oxfamodin-28c56.firebaseapp.com",
   databaseURL: "https://oxfamodin-28c56-default-rtdb.europe-west1.firebasedatabase.app",
@@ -17,23 +17,42 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const db = getDatabase();
 
 
-
-export function writeUserData(sufix, name, password) {
-  const db = getDatabase();
-//   userId = "John3456";
-//   password = "fgr";
-//   name = "John";
-//   gAid = "1";
-//   noGAid = "1";
-//   date = "2024-02-24";
-  set(ref(db, "users/" + name + sufix + "/pass"), {
-    password: password
+// function to add a user data to current date to databse
+export function writeUserData(userId, username, GiftAid, noGiftAid, date) {
+  set(ref(db, "users/" + userId + "/" + date), {
+    username : userId,
+    name: username,
+    gAid: GiftAid,
+    noGAid: noGiftAid,
+    date: date
   });
-  
 }
 
+
+// function to add a NEW user to databse
+export function writeNewUserData(suffix, name, password, location) {
+  set(ref(db, "users/" + name + suffix + "/pass"), {
+    password: password
+  });
+  set(ref(db, "users/" + name + suffix + "/suffix"), {
+    suffix: suffix
+  });
+  set(ref(db, "users/" + name + suffix + "/location"), {
+    location: location
+  });
+}
+
+
+// function to delete a user
+export function deleteUser(user) {
+  remove(ref(db, `users/${addUserId}`));
+}
+
+
+// function for writing multiple users
 export function writeMultipleUsersData(username, password, name, gAid, noGAid, date) {
   const db = getDatabase();
 
@@ -66,5 +85,5 @@ export function writeMultipleUsersData(username, password, name, gAid, noGAid, d
   }
   
 
-  return username; // Return the last username processed
+  // return username; // Return the last username processed
 }

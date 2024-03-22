@@ -16,8 +16,14 @@ import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from "./FirebaseConfig";
 import { writeUserData } from "./firebaseFunct.js";
 
+import firstTrophy from "../assets/first.svg";
+import secondTrophy from "../assets/second.svg";
+import thirdTrophy from "../assets/third.png";
+
 const app = initializeApp(firebaseConfig);
 const dbRef = ref(getDatabase());
+
+const trophies = [firstTrophy, secondTrophy, thirdTrophy];
 
 // Fetch and filter data from server
 const fetchData = () => {
@@ -34,7 +40,7 @@ const fetchData = () => {
         });
       });
       const filteredData = historyData.filter(
-        (obj) => !Object.keys(obj).includes("password")
+        (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );     
       const finalData = Object.values(filteredData.reduce((acc, cur) => {
         if (!acc[cur.username]) {
@@ -61,12 +67,12 @@ const fetchData = () => {
   });
 };
 
-// Usage
-fetchData().then((finalData) => {
-  console.log("no errors"); // Access filteredData here
-}).catch((error) => {
-  console.error(error);
-});
+// // Usage
+// fetchData().then((finalData) => {
+//   console.log("no errors"); // Access filteredData here
+// }).catch((error) => {
+//   console.error(error);
+// });
 
 function TopScores() {
   const [finalData, setFinalData] = useState([]);
@@ -89,6 +95,7 @@ const HeaderCell = styled(TableCell)(({ theme }) => ({
 
 const BodyCell = styled(TableCell)(({ theme }) => ({
   fontSize: '1rem',
+  borderBottom: 'none',
 }));
 
 const BodyTableRow = styled(TableRow)(({ theme }) => ({
@@ -99,6 +106,7 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
   // Styles the row for the top 3 positions
   '&:nth-of-type(1)': {
     backgroundColor: '#FFC30B',
+    fontWeight: "bold",
   },
 
   '&:nth-of-type(2)': {
@@ -110,12 +118,13 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-  return (
-    <div>
+
+return (
+  <div>
     <div id="localScores">
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
-          <TableHead id='header'>
+          <TableHead id="header">
             <TableRow>
               <HeaderCell>User Code</HeaderCell>
               <HeaderCell>Name</HeaderCell>
@@ -125,25 +134,35 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
             </TableRow>
           </TableHead>
           <TableBody>
-            {finalData.map((item, index) => (
-              <BodyTableRow key={index}>
-                <BodyCell>{item.username}</BodyCell>
-                <BodyCell>{item.name}</BodyCell>
-                <BodyCell>{item.gAid}</BodyCell>
-                <BodyCell>{item.noGAid}</BodyCell>
-                <BodyCell>{Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%</BodyCell>
-                              </BodyTableRow>
-            ))}
-          </TableBody>
+  {finalData.map((item, index) => (
+    <BodyTableRow key={index}>
+      <BodyCell id="trophyWrapper">
+        {index < 3 && (
+          <BodyCell>
+            <img id="trophy" src={trophies[index]} width={40} />
+          </BodyCell>
+        )}
+        {item.username}</BodyCell>
+      <BodyCell>{item.name}</BodyCell>
+      <BodyCell>{item.gAid}</BodyCell>
+      <BodyCell>{item.noGAid}</BodyCell>
+      <BodyCell>
+        {Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%
+      </BodyCell>
+    </BodyTableRow>
+  ))}
+</TableBody>
         </Table>
       </TableContainer>
     </div>
     {/* Prints the table using the browser's print function */}
-    <div id="btnFlex"> 
-    <button className="btn" onClick={() => window.print()}>Print Table</button>
+    <div id="btnFlex">
+      <button className="btn" onClick={() => window.print()}>
+        Print Table
+      </button>
     </div>
-  </div>
-  );
+ </div>
+);
 }
 
 export default TopScores;

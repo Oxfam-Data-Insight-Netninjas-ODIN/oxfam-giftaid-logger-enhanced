@@ -30,9 +30,9 @@ const fetchData = () => {
         });
       });
       const filteredData = historyData.filter(
-        (obj) => !Object.keys(obj).includes("password")
+        (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );
-
+ 
       filteredData.sort((a, b) => {
         // First, sort by date
         if (a.date > b.date) {
@@ -59,12 +59,12 @@ const fetchData = () => {
   });
 };
 
-// Usage
-fetchData().then((filteredData) => {
-  console.log("no errors"); // Access filteredData here
-}).catch((error) => {
-  console.error(error);
-});
+// // Usage
+// fetchData().then((filteredData) => {
+//   console.log("no errors"); // Access filteredData here
+// }).catch((error) => {
+//   console.error(error);
+// });
 
 
 // Directly style the header cell

@@ -71,6 +71,8 @@ function Login() {
           if (snapshot.val()[date]) {
             localStorage.setItem("countGiftAid", snapshot.val()[date].gAid);
             localStorage.setItem("countNoGiftAid", snapshot.val()[date].noGAid)
+          } else if (Object.keys(snapshot.val()).length === 4){
+            localStorage.removeItem('hasShownTour');
           }
           window.location.href = "/home"; // Redirect to home page
         } else {

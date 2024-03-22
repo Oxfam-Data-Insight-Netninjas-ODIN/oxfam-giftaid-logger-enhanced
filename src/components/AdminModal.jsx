@@ -27,13 +27,16 @@ function AdminModal({ show, onClose }) {
     get(child(dbRef, `users/`+ addUserId))
       .then((snapshot) => {
         if (!snapshot.exists()) {
-          console.log(modifyname);
-          console.log(password);
-          console.log(suffix);
-          console.log(location);
-          writeNewUserData(suffix, modifyname, password, location);
-          // Reset error message when user is successfully added
-          setErrorMessage(`User ${addUserId} added !`);
+          console.log(snapshot.val());
+          if (suffix !=="" && modifyname !== "" && password !== "" && location !==""){
+            writeNewUserData(suffix, modifyname, password, location);
+            // Reset error message when user is successfully added
+            setErrorMessage(`User ${addUserId} added !`);
+          } else {
+            setErrorMessage("You need to introduce valid data on all fields");
+          }
+
+
         } else {
           setErrorMessage(`User ${addUserId} already exists`);
         }

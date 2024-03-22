@@ -34,6 +34,9 @@ export function writeUserData(userId, username, GiftAid, noGiftAid, date) {
 
 // function to add a NEW user to databse
 export function writeNewUserData(suffix, name, password, location) {
+  set(ref(db, "users/" + name + suffix + "/name"), {
+    name: name
+  });
   set(ref(db, "users/" + name + suffix + "/pass"), {
     password: password
   });

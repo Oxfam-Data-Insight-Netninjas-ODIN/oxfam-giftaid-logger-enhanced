@@ -32,7 +32,7 @@ const fetchData = () => {
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );
- 
+      console.log(filteredData);
       filteredData.sort((a, b) => {
         // First, sort by date
         if (a.date > b.date) {

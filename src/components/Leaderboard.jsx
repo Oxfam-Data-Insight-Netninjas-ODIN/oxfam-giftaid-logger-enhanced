@@ -147,7 +147,7 @@ return (
       <BodyCell>{item.gAid}</BodyCell>
       <BodyCell>{item.noGAid}</BodyCell>
       <BodyCell>
-        {Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%
+        {Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0}%
       </BodyCell>
     </BodyTableRow>
   ))}

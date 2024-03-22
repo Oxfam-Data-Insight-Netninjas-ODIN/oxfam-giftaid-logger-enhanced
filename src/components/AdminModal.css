@@ -55,6 +55,9 @@
     font-weight: bold;
   }
 
+  .admin-btn {
+    margin-right: 1rem;
+  }
   /* Custom CSS for positioning the confirmation dialog */
 .confirmation-dialog {
   position: absolute;

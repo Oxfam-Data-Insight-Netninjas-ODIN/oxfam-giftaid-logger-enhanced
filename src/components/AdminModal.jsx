@@ -79,7 +79,7 @@ function AdminModal({ show, onClose }) {
       </Modal.Header>
       <Modal.Body>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <Button variant="primary" onClick={handleAddUser}>
+        <Button className="admin-btn" variant="primary" onClick={handleAddUser}>
           Add User
         </Button>
 
@@ -127,17 +127,17 @@ function AdminModal({ show, onClose }) {
         {showConfirmation && (
           <div className="confirmation-dialog">
             <p>Are you sure you want to remove this user?</p>
-            <Button variant="primary" onClick={confirmRemoveUser}>
+            <Button className="admin-btn" onClick={confirmRemoveUser}>
               Yes
             </Button>
-            <Button variant="secondary" onClick={cancelRemoveUser}>
+            <Button onClick={cancelRemoveUser}>
               No
             </Button>
           </div>
         )}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
+        <Button className="btn" onClick={onClose}>
           Close
         </Button>
       </Modal.Footer>

@@ -8,18 +8,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-import GlobalUserData from './globalUserData.json'
 import { initializeApp } from "firebase/app";
 import "firebase/database";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from "./FirebaseConfig";
 import { writeUserData } from "./firebaseFunct.js";
-
 import firstTrophy from "../assets/first.svg";
 import secondTrophy from "../assets/second.svg";
 import thirdTrophy from "../assets/third.png";
 
+// initiate firebase
 const app = initializeApp(firebaseConfig);
 const dbRef = ref(getDatabase());
 
@@ -30,8 +28,6 @@ const fetchData = () => {
   return new Promise((resolve, reject) => {
     get(child(dbRef, `users/`)).then((snapshot) => {
       let storageData = snapshot.val();
-
-
       let historyData = [];
       Object.keys(storageData).forEach((key) => {
         const newObject = storageData[key];
@@ -39,10 +35,15 @@ const fetchData = () => {
           historyData.unshift(nestedValue);
         });
       });
+      // filter data that is not to be displayed
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );     
-      const finalData = Object.values(filteredData.reduce((acc, cur) => {
+
+      let filteredData2 = filteredData.filter(obj => Object.keys(obj).length > 1);
+
+      
+      const finalData = Object.values(filteredData2.reduce((acc, cur) => {
         if (!acc[cur.username]) {
           acc[cur.username] = { ...cur, date: undefined }; // Remove the date key
         } else {
@@ -63,16 +64,8 @@ const fetchData = () => {
     }).catch((error) => {
       reject(error);
     });
-
   });
 };
-
-// // Usage
-// fetchData().then((finalData) => {
-//   console.log("no errors"); // Access filteredData here
-// }).catch((error) => {
-//   console.error(error);
-// });
 
 function TopScores() {
   const [finalData, setFinalData] = useState([]);
@@ -135,19 +128,18 @@ return (
           </TableHead>
           <TableBody>
   {finalData.map((item, index) => (
-    <BodyTableRow key={index}>
-      <BodyCell id="trophyWrapper">
-        {index < 3 && (
-          <BodyCell>
+      <BodyTableRow key={index}>
+        <BodyCell id="trophyWrapper">
+          {index < 3 && (
             <img id="trophy" src={trophies[index]} width={40} />
-          </BodyCell>
-        )}
-        {item.username}</BodyCell>
+              )}
+              {item.username}
+      </BodyCell>
       <BodyCell>{item.name}</BodyCell>
       <BodyCell>{item.gAid}</BodyCell>
       <BodyCell>{item.noGAid}</BodyCell>
       <BodyCell>
-        {Math.round((item.gAid * 100) / (item.gAid + item.noGAid))}%
+        {Math.round((item.gAid * 100) / (item.gAid + item.noGAid)) || 0}%
       </BodyCell>
     </BodyTableRow>
   ))}

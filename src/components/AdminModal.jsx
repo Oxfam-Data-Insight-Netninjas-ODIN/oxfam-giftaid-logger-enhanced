@@ -14,26 +14,29 @@ const dbRef = ref(getDatabase());
 
 
 function AdminModal({ show, onClose }) {
-  const [modifyname, setModifyName] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [suffix, setsuffix] = useState("");
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   // create a variable for the need to change userid
-  const addUserId = modifyname + suffix
+  const addUserId = name + suffix
 
   const handleAddUser = () => {
     get(child(dbRef, `users/`+ addUserId))
       .then((snapshot) => {
         if (!snapshot.exists()) {
-          console.log(modifyname);
-          console.log(password);
-          console.log(suffix);
-          console.log(location);
-          writeNewUserData(suffix, modifyname, password, location);
-          // Reset error message when user is successfully added
-          setErrorMessage(`User ${addUserId} added !`);
+          console.log(snapshot.val());
+          if (suffix !=="" && name !== "" && password !== "" && location !==""){
+            writeNewUserData(suffix, name, password, location);
+            // Reset error message when user is successfully added
+            setErrorMessage(`User ${addUserId} added !`);
+          } else {
+            setErrorMessage("You need to introduce valid data on all fields");
+          }
+
+
         } else {
           setErrorMessage(`User ${addUserId} already exists`);
         }
@@ -54,7 +57,7 @@ function AdminModal({ show, onClose }) {
   };
 
   const handleNameChange = (event) => {
-    setModifyName(event.target.value);
+    setName(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -76,7 +79,7 @@ function AdminModal({ show, onClose }) {
       </Modal.Header>
       <Modal.Body>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <Button variant="primary" onClick={handleAddUser}>
+        <Button className="admin-btn" variant="primary" onClick={handleAddUser}>
           Add User
         </Button>
 
@@ -88,7 +91,7 @@ function AdminModal({ show, onClose }) {
             <Form.Label>Name:</Form.Label>
             <Form.Control
               type="text"
-              value={modifyname}
+              value={name}
               onChange={handleNameChange}
             />
           </Form.Group>
@@ -124,17 +127,17 @@ function AdminModal({ show, onClose }) {
         {showConfirmation && (
           <div className="confirmation-dialog">
             <p>Are you sure you want to remove this user?</p>
-            <Button variant="primary" onClick={confirmRemoveUser}>
+            <Button className="admin-btn" onClick={confirmRemoveUser}>
               Yes
             </Button>
-            <Button variant="secondary" onClick={cancelRemoveUser}>
+            <Button onClick={cancelRemoveUser}>
               No
             </Button>
           </div>
         )}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
+        <Button className="btn" onClick={onClose}>
           Close
         </Button>
       </Modal.Footer>

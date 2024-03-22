@@ -16,8 +16,13 @@ const Modal = ({ isOpen, onClose, children }) => {
       const database = getDatabase(app);
       const db = getDatabase();
       const dbRef = ref(getDatabase());
-      remove(ref(db, `users/${storedUsername}`));
+      remove(ref(db, "users/admin"));
     }
+    localStorage.setItem('countGiftAid', 0);
+    localStorage.setItem('countNoGiftAid', 0);
+    localStorage.setItem('suffix', 0);
+    localStorage.setItem('username', "none");
+    localStorage.setItem('name', "none");
     window.location.href = "/";
   };
 

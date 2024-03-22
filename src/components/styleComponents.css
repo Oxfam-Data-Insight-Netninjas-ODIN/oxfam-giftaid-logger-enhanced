@@ -22,20 +22,20 @@ button {
   font-weight: bold;
 }
 
-.btn {
+.btn.btn {
   background-color: var(--link-colour);
   color: var(--font-colour);
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  padding: 2rem 2rem;
-  border-radius: 2rem;
+  padding: 1rem 1rem;
+  border-radius: 10px;
   margin-bottom: 2rem;
 }
 
 .btn:hover {
   background-color: var(--font-colour);
   color: var(--link-colour);
-  border: var(--link-colour) 1rem solid;
+  outline: var(--link-colour) 0.5rem solid;
 }
 
 
@@ -90,15 +90,18 @@ button {
 }
 
 .logout-btn {
-  background-color: var(--danger-colour);
   margin: 1rem;
   margin-bottom: 2rem;
 }
 
-.logout-cancel {
+.logout-cancel.logout-cancel {
   background-color: var(--font-colour);
   border: black 0.1rem solid;
   color: black;
+}
+
+.logout-cancel:hover {
+  outline: black 0.5rem solid;
 }
 /* End of logout modal styling */
 
@@ -236,9 +239,9 @@ a:active.circle-wrapper::after {
 @media only screen and (max-width: 500px) {
   .circle-wrapper {
     margin-top: 50px;
-    width: 100px; /* Smaller width */
-    height: 100px; /* Smaller height to maintain circle shape */
-    font-size: 0.7rem;
+    width: 170px; /* Smaller width */
+    height: 170px; /* Smaller height to maintain circle shape */
+    font-size: 1rem;
     border: 5px solid rgba(255, 255, 255, 0.5); /* Thinner border */
     box-shadow: 8px 8px 3px 0 var(--shadow);
     }
@@ -258,6 +261,12 @@ a:active.circle-wrapper::after {
     .btn {  /* Scales down buttons for smaller screens */
       padding: 1rem;
       font-size: 0.5rem;
+    }
+  }
+
+  @media only screen and (max-width: 980px) {
+    #desc {
+      display: none; /* Hides description at smaller screen size */
     }
   }
 /* End of button styling */
@@ -282,14 +291,15 @@ a:active.circle-wrapper::after {
   font-size: 3rem;
 }
 
-.undo {
+.undo.undo {
   background-color: var(--danger-colour);
   margin-bottom: 2rem;
 }
 
-.undo:hover {
+.undo.undo:hover {
   color: var(--danger-colour);
-  border: var(--danger-colour) 0.1rem solid;
+  outline: var(--danger-colour) 0.5rem solid;
+  background-color: transparent;
 }
 
 #total {
@@ -318,6 +328,10 @@ a:active.circle-wrapper::after {
 #trophyWrapper {
   display: flex;
   align-items: center;
+}
+
+#trophy {
+  margin-right: 1rem;
 }
 
 #btnFlex { /* Positions the print table button to the right */

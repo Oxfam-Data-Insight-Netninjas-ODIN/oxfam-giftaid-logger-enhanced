@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 function Marquee() {
 
   // Retrieve username from local storage
-  const storedUsername = localStorage.getItem("username");
+  const storedUsername = localStorage.getItem("name");
 
 
   

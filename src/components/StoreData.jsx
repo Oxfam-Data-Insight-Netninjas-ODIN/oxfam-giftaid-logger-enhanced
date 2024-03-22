@@ -32,7 +32,7 @@ const fetchData = () => {
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );
-      console.log(filteredData);
+      
 
       let filteredData2 = filteredData.filter(obj => Object.keys(obj).length > 1);
 

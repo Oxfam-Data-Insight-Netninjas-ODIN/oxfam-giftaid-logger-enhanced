@@ -45,42 +45,34 @@ function Login() {
           }
         }
       });
+
     // login for normal user
     get(child(dbRef, `users/`+ userId))
       .then((snapshot) => {
-        if (snapshot.exists()) {
+        if (snapshot.exists() && pin === snapshot.val().pass.password) {
           // Check if "pass" exists and no other values are present
-          if (snapshot.val().pass && Object.keys(snapshot.val()).length === 1) {
-            // Update the value in local storage to false
-            localStorage.setItem('hasShownTour', false);
-          }
-          const retrievedPassword = snapshot.val().pass.password;
+          // if (snapshot.val().pass && Object.keys(snapshot.val()).length === 1) {
+          //   // Update the value in local storage to false
+          //   localStorage.setItem('hasShownTour', false);
+          // }
+          // retrieve the password and suffix for that user
+          // const retrievedPassword = snapshot.val().pass.password;
+          const retrievedsuffix = snapshot.val().suffix.suffix;
           // set date in format yyyy-mm-dd
           const date = new Date().toISOString().split('T')[0];
-          console.log(date);   
-          
-          // check if user is already in server db and update server data 
-          get(child(dbRef, `users/`+ userId + '/'+ date))
-              .then((snapshot) => {
-                if (snapshot.exists()) {
-                  localStorage.setItem('countGiftAid', snapshot.val().gAid);
-                  localStorage.setItem('countNoGiftAid', snapshot.val().noGAid);
-                } 
-                });
-
-
-          if (retrievedPassword === pin) {
-            // is password correct then close login modal, update local storage
+          // write in the local storage the name
+          localStorage.setItem('name', snapshot.val().name.name);
+           // is password correct then close login modal, update local storage
             // and start the app at "Home" page
-            const retrievedsuffix = snapshot.val().suffix.suffix;
-            setShowModal(false);
-            localStorage.setItem("username", username);
-            localStorage.setItem("suffix", retrievedsuffix);
-            window.location.href = "/home"; // Redirect to home page
-          } else {
-            console.log("Passwords do not match");
-            setShowModal(true);
+          setShowModal(false);
+          localStorage.setItem("username", username);
+          localStorage.setItem("suffix", retrievedsuffix);
+          // if ther is use data for current date import the values
+          if (snapshot.val()[date]) {
+            localStorage.setItem("countGiftAid", snapshot.val()[date].gAid);
+            localStorage.setItem("countNoGiftAid", snapshot.val()[date].noGAid)
           }
+          window.location.href = "/home"; // Redirect to home page
         } else {
           // if the user doesn't exist 
           console.log("No data available");

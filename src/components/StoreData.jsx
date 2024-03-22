@@ -32,8 +32,14 @@ const fetchData = () => {
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );
+      console.log(filteredData);
+
+      let filteredData2 = filteredData.filter(obj => Object.keys(obj).length > 1);
+
+
+
       // sort data by date first, then bu name
-      filteredData.sort((a, b) => {
+      filteredData2.sort((a, b) => {
         // First, sort by date
         if (a.date > b.date) {
           return -1;
@@ -51,7 +57,7 @@ const fetchData = () => {
         }
       });
 
-      resolve(filteredData);
+      resolve(filteredData2);
     }).catch((error) => {
       reject(error);
     });

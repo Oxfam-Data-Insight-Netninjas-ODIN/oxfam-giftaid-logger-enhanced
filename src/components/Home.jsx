@@ -6,11 +6,10 @@ import "firebase/database";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from "./FirebaseConfig";
 import { writeUserData } from "./firebaseFunct.js";
-import { TourComponent, TourSteps } from './Tour';
-import qmark from '../assets/qmark.svg';
-
+import { TourComponent, TourSteps } from "./Tour";
+import qmark from "../assets/qmark.svg";
 import giftaidproject from "../assets/giftaidsales1.jpg";
-
+// initialise vriable for firebase server
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
@@ -25,20 +24,21 @@ function Home() {
   const date = new Date().toISOString().split("T")[0];
   // check if user is already in server db and update server data
   const userId = username;
-  
-
-  const [GiftAid, setGiftAid] = useState(parseInt(localStorage.getItem('countGiftAid')) || 0);
-  const [noGiftAid, setNoGiftAid] = useState(parseInt(localStorage.getItem('countNoGiftAid')) || 0);
-  // ==============testin retrieve object ===============
-
-  // ++++++++++++++++++end of test area  +++++++++++++++++
+  // set initial hooks for giftAid variables with start pont from local storage
+  const [GiftAid, setGiftAid] = useState(
+    parseInt(localStorage.getItem("countGiftAid")) || 0
+  );
+  const [noGiftAid, setNoGiftAid] = useState(
+    parseInt(localStorage.getItem("countNoGiftAid")) || 0
+  );
 
   useEffect(() => {
     get(child(dbRef, `users/` + userId + "/" + date))
       .then((snapshot) => {
-        let initialGiftAid = 0;
-        let initialNoGiftAid = 0;
+        let initialGiftAid;
+        let initialNoGiftAid;
         if (snapshot.exists()) {
+          // if there is user data for current date then update the variable with the one from server
           initialGiftAid = snapshot.val().gAid;
           localStorage.setItem("countGiftAid", initialGiftAid);
           initialNoGiftAid = snapshot.val().noGAid;
@@ -47,33 +47,31 @@ function Home() {
           setNoGiftAid(initialNoGiftAid);
         } else {
           console.log("User data on specific date does not exist");
-          // !!!! == to define later the userId format == !!!!!!!
-          // const userId = username + "1234"
-            if (localStorage.getItem("username") !== "admin") {
-              const username = localStorage.getItem("username")
-              const gAid = 0;
-              const noGAid = 0;
-              const userId = username + localStorage.getItem("suffix");
-              const date = new Date().toISOString().split("T")[0];
-              // write data to server
-              set(ref(db, "users/" + userId + "/" + date), {
-                username : userId,
-                name: username,
-                GiftAid: gAid,
-                noGiftAid: noGAid,
-                date: date
-              });
-            }
-              // writeUserData(userId, username, GiftAid, noGiftAid, date);
-            };
-
-        })
-     
+          // if there is no user data for today then create userdata for today
+          if (localStorage.getItem("username") !== "admin") {
+            // create data on server only if current user is not admin
+            const username = localStorage.getItem("username");
+            const gAid = 0;
+            const noGAid = 0;
+            const userId = username + localStorage.getItem("suffix");
+            const date = new Date().toISOString().split("T")[0];
+            // write data to server
+            set(ref(db, "users/" + userId + "/" + date), {
+              username: userId,
+              name: username,
+              GiftAid: gAid,
+              noGiftAid: noGAid,
+              date: date,
+            });
+          }
+        }
+      })
       .catch((error) => {
         console.error(error);
       });
   }, [dbRef, userId, date]);
 
+  // hooks to update the data on server when counter change the local data
   useEffect(() => {
     localStorage.setItem("countGiftAid", GiftAid);
     // write data to server
@@ -86,57 +84,50 @@ function Home() {
     writeUserData(userId, username, GiftAid, noGiftAid, date);
   }, [noGiftAid]);
 
+  // functions to update the data when clicked
   const incrementGiftAid = () => {
     // to prevent delay in serverdata receiving the last updated value:
     const updatedGiftAid = GiftAid + 1;
     setGiftAid(updatedGiftAid);
- 
     writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
   };
-
   const incrementNoGiftAid = () => {
     const updatedNoGiftAid = noGiftAid + 1;
     setNoGiftAid(updatedNoGiftAid);
-
     writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
   };
-
   const undoGiftAid = () => {
     if (GiftAid >= 1) {
       setGiftAid(GiftAid - 1);
       if (localStorage.getItem("username") !== "admin") {
-
-      };
-
-    }
-  };
-
+      }}};
   const undoNotGiftAid = () => {
-    if (noGiftAid >= 1){
+    if (noGiftAid >= 1) {
       setNoGiftAid(noGiftAid - 1);
       if (localStorage.getItem("username") !== "admin") {
-
-      };
-
-    }
-  };
+      }}};
   // check to see if number are 0, if not calculate the percentage
   const percentage =
     GiftAid + noGiftAid !== 0 ? (GiftAid / (GiftAid + noGiftAid)) * 100 : 0;
   const roundPercentage = Math.round(percentage.toFixed(2));
 
   // Show the tour if it's the first login
-  const [isTourOpen, setIsTourOpen] = useState(localStorage.getItem('hasShownTour') === null)
+  const [isTourOpen, setIsTourOpen] = useState(
+    localStorage.getItem("hasShownTour") === null
+  );
   useEffect(() => {
     if (isTourOpen) {
-      localStorage.setItem('hasShownTour', true);
+      localStorage.setItem("hasShownTour", true);
     }
   }, [isTourOpen]);
-  
 
   return (
     <div>
-      <TourComponent steps={TourSteps} isOpen={isTourOpen} onRequestClose={() => setIsTourOpen(false)} />
+      <TourComponent
+        steps={TourSteps}
+        isOpen={isTourOpen}
+        onRequestClose={() => setIsTourOpen(false)}
+      />
       <Counter
         incrementGiftAid={incrementGiftAid}
         incrementNoGiftAid={incrementNoGiftAid}
@@ -164,11 +155,19 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="col"><img id="desc" src={giftaidproject} width={1000}></img></div>
+      <div className="col">
+        <img id="desc" src={giftaidproject} width={1000}></img>
+      </div>
       <Footer />
-        <img className='float-end mx-3 my-3' id='tour' src={qmark} width={75} onClick={() => setIsTourOpen(true)} alt="Start Tour" />
+      <img
+        className="float-end mx-3 my-3"
+        id="tour"
+        src={qmark}
+        width={75}
+        onClick={() => setIsTourOpen(true)}
+        alt="Start Tour"
+      />
     </div>
-
   );
 }
 

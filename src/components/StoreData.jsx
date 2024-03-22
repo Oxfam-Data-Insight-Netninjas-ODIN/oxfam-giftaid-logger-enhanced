@@ -7,13 +7,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
 import { initializeApp } from "firebase/app";
 import "firebase/database";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import firebaseConfig from "./FirebaseConfig";
-import { writeUserData } from "./firebaseFunct.js";
 
+// initialise firbase
 const app = initializeApp(firebaseConfig);
 const dbRef = ref(getDatabase());
 
@@ -29,10 +28,11 @@ const fetchData = () => {
           historyData.unshift(nestedValue);
         });
       });
+      // filter unwanted data
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );
-      console.log(filteredData);
+      // sort data by date first, then bu name
       filteredData.sort((a, b) => {
         // First, sort by date
         if (a.date > b.date) {
@@ -51,20 +51,12 @@ const fetchData = () => {
         }
       });
 
-
       resolve(filteredData);
     }).catch((error) => {
       reject(error);
     });
   });
 };
-
-// // Usage
-// fetchData().then((filteredData) => {
-//   console.log("no errors"); // Access filteredData here
-// }).catch((error) => {
-//   console.error(error);
-// });
 
 
 // Directly style the header cell

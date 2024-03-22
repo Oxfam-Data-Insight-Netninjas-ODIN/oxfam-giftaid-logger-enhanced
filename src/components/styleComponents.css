@@ -327,6 +327,10 @@ a:active.circle-wrapper::after {
   align-items: center;
 }
 
+#trophy {
+  margin-right: 1rem;
+}
+
 #btnFlex { /* Positions the print table button to the right */
   display: flex;
   justify-content: flex-end;

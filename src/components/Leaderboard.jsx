@@ -135,14 +135,13 @@ return (
           </TableHead>
           <TableBody>
   {finalData.map((item, index) => (
-    <BodyTableRow key={index}>
-      <BodyCell id="trophyWrapper">
-        {index < 3 && (
-          <BodyCell>
+      <BodyTableRow key={index}>
+        <BodyCell id="trophyWrapper">
+          {index < 3 && (
             <img id="trophy" src={trophies[index]} width={40} />
-          </BodyCell>
-        )}
-        {item.username}</BodyCell>
+              )}
+              {item.username}
+      </BodyCell>
       <BodyCell>{item.name}</BodyCell>
       <BodyCell>{item.gAid}</BodyCell>
       <BodyCell>{item.noGAid}</BodyCell>

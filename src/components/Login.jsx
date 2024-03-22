@@ -61,8 +61,8 @@ function Login() {
           // check if user is already in server db and update server data 
           get(child(dbRef, `users/`+ userId + '/'+ date))
               .then((snapshot) => {
-                if (snapshot.exists()) {
-                  console.log(snapshot.val().gAid);
+                if (!snapshot.exists()) {
+                  localStorage.removeItem('hasShownTour')
                 } 
                 });
                   localStorage.setItem('countGiftAid', snapshot.val().gAid);
@@ -70,7 +70,7 @@ function Login() {
 
           if (retrievedPassword === pin) {
             const retrievedsuffix = snapshot.val().suffix.suffix;
-            console.log("Admin logged in:", { username, pin, selectedArea });
+
             setShowModal(false);
             console.log(username);
             localStorage.setItem("username", username);
@@ -79,7 +79,7 @@ function Login() {
             window.location.href = "/home"; // Redirect to home page
           } else {
             console.log("Passwords do not match");
-            console.log("Logging in:", { username, pin, selectedArea });
+ 
             setShowModal(true);
           }
         } else {

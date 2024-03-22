@@ -39,7 +39,11 @@ const fetchData = () => {
       const filteredData = historyData.filter(
         (obj) => !Object.keys(obj).includes("password") && !Object.keys(obj).includes("suffix") && !Object.keys(obj).includes("location")
       );     
-      const finalData = Object.values(filteredData.reduce((acc, cur) => {
+
+      let filteredData2 = filteredData.filter(obj => Object.keys(obj).length > 1);
+
+      
+      const finalData = Object.values(filteredData2.reduce((acc, cur) => {
         if (!acc[cur.username]) {
           acc[cur.username] = { ...cur, date: undefined }; // Remove the date key
         } else {

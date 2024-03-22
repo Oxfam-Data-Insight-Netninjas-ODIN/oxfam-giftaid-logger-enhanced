@@ -14,22 +14,22 @@ const dbRef = ref(getDatabase());
 
 
 function AdminModal({ show, onClose }) {
-  const [modifyname, setModifyName] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [suffix, setsuffix] = useState("");
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   // create a variable for the need to change userid
-  const addUserId = modifyname + suffix
+  const addUserId = name + suffix
 
   const handleAddUser = () => {
     get(child(dbRef, `users/`+ addUserId))
       .then((snapshot) => {
         if (!snapshot.exists()) {
           console.log(snapshot.val());
-          if (suffix !=="" && modifyname !== "" && password !== "" && location !==""){
-            writeNewUserData(suffix, modifyname, password, location);
+          if (suffix !=="" && name !== "" && password !== "" && location !==""){
+            writeNewUserData(suffix, name, password, location);
             // Reset error message when user is successfully added
             setErrorMessage(`User ${addUserId} added !`);
           } else {
@@ -57,7 +57,7 @@ function AdminModal({ show, onClose }) {
   };
 
   const handleNameChange = (event) => {
-    setModifyName(event.target.value);
+    setName(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -91,7 +91,7 @@ function AdminModal({ show, onClose }) {
             <Form.Label>Name:</Form.Label>
             <Form.Control
               type="text"
-              value={modifyname}
+              value={name}
               onChange={handleNameChange}
             />
           </Form.Group>

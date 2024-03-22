@@ -25,11 +25,12 @@ function Home() {
   // check if user is already in server db and update server data
   const userId = username;
   // set initial hooks for giftAid variables with start pont from local storage
+  console.log("local storage after login is :" +localStorage.getItem("countGiftAid"));
   const [GiftAid, setGiftAid] = useState(
-    parseInt(localStorage.getItem("countGiftAid")) || 0
+    parseInt(localStorage.getItem("countGiftAid"))
   );
   const [noGiftAid, setNoGiftAid] = useState(
-    parseInt(localStorage.getItem("countNoGiftAid")) || 0
+    parseInt(localStorage.getItem("countNoGiftAid"))
   );
 
   useEffect(() => {
@@ -40,25 +41,28 @@ function Home() {
         if (snapshot.exists()) {
           // if there is user data for current date then update the variable with the one from server
           initialGiftAid = snapshot.val().gAid;
-          localStorage.setItem("countGiftAid", initialGiftAid);
+          // localStorage.setItem("countGiftAid", initialGiftAid);
           initialNoGiftAid = snapshot.val().noGAid;
-          localStorage.setItem("countNoGiftAid", initialNoGiftAid);
+          // localStorage.setItem("countNoGiftAid", initialNoGiftAid);
           setGiftAid(initialGiftAid);
           setNoGiftAid(initialNoGiftAid);
         } else {
           console.log("User data on specific date does not exist");
           // if there is no user data for today then create userdata for today
           if (localStorage.getItem("username") !== "admin") {
+            // localStorage.setItem("countGiftAid", 0);
+            // localStorage.setItem("countNoGiftAid", 0)
             // create data on server only if current user is not admin
-            const username = localStorage.getItem("username");
-            const gAid = 0;
-            const noGAid = 0;
-            const userId = username + localStorage.getItem("suffix");
+            const name = localStorage.getItem("name");
+            const gAid = 20;
+            const noGAid = 20;
+            const userId = name + localStorage.getItem("suffix");
             const date = new Date().toISOString().split("T")[0];
+            console.log(name, gAid,noGAid,userId,date);
             // write data to server
             set(ref(db, "users/" + userId + "/" + date), {
               username: userId,
-              name: username,
+              name: name,
               GiftAid: gAid,
               noGiftAid: noGAid,
               date: date,
@@ -71,17 +75,18 @@ function Home() {
       });
   }, [dbRef, userId, date]);
 
+  const name = localStorage.getItem("name");
   // hooks to update the data on server when counter change the local data
   useEffect(() => {
     localStorage.setItem("countGiftAid", GiftAid);
     // write data to server
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    writeUserData(userId, name, GiftAid, noGiftAid, date);
   }, [GiftAid]);
 
   useEffect(() => {
     localStorage.setItem("countNoGiftAid", noGiftAid);
     // write datat to server
-    writeUserData(userId, username, GiftAid, noGiftAid, date);
+    writeUserData(userId, name, GiftAid, noGiftAid, date);
   }, [noGiftAid]);
 
   // functions to update the data when clicked
@@ -89,12 +94,12 @@ function Home() {
     // to prevent delay in serverdata receiving the last updated value:
     const updatedGiftAid = GiftAid + 1;
     setGiftAid(updatedGiftAid);
-    writeUserData(userId, username, updatedGiftAid, noGiftAid, date);
+    writeUserData(userId, name, updatedGiftAid, noGiftAid, date);
   };
   const incrementNoGiftAid = () => {
     const updatedNoGiftAid = noGiftAid + 1;
     setNoGiftAid(updatedNoGiftAid);
-    writeUserData(userId, username, GiftAid, updatedNoGiftAid, date);
+    writeUserData(userId, name, GiftAid, updatedNoGiftAid, date);
   };
   const undoGiftAid = () => {
     if (GiftAid >= 1) {

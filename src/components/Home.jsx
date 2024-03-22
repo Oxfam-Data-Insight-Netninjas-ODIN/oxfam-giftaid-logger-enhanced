@@ -25,9 +25,10 @@ function Home() {
   const date = new Date().toISOString().split("T")[0];
   // check if user is already in server db and update server data
   const userId = username;
+  
 
-  const [GiftAid, setGiftAid] = useState(0);
-  const [noGiftAid, setNoGiftAid] = useState(0);
+  const [GiftAid, setGiftAid] = useState(parseInt(localStorage.getItem('countGiftAid')) || 0);
+  const [noGiftAid, setNoGiftAid] = useState(parseInt(localStorage.getItem('countNoGiftAid')) || 0);
   // ==============testin retrieve object ===============
 
   // ++++++++++++++++++end of test area  +++++++++++++++++
@@ -75,20 +76,12 @@ function Home() {
 
   useEffect(() => {
     localStorage.setItem("countGiftAid", GiftAid);
-    // if local storage has no username (emptied?) it will revert to login page
-    if (localStorage.getItem("username") === null) {
-      window.location.href = "/"
-    };
     // write data to server
     writeUserData(userId, username, GiftAid, noGiftAid, date);
   }, [GiftAid]);
 
   useEffect(() => {
     localStorage.setItem("countNoGiftAid", noGiftAid);
-    // if local storage has no username (emptied?) it will revert to login page
-    if (localStorage.getItem("username") === null) {
-      window.location.href = "/"
-    };
     // write datat to server
     writeUserData(userId, username, GiftAid, noGiftAid, date);
   }, [noGiftAid]);
@@ -109,22 +102,22 @@ function Home() {
   };
 
   const undoGiftAid = () => {
-    // if local storage has no username (emptied?) it will revert to login page
-    if (localStorage.getItem("username") === null) {
-      window.location.href = "/"
-    };
     if (GiftAid >= 1) {
       setGiftAid(GiftAid - 1);
+      if (localStorage.getItem("username") !== "admin") {
+
+      };
+
     }
   };
 
   const undoNotGiftAid = () => {
-    // if local storage has no username (emptied?) it will revert to login page
-    if (localStorage.getItem("username") === null) {
-      window.location.href = "/"
-    };
     if (noGiftAid >= 1){
       setNoGiftAid(noGiftAid - 1);
+      if (localStorage.getItem("username") !== "admin") {
+
+      };
+
     }
   };
   // check to see if number are 0, if not calculate the percentage

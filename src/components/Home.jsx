@@ -25,7 +25,7 @@ function Home() {
   // check if user is already in server db and update server data
   const userId = username;
   // set initial hooks for giftAid variables with start pont from local storage
-  console.log("local storage after login is :" +localStorage.getItem("countGiftAid"));
+
   const [GiftAid, setGiftAid] = useState(
     parseInt(localStorage.getItem("countGiftAid"))
   );

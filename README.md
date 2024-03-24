@@ -91,8 +91,15 @@ npmjs.com - Axios
 npmjs.com - react-router-dom
 Stack Overflow - NPM error while running npm install @mui/material ...
 
-# To log in as a test user, please use the username Test1234 (case sensitive) and the password 1234/
+# To log in as a test user, please use the username Test1234 (case sensitive) and the password 1234
 
 the link to the deployed application is: https://oxfam-logger-enhanced.netlify.app/
+
+![Screenshot 2024-03-24 153326](https://github.com/Oxfam-Data-Insight-Netninjas-ODIN/oxfam-giftaid-logger-enhanced/assets/64762171/80afb9f9-b6b4-4376-ab76-bc2d77f6c2b0)
+![Screenshot 2024-03-24 153358](https://github.com/Oxfam-Data-Insight-Netninjas-ODIN/oxfam-giftaid-logger-enhanced/assets/64762171/a7bffeb9-cf77-449c-bccf-c34eac7e3730)
+![Screenshot 2024-03-24 153414](https://github.com/Oxfam-Data-Insight-Netninjas-ODIN/oxfam-giftaid-logger-enhanced/assets/64762171/cf86c0db-5509-457b-97ce-f73fe417199f)
+![Screenshot 2024-03-24 153424](https://github.com/Oxfam-Data-Insight-Netninjas-ODIN/oxfam-giftaid-logger-enhanced/assets/64762171/3c16e484-d1b2-4fce-9c34-fe4742fa7b59)
+![Screenshot 2024-03-24 153433](https://github.com/Oxfam-Data-Insight-Netninjas-ODIN/oxfam-giftaid-logger-enhanced/assets/64762171/753adabd-661c-4297-acd6-9165bf1c7858)
+![Screenshot 2024-03-24 153441](https://github.com/Oxfam-Data-Insight-Netninjas-ODIN/oxfam-giftaid-logger-enhanced/assets/64762171/acc96f97-75de-4c16-b4f7-abe362e3d0f1)
 
 

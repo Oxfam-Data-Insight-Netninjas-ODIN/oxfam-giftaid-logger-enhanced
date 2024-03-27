@@ -63,8 +63,8 @@ function Home() {
             set(ref(db, "users/" + userId + "/" + date), {
               username: userId,
               name: name,
-              GiftAid: gAid,
-              noGiftAid: noGAid,
+              GAid: gAid,
+              noGAid: noGAid,
               date: date,
             });
           }
